@@ -11,10 +11,20 @@ import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
 CROP_GROUPS = {"Bush bean": "Beans", "Climbing bean": "Beans", "Bean": "Beans"}
-CROPS = ["Maize", "Beans", "Irish potato", "Sweet potato", "Vegetables", "Sorghum", "Cassava", "Paddy rice",
-         "Soybean", "Wheat"]
+CROPS = [
+    "Maize",
+    "Beans",
+    "Irish potato",
+    "Sweet potato",
+    "Vegetables",
+    "Sorghum",
+    "Cassava",
+    "Paddy rice",
+    "Soybean",
+    "Wheat",
+]
 MIN_IRRIGATED = 30
-FORMULA = ("np.log(yld) ~ irrigated + C(dys) + C(ncrop) + fert_used + iseed + np.log(ha) + C(crop)")
+FORMULA = "np.log(yld) ~ irrigated + C(dys) + C(ncrop) + fert_used + iseed + np.log(ha) + C(crop)"
 
 
 def prepare(plots: pd.DataFrame) -> pd.DataFrame:
@@ -45,8 +55,12 @@ def estimate(df: pd.DataFrame, group: str) -> dict:
         return row | {"bonus_pct": None, "ci_low_pct": None, "ci_high_pct": None, "p_value": None}
     m = smf.ols(FORMULA, data=s).fit(cov_type="cluster", cov_kwds={"groups": s.cluster})
     b, se = m.params["irrigated"], m.bse["irrigated"]
-    return row | {"bonus_pct": pct(b), "ci_low_pct": pct(b - 1.96 * se), "ci_high_pct": pct(b + 1.96 * se),
-                  "p_value": round(float(m.pvalues["irrigated"]), 4)}
+    return row | {
+        "bonus_pct": pct(b),
+        "ci_low_pct": pct(b - 1.96 * se),
+        "ci_high_pct": pct(b + 1.96 * se),
+        "p_value": round(float(m.pvalues["irrigated"]), 4),
+    }
 
 
 def estimate_all(plots: pd.DataFrame) -> pd.DataFrame:

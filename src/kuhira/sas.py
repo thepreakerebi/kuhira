@@ -40,8 +40,25 @@ FIELDS = {
     "fert": (INORGANIC_FERT, None),
 }
 
-COLUMNS = ["year", "season", "seg", "farmer", "plot", "province", "district", "small", "crop", "ha", "kg",
-           "price", "ncrop", "irrigated", "fert_used", "iseed", "w"]
+COLUMNS = [
+    "year",
+    "season",
+    "seg",
+    "farmer",
+    "plot",
+    "province",
+    "district",
+    "small",
+    "crop",
+    "ha",
+    "kg",
+    "price",
+    "ncrop",
+    "irrigated",
+    "fert_used",
+    "iseed",
+    "w",
+]
 
 # \b matters: 2023's segment label "Segment/Large scale farmer Identification" also contains "farmer ID"
 KEY_PATTERNS = {"seg": r"^Segment_ID", "farmer": r"Farmer ID\b", "plot": r"Plot N(o|umber)"}
@@ -138,23 +155,27 @@ def harmonize_season(year: int, season: str, raw: Path = RAW) -> pd.DataFrame:
         fert, fm = load(find_file(year_dir, season, "fert"))
         d = fill_from(d, "fert", keyed(fert, fm, INORGANIC_FERT, plot_keys), plot_keys)
 
-    return pd.DataFrame({
-        "year": year,
-        "season": season,
-        "seg": d["seg"], "farmer": d["farmer"], "plot": d["plot"].astype(str),
-        "province": d.province.astype(str).str.replace(r"^\d+\s*[-.]?\s*", "", regex=True).str.strip().str.title(),
-        "district": clean_district(d.district),
-        "small": d.ftype.astype(str).str.lower().str.contains("small").astype(int),
-        "crop": d.crop.astype(str).str.strip(),
-        "ha": pd.to_numeric(d.area, errors="coerce") / 1e4,  # survey records m²
-        "kg": pd.to_numeric(d.kg, errors="coerce"),
-        "price": pd.to_numeric(d.price, errors="coerce"),
-        "ncrop": pd.to_numeric(d.ncrop, errors="coerce"),
-        "irrigated": irrigated_flag(d.irr, d.irr_any),
-        "fert_used": yes(d.fert).astype(int),
-        "iseed": yes(d.seed).astype(int),
-        "w": pd.to_numeric(d.w, errors="coerce"),
-    })[COLUMNS]
+    return pd.DataFrame(
+        {
+            "year": year,
+            "season": season,
+            "seg": d["seg"],
+            "farmer": d["farmer"],
+            "plot": d["plot"].astype(str),
+            "province": d.province.astype(str).str.replace(r"^\d+\s*[-.]?\s*", "", regex=True).str.strip().str.title(),
+            "district": clean_district(d.district),
+            "small": d.ftype.astype(str).str.lower().str.contains("small").astype(int),
+            "crop": d.crop.astype(str).str.strip(),
+            "ha": pd.to_numeric(d.area, errors="coerce") / 1e4,  # survey records m²
+            "kg": pd.to_numeric(d.kg, errors="coerce"),
+            "price": pd.to_numeric(d.price, errors="coerce"),
+            "ncrop": pd.to_numeric(d.ncrop, errors="coerce"),
+            "irrigated": irrigated_flag(d.irr, d.irr_any),
+            "fert_used": yes(d.fert).astype(int),
+            "iseed": yes(d.seed).astype(int),
+            "w": pd.to_numeric(d.w, errors="coerce"),
+        }
+    )[COLUMNS]
 
 
 def harmonize_all(raw: Path = RAW) -> pd.DataFrame:

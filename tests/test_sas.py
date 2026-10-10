@@ -22,7 +22,10 @@ def test_normalize_key_makes_float_and_string_ids_equal():
 
 def test_clean_district_strips_codes_and_fixes_typo():
     assert clean_district(pd.Series(["11 Nyarugenege", "57-Kirehe", "huye"])).tolist() == [
-        "Nyarugenge", "Kirehe", "Huye"]
+        "Nyarugenge",
+        "Kirehe",
+        "Huye",
+    ]
 
 
 def test_yes_reads_labels_and_codes():

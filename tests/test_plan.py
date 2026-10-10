@@ -5,14 +5,28 @@ from kuhira.plan import Crop, District, DistrictCrop, Weights
 
 
 def crop(name, bonus, p=0.001, price=100.0):
-    return Crop(crop=name, bonus_pct=bonus, ci_low_pct=None, ci_high_pct=None, p_value=p, plots=100,
-                irrigated_plots=50, price_rwf_per_kg=price)
+    return Crop(
+        crop=name,
+        bonus_pct=bonus,
+        ci_low_pct=None,
+        ci_high_pct=None,
+        p_value=p,
+        plots=100,
+        irrigated_plots=50,
+        price_rwf_per_kg=price,
+    )
 
 
 def district(name, crops, irrigated=0.01, dry=50.0, poverty=30.0, cropland=1000.0):
-    return District(district=name, province="East", cropland_ha=cropland, irrigated_share=irrigated,
-                    dry_season_mm=dry, poverty_rate_pct=poverty,
-                    crops=[DistrictCrop(crop=c, share=s, yield_kg_per_ha=y) for c, s, y in crops])
+    return District(
+        district=name,
+        province="East",
+        cropland_ha=cropland,
+        irrigated_share=irrigated,
+        dry_season_mm=dry,
+        poverty_rate_pct=poverty,
+        crops=[DistrictCrop(crop=c, share=s, yield_kg_per_ha=y) for c, s, y in crops],
+    )
 
 
 CROPS = {"Maize": crop("Maize", 20), "Beans": crop("Beans", -10), "Cassava": crop("Cassava", 30, p=0.4)}

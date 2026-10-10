@@ -81,8 +81,10 @@ def boundaries() -> dict:
 @app.post("/plan")
 def make_plan(req: PlanRequest) -> dict:
     ranking = plan.score(plan.load_districts(), plan.load_crops(), req.weights)
-    return {"ranking": ranking,
-            "allocation": plan.allocate(ranking, req.hectares, req.cost_per_ha_rwf, req.subsidy_rate)}
+    return {
+        "ranking": ranking,
+        "allocation": plan.allocate(ranking, req.hectares, req.cost_per_ha_rwf, req.subsidy_rate),
+    }
 
 
 @app.post("/farmer")

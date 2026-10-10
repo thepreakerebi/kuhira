@@ -11,9 +11,21 @@ MUTED = "#6B7565"
 
 
 def use() -> None:
-    plt.rcParams.update({
-        "figure.facecolor": "white", "axes.facecolor": "white", "axes.edgecolor": MUTED,
-        "axes.labelcolor": FOREST, "xtick.color": FOREST, "ytick.color": FOREST, "text.color": FOREST,
-        "axes.spines.top": False, "axes.spines.right": False, "axes.grid": True, "grid.color": "#E6E8E1",
-        "font.size": 10, "figure.dpi": 110, "axes.prop_cycle": plt.cycler(color=[WATER, PRIMARY, CLAY, FOREST]),
-    })
+    plt.rcParams.update(
+        {
+            "figure.facecolor": "white",
+            "axes.facecolor": "white",
+            "axes.edgecolor": MUTED,
+            "axes.labelcolor": FOREST,
+            "xtick.color": FOREST,
+            "ytick.color": FOREST,
+            "text.color": FOREST,
+            "axes.spines.top": False,
+            "axes.spines.right": False,
+            "axes.grid": True,
+            "grid.color": "#E6E8E1",
+            "font.size": 10,
+            "figure.dpi": 110,
+            "axes.prop_cycle": plt.cycler(color=[WATER, PRIMARY, CLAY, FOREST]),
+        }
+    )

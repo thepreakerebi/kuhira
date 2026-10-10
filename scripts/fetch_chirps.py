@@ -35,8 +35,12 @@ def fetch(ym: tuple[int, int]) -> None:
     with rasterio.MemoryFile(raw) as mf, mf.open() as src:
         window = from_bounds(*BBOX, transform=src.transform)
         data = src.read(1, window=window)
-        profile = src.profile | {"height": data.shape[0], "width": data.shape[1],
-                                 "transform": src.window_transform(window), "compress": "deflate"}
+        profile = src.profile | {
+            "height": data.shape[0],
+            "width": data.shape[1],
+            "transform": src.window_transform(window),
+            "compress": "deflate",
+        }
         with rasterio.open(dst, "w", **profile) as out:
             out.write(data, 1)
     print("ok", y, m, flush=True)

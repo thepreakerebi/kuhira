@@ -7,10 +7,54 @@ from kuhira import district_stats as ds
 @pytest.fixture
 def recent():
     rows = [  # one intercropped plot (maize + beans) and one sole maize plot in Huye; one rice plot in Kirehe
-        dict(seg="1", farmer="1", plot="1", district="Huye", crop="Maize", ha=0.2, ncrop=2, irrigated=0, kg=100, price=300),
-        dict(seg="1", farmer="1", plot="1", district="Huye", crop="Bush bean", ha=0.2, ncrop=2, irrigated=0, kg=50, price=9999),
-        dict(seg="1", farmer="2", plot="1", district="Huye", crop="Maize", ha=0.4, ncrop=1, irrigated=1, kg=600, price=400),
-        dict(seg="2", farmer="3", plot="1", district="Kirehe", crop="Paddy rice", ha=1.0, ncrop=1, irrigated=1, kg=4000, price=0),
+        {
+            "seg": "1",
+            "farmer": "1",
+            "plot": "1",
+            "district": "Huye",
+            "crop": "Maize",
+            "ha": 0.2,
+            "ncrop": 2,
+            "irrigated": 0,
+            "kg": 100,
+            "price": 300,
+        },
+        {
+            "seg": "1",
+            "farmer": "1",
+            "plot": "1",
+            "district": "Huye",
+            "crop": "Bush bean",
+            "ha": 0.2,
+            "ncrop": 2,
+            "irrigated": 0,
+            "kg": 50,
+            "price": 9999,
+        },
+        {
+            "seg": "1",
+            "farmer": "2",
+            "plot": "1",
+            "district": "Huye",
+            "crop": "Maize",
+            "ha": 0.4,
+            "ncrop": 1,
+            "irrigated": 1,
+            "kg": 600,
+            "price": 400,
+        },
+        {
+            "seg": "2",
+            "farmer": "3",
+            "plot": "1",
+            "district": "Kirehe",
+            "crop": "Paddy rice",
+            "ha": 1.0,
+            "ncrop": 1,
+            "irrigated": 1,
+            "kg": 4000,
+            "price": 0,
+        },
     ]
     df = pd.DataFrame(rows).assign(year=2024, season="A", small=1, w=10.0, province="South")
     return ds.recent_small(df)

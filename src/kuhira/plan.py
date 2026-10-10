@@ -100,17 +100,20 @@ def score(districts: dict[str, District], crops: dict[str, Crop], weights: Weigh
     factors = {k: rescale(v, invert=k == "dryness") for k, v in raw.items()}
     w = weights.model_dump()
     total = sum(w.values()) or 1
-    rows = [{
-        "district": d.district,
-        "province": d.province,
-        "score": round(100 * sum(w[k] * factors[k][i] for k in w) / total, 1),
-        "gain_rwf_per_ha": round(raw["gain"][i]),
-        "irrigated_share": d.irrigated_share,
-        "dry_season_mm": d.dry_season_mm,
-        "poverty_rate_pct": d.poverty_rate_pct,
-        "cropland_ha": d.cropland_ha,
-        "factors": {k: round(factors[k][i], 3) for k in w},
-    } for i, d in enumerate(ds)]
+    rows = [
+        {
+            "district": d.district,
+            "province": d.province,
+            "score": round(100 * sum(w[k] * factors[k][i] for k in w) / total, 1),
+            "gain_rwf_per_ha": round(raw["gain"][i]),
+            "irrigated_share": d.irrigated_share,
+            "dry_season_mm": d.dry_season_mm,
+            "poverty_rate_pct": d.poverty_rate_pct,
+            "cropland_ha": d.cropland_ha,
+            "factors": {k: round(factors[k][i], 3) for k in w},
+        }
+        for i, d in enumerate(ds)
+    ]
     rows.sort(key=lambda r: r["score"], reverse=True)
     return [r | {"rank": i + 1} for i, r in enumerate(rows)]
 
@@ -122,17 +125,21 @@ def allocate(scored: list[dict], hectares: float, cost_per_ha: float, subsidy_ra
     rows = []
     for r, p in zip(scored, pull):
         ha = hectares * p / total_pull
-        rows.append({
-            "district": r["district"],
-            "rank": r["rank"],
-            "score": r["score"],
-            "hectares": round(ha),
-            "public_cost_rwf": round(ha * cost_per_ha * subsidy_rate),
-            "farmer_cost_rwf": round(ha * cost_per_ha * (1 - subsidy_rate)),
-            "extra_value_rwf_per_year": round(ha * r["gain_rwf_per_ha"] * SEASONS_PER_YEAR),
-        })
-    sums = {k: sum(r[k] for r in rows) for k in ["hectares", "public_cost_rwf", "farmer_cost_rwf",
-                                                 "extra_value_rwf_per_year"]}
+        rows.append(
+            {
+                "district": r["district"],
+                "rank": r["rank"],
+                "score": r["score"],
+                "hectares": round(ha),
+                "public_cost_rwf": round(ha * cost_per_ha * subsidy_rate),
+                "farmer_cost_rwf": round(ha * cost_per_ha * (1 - subsidy_rate)),
+                "extra_value_rwf_per_year": round(ha * r["gain_rwf_per_ha"] * SEASONS_PER_YEAR),
+            }
+        )
+    sums = {
+        k: sum(r[k] for r in rows)
+        for k in ["hectares", "public_cost_rwf", "farmer_cost_rwf", "extra_value_rwf_per_year"]
+    }
     return {"districts": rows, "totals": sums}
 
 
@@ -154,6 +161,7 @@ def farmer_estimate(district: District, crop: Crop, area_m2: float, kit_cost_rwf
         "farmer_pays_rwf": round(farmer_pays),
         "seasons_to_repay": round(farmer_pays / extra_rwf, 1) if extra_rwf > 0 else None,
     }
+
 
 # DWFI (2022) p.16, citing the SSIT programme's price list. Petrol = mid-range pump plus mid-range pipes.
 KITS = {

@@ -16,9 +16,24 @@ def synthetic_plots():
     effect = np.where(crop == "Maize", np.log(1.20), np.log(0.90))
     base = np.where(crop == "Maize", np.log(1500), np.log(700)) + np.where(district == "Kirehe", -0.2, 0.1)
     kg = np.exp(base + effect * irrigated + rng.normal(0, 0.3, n)) * ha
-    return pd.DataFrame({
-        "year": 2024, "season": season, "seg": rng.integers(0, 300, n).astype(str),
-        "farmer": np.arange(n).astype(str), "plot": "1", "province": "East", "district": district, "small": 1,
-        "crop": crop, "ha": ha, "kg": kg, "price": 300.0, "ncrop": 1.0, "irrigated": irrigated,
-        "fert_used": rng.integers(0, 2, n), "iseed": rng.integers(0, 2, n), "w": 1.0,
-    })
+    return pd.DataFrame(
+        {
+            "year": 2024,
+            "season": season,
+            "seg": rng.integers(0, 300, n).astype(str),
+            "farmer": np.arange(n).astype(str),
+            "plot": "1",
+            "province": "East",
+            "district": district,
+            "small": 1,
+            "crop": crop,
+            "ha": ha,
+            "kg": kg,
+            "price": 300.0,
+            "ncrop": 1.0,
+            "irrigated": irrigated,
+            "fert_used": rng.integers(0, 2, n),
+            "iseed": rng.integers(0, 2, n),
+            "w": 1.0,
+        }
+    )

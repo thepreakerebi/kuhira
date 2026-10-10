@@ -24,8 +24,9 @@ def monthly(districts: gpd.GeoDataFrame, chirps_dir: Path = CHIRPS_DIR) -> pd.Da
     for tif in sorted(chirps_dir.glob("chirps_rwa_*.tif")):
         year, month = map(int, re.findall(r"(\d{4})_(\d{2})", tif.name)[0])
         stats = zonal_stats(districts, str(tif), stats="mean", all_touched=True, nodata=-9999)
-        rows += [{"district": d, "year": year, "month": month, "mm": s["mean"]}
-                 for d, s in zip(districts.district, stats)]
+        rows += [
+            {"district": d, "year": year, "month": month, "mm": s["mean"]} for d, s in zip(districts.district, stats)
+        ]
     return pd.DataFrame(rows)
 
 
