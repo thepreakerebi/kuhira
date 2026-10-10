@@ -28,6 +28,7 @@ class Crop(BaseModel):
     plots: int
     irrigated_plots: int
     price_rwf_per_kg: float | None
+    yield_kg_per_ha: float | None = None  # national rain-fed sole-crop median
 
     @property
     def counted_bonus(self) -> float:
@@ -146,7 +147,8 @@ def allocate(scored: list[dict], hectares: float, cost_per_ha: float, subsidy_ra
 def farmer_estimate(district: District, crop: Crop, area_m2: float, kit_cost_rwf: float, subsidy_rate: float) -> dict:
     """What irrigating one plot of one crop is worth to a farmer, per season, and when the kit pays back."""
     dc = next((c for c in district.crops if c.crop == crop.crop), None)
-    yield_kg_per_ha = dc.yield_kg_per_ha if dc else 0.0
+    # A crop the district barely grows is not in its mix; fall back to the national yield rather than zero.
+    yield_kg_per_ha = dc.yield_kg_per_ha if dc else (crop.yield_kg_per_ha or 0.0)
     kg_per_ha, rwf_per_ha = crop_gain(crop, yield_kg_per_ha)
     ha = area_m2 / 10_000
     farmer_pays = kit_cost_rwf * (1 - subsidy_rate)

@@ -4,9 +4,10 @@ from kuhira import plan
 from kuhira.plan import Crop, District, DistrictCrop, Weights
 
 
-def crop(name, bonus, p=0.001, price=100.0):
+def crop(name, bonus, p=0.001, price=100.0, national_yield=None):
     return Crop(
         crop=name,
+        yield_kg_per_ha=national_yield,
         bonus_pct=bonus,
         ci_low_pct=None,
         ci_high_pct=None,
@@ -97,3 +98,19 @@ def test_processed_files_cover_thirty_districts_and_shares_sum_to_one():
     assert len(ds) == 30
     for d in ds.values():
         assert sum(c.share for c in d.crops) == pytest.approx(1, abs=0.01)
+
+
+def test_farmer_estimate_uses_national_yield_for_a_crop_the_district_barely_grows():
+    # Kirehe grows almost no vegetables, so they are not in its crop mix; the estimate must not fall to zero.
+    veg = crop("Vegetables", 20, national_yield=6000)
+    d = district("A", [("Maize", 1, 2000)])
+    out = plan.farmer_estimate(d, veg, area_m2=1000, kit_cost_rwf=90_000, subsidy_rate=0.5)
+    assert out["rainfed_kg"] == 600
+    assert out["extra_kg_per_season"] == 120
+    assert out["seasons_to_repay"] == round(45_000 / (120 * 100), 1)
+
+
+def test_live_data_gives_every_estimated_crop_a_national_yield():
+    for c in plan.load_crops().values():
+        if c.bonus_pct is not None:
+            assert c.yield_kg_per_ha and c.yield_kg_per_ha > 0, c.crop

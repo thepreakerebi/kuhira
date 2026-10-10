@@ -60,3 +60,10 @@ def test_cors_allows_the_local_web_app():
 def test_boundaries_match_district_names():
     names = {f["properties"]["district"] for f in client.get("/boundaries").json()["features"]}
     assert names == set(plan.load_districts())
+
+
+def test_farmer_vegetables_in_a_district_that_grows_few_still_gain():
+    r = client.post(
+        "/farmer", json={"district": "Kirehe", "crop": "Vegetables", "area_m2": 1000, "kit_cost_rwf": 90_000}
+    )
+    assert r.json()["extra_kg_per_season"] > 0

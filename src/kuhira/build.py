@@ -14,7 +14,7 @@ def nullable(v):
     return None if pd.isna(v) else float(v)
 
 
-def crops_table(bonus: pd.DataFrame, prices: pd.Series) -> list[dict]:
+def crops_table(bonus: pd.DataFrame, prices: pd.Series, yields: pd.Series) -> list[dict]:
     out = []
     for r in bonus.to_dict("records"):
         out.append(
@@ -24,6 +24,7 @@ def crops_table(bonus: pd.DataFrame, prices: pd.Series) -> list[dict]:
                 "plots": int(r["plots"]),
                 "irrigated_plots": int(r["irrigated_plots"]),
                 "price_rwf_per_kg": nullable(prices.get(r["crop"])),
+                "yield_kg_per_ha": nullable(yields.get(r["crop"])),
             }
         )
     return out

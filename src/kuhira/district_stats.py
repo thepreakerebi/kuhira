@@ -44,18 +44,25 @@ def irrigated_share(df: pd.DataFrame) -> pd.Series:
     return (area * p.irrigated).groupby(p.district).sum() / area.groupby(p.district).sum()
 
 
-def rainfed_yields(df: pd.DataFrame) -> pd.DataFrame:
-    """Median rain-fed kg/ha of sole-crop plots per district and crop; national median where a district has too few.
-
-    Sole-crop plots give the yield of a hectare given over to that crop, which is what a farmer plans with.
-    """
+def rainfed_sole_crop(df: pd.DataFrame) -> pd.DataFrame:
+    """Rain-fed sole-crop plots with their kg/ha. Sole crops give the yield of a hectare given over to that crop,
+    which is what a farmer plans with."""
     r = df[(df.irrigated == 0) & (df.kg > 0) & (df.ncrop == 1)].copy()
     r["yld"] = r.kg / r.ha
-    r = trim(r)
-    national = r.groupby("group").yld.median()
+    return trim(r)
+
+
+def national_rainfed_yields(df: pd.DataFrame) -> pd.Series:
+    """Median rain-fed sole-crop kg/ha per crop, nationally."""
+    return rainfed_sole_crop(df).groupby("group").yld.median()
+
+
+def rainfed_yields(df: pd.DataFrame) -> pd.DataFrame:
+    """Median rain-fed sole-crop kg/ha per district and crop; national median where a district has too few plots."""
+    r = rainfed_sole_crop(df)
     g = r.groupby(["district", "group"]).yld
     local = g.median().where(g.size() >= MIN_PLOTS)
-    return local.unstack().fillna(national).fillna(0)
+    return local.unstack().fillna(national_rainfed_yields(df)).fillna(0)
 
 
 def crop_prices(df: pd.DataFrame) -> pd.Series:

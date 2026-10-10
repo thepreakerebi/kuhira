@@ -10,6 +10,7 @@ export type Crop = {
   plots: number;
   irrigated_plots: number;
   price_rwf_per_kg: number | null;
+  yield_kg_per_ha: number | null;
 };
 
 export type District = {
