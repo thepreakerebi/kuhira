@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: kuhira-api
+    runtime: python
+    plan: free
+    # Only the API's own dependencies: no pandas or geospatial stack at runtime.
+    buildCommand: pip install uv && uv sync --frozen --no-default-groups
+    startCommand: uv run --no-default-groups uvicorn kuhira.api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: KUHIRA_WEB_ORIGINS
+        sync: false # the Vercel URL, e.g. https://kuhira.vercel.app
