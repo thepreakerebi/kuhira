@@ -2,7 +2,9 @@
 
 **Where should Rwanda's next small-scale irrigation hectares go?**
 
-**Live app:** [kuhira.vercel.app](https://kuhira.vercel.app) · **API:** [kuhira-api.onrender.com](https://kuhira-api.onrender.com/docs)
+**Live app:** [kuhira.vercel.app](https://kuhira.vercel.app) (planner) · [farmer calculator, in Kinyarwanda](https://kuhira.vercel.app/rw/farmer) · [method](https://kuhira.vercel.app/en/method) · **API:** [kuhira-api.onrender.com/docs](https://kuhira-api.onrender.com/docs)
+
+**Team:** Elvis Preye Kerebi and Paulette Dushime.
 
 *Kuhira* is Kinyarwanda for "to irrigate". Rwanda's PSTA5 plan targets 41,031 ha of small-scale irrigation
 technology (SSIT) by 2028/29. By FY2024/25, 27,663 ha were in place. Last year added 1,462 ha, so at that pace the
@@ -17,8 +19,8 @@ crop. It then ranks the 30 districts and splits the remaining hectares between t
 - **Farmers.** A calculator, Kinyarwanda first, that shows what irrigating a plot of a given crop is worth and
   when the kit pays for itself.
 
-Built for the **NISR Big Data Hackathon 2026, Track 1: Agricultural Productivity** (NST2 pillar: economic
-transformation through agricultural productivity and resilience).
+Built for the **NISR Big Data Hackathon 2026, Track 1: Agricultural Productivity**, whose hints list small-scale
+irrigation first. It serves NST2's economic transformation pillar through PSTA5's small-scale irrigation target.
 
 ## What the data says
 
@@ -70,9 +72,9 @@ bun run dev              # starts the API on :8000 and the web app on :3000 toge
 Tests:
 
 ```bash
-uv run pytest                 # 40 Python unit + API tests
-cd web && bun run test        # unit tests
-bun run test:e2e              # Playwright, desktop + phone; starts API and a production build itself
+uv run pytest                 # 43 Python unit and API tests
+cd web && bun run test        # 15 web unit tests
+bun run test:e2e              # 48 Playwright tests, desktop + phone; starts the API and a production build itself
 ```
 
 ## Data and licences
@@ -99,7 +101,9 @@ Live: web on Vercel (root `web/`), API on Render free tier (`render.yaml`, Frank
 - Web: Vercel or any Node host, root `web/`, with `NEXT_PUBLIC_KUHIRA_API_URL` set to the API URL. The build
   prerenders from the API, so deploy the API first.
 
-## Declarations
+## Submission documents
 
+- [Declaration of originality](docs/DECLARATION.md)
+- [References](docs/REFERENCES.md): every data source and policy figure, cited in full
 - [AI use disclosure](docs/AI_USE.md)
-- Intellectual property: under the hackathon rules, all IP in this submission is assigned to NISR.
+- Intellectual property: under the competition rules, all IP in this submission is assigned to NISR.

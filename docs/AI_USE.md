@@ -9,15 +9,16 @@ pair programmer and research assistant throughout.
   app and tests.
 - Searched public sources for policy figures (PSTA5 targets, subsidy rules, kit prices) and pointed us to the
   documents. We checked each figure against the source document cited in the app.
-- Drafted text: the README, the method page and the first draft of the Kinyarwanda copy.
+- Drafted text: the README, the method page, these documents, and the first draft of all Kinyarwanda text in the
+  app.
 
 **What we did**
 
 - Chose the problem, the track and the design.
 - Decided the method, including keeping the negative bean result.
 - Reviewed the code and the results.
-- Our Rwandan team member reviews and corrects the Kinyarwanda and checks the tool with a district irrigation
-  officer. *(Pending: update this line once done.)*
+- Paulette Dushime, our Rwandan team member, reviews and corrects the Kinyarwanda and checks the tool with a district
+  irrigation officer. *(Pending: update this line once done.)*
 
 **Checks on AI output**
 
@@ -27,3 +28,4 @@ pair programmer and research assistant throughout.
 - Two of AI's early mistakes were caught this way and fixed:
   - It first read a farmer-total harvest variable as a per-plot harvest.
   - It later stated a correlation that the data did not support.
+  - The farmer calculator returned zero for a crop a district barely grows; it now falls back to the national yield.
