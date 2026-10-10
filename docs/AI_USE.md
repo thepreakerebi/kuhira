@@ -16,8 +16,8 @@ pair programmer and research assistant throughout.
 - Chose the problem, the track and the design.
 - Decided the method, including keeping the negative bean result.
 - Reviewed the code and the results.
-- Our Rwandan team member reviewed and corrected the Kinyarwanda and spoke to a district irrigation officer to
-  check the tool against practice.
+- Our Rwandan team member reviews and corrects the Kinyarwanda and checks the tool with a district irrigation
+  officer. *(Pending: update this line once done.)*
 
 **Checks on AI output**
 
