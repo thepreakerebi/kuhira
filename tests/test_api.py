@@ -55,3 +55,8 @@ def test_farmer_unknown_district_is_404():
 def test_cors_allows_the_local_web_app():
     r = client.options("/plan", headers={"Origin": "http://localhost:3000", "Access-Control-Request-Method": "POST"})
     assert r.headers["access-control-allow-origin"] == "http://localhost:3000"
+
+
+def test_boundaries_match_district_names():
+    names = {f["properties"]["district"] for f in client.get("/boundaries").json()["features"]}
+    assert names == set(plan.load_districts())

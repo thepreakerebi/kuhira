@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* No .dark class is ever set, so shadcn's dark: styles never apply (light only). */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-mono: var(--font-plex-mono);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-water: var(--water);
+  --color-clay: var(--clay);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+/* One light palette. Primary #C3D898 carries fills; text on white uses --primary-strong for contrast. */
+:root {
+  color-scheme: light;
+  --background: #f8f7f1;
+  --foreground: #1c2b1e;
+  --card: #ffffff;
+  --card-foreground: #1c2b1e;
+  --popover: #ffffff;
+  --popover-foreground: #1c2b1e;
+  --primary: #c3d898;
+  --primary-foreground: #1c2b1e;
+  --primary-strong: #4a6420;
+  --secondary: #dcebf2;
+  --secondary-foreground: #1d4a61;
+  --muted: #efeee6;
+  --muted-foreground: #576153;
+  --accent: #ecf2dc;
+  --accent-foreground: #1c2b1e;
+  --destructive: #a8462c;
+  --water: #2f6e8f;
+  --clay: #a8462c;
+  --border: #e2e1d6;
+  --input: #d6d5c8;
+  --ring: #7f9f45;
+  --chart-1: #2f6e8f;
+  --chart-2: #c3d898;
+  --chart-3: #a8462c;
+  --chart-4: #4a6420;
+  --chart-5: #d9a441;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-heading tracking-tight text-balance;
+  }
+}
+
+/* Native <meter> as a slim bar in the palette. */
+.kuhira-meter {
+  appearance: none;
+  border-radius: 999px;
+  background: var(--muted);
+  overflow: hidden;
+}
+.kuhira-meter::-webkit-meter-bar {
+  background: var(--muted);
+  border: 0;
+  border-radius: 999px;
+  height: 100%;
+}
+.kuhira-meter::-webkit-meter-optimum-value,
+.kuhira-meter::-webkit-meter-suboptimum-value,
+.kuhira-meter::-webkit-meter-even-less-good-value {
+  background: var(--primary-strong);
+  border-radius: 999px;
+}
+.kuhira-meter::-moz-meter-bar {
+  background: var(--primary-strong);
+  border-radius: 999px;
+}

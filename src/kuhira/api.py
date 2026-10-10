@@ -1,12 +1,15 @@
 """HTTP API for the Kuhira web app."""
 
+import json
 import os
+from functools import cache
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from kuhira import plan
+from kuhira.paths import EXTERNAL
 
 app = FastAPI(title="Kuhira API", version="0.1.0")
 app.add_middleware(
@@ -59,6 +62,20 @@ def crops() -> list[plan.Crop]:
 @app.get("/districts")
 def districts() -> list[plan.District]:
     return list(plan.load_districts().values())
+
+
+@cache
+def load_boundaries() -> dict:
+    geo = json.loads((EXTERNAL / "boundaries" / "rwa_ADM2_simplified.geojson").read_text())
+    for f in geo["features"]:
+        f["properties"] = {"district": f["properties"]["shapeName"]}
+    return geo
+
+
+@app.get("/boundaries")
+def boundaries() -> dict:
+    """District outlines (geoBoundaries RWA ADM2, CC BY 4.0)."""
+    return load_boundaries()
 
 
 @app.post("/plan")
