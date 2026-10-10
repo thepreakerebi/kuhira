@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from kuhira.sas import clean_district, find_var, irrigated_flag, normalize_key, yes
+from kuhira.sas import KEY_PATTERNS, clean_district, find_var, irrigated_flag, normalize_key, yes
 
 
 def test_find_var_matches_label_and_honours_exclude():
@@ -13,7 +13,7 @@ def test_find_var_matches_label_and_honours_exclude():
 def test_find_var_word_boundary_skips_large_farmer_segment_label():
     names = ["Segment_ID", "farmer_id"]
     labels = ["Segment/Large scale farmer Identification", "Farmer ID"]
-    assert find_var(names, labels, r"Farmer ID\b") == "farmer_id"
+    assert find_var(names, labels, KEY_PATTERNS["farmer"]) == "farmer_id"
 
 
 def test_normalize_key_makes_float_and_string_ids_equal():

@@ -43,6 +43,9 @@ FIELDS = {
 COLUMNS = ["year", "season", "seg", "farmer", "plot", "province", "district", "small", "crop", "ha", "kg",
            "price", "ncrop", "irrigated", "fert_used", "iseed", "w"]
 
+# \b matters: 2023's segment label "Segment/Large scale farmer Identification" also contains "farmer ID"
+KEY_PATTERNS = {"seg": r"^Segment_ID", "farmer": r"Farmer ID\b", "plot": r"Plot N(o|umber)"}
+
 DISTRICT_FIXES = {"Nyarugenege": "Nyarugenge"}
 
 
@@ -91,10 +94,7 @@ def load(path: Path):
 
 
 def key_vars(meta) -> dict:
-    names, labels = meta.column_names, meta.column_labels
-    return {"seg": find_var(names, labels, r"^Segment_ID"),
-            "farmer": find_var(names, labels, r"Farmer ID\b"),
-            "plot": find_var(names, labels, r"Plot N(o|umber)")}
+    return {k: find_var(meta.column_names, meta.column_labels, rx) for k, rx in KEY_PATTERNS.items()}
 
 
 def keyed(df: pd.DataFrame, meta, var_regex: str, keys: list[str]) -> pd.DataFrame | None:
