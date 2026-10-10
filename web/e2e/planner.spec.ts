@@ -40,10 +40,36 @@ test("choosing a district on the map opens its detail", async ({ page }) => {
   await expect(page.getByRole("button", { name: /^Kirehe: rank/ })).toHaveAttribute("aria-pressed", "true");
 });
 
-test("choosing a district in the table opens its detail", async ({ page }) => {
+test("a row far down the table opens its details in view", async ({ page }) => {
   await page.goto("/en");
-  await page.getByRole("table").getByRole("button", { name: "Ngoma" }).click();
-  await expect(page.getByRole("heading", { level: 3, name: "Ngoma" })).toBeVisible();
+  const last = page.getByRole("table").getByRole("button", { name: "Kicukiro" });
+  await last.scrollIntoViewIfNeeded();
+  await last.click();
+
+  const sheet = page.getByRole("dialog", { name: "Kicukiro" });
+  await expect(sheet).toBeInViewport({ ratio: 0.9 });
+  await expect(sheet.getByText("30 of 30")).toBeVisible();
+  await expect(sheet.getByRole("button", { name: /^Kicukiro: rank 30/ })).toHaveAttribute("aria-pressed", "true");
+  // The map card above follows the same selection.
+  await expect(page.getByRole("heading", { level: 3, name: "Kicukiro" })).toBeAttached();
+
+  await sheet.getByRole("button", { name: "Previous" }).click();
+  await expect(page.getByRole("dialog", { name: /Gasabo/ })).toBeVisible();
+  await expect(page.getByRole("dialog").getByText("29 of 30")).toBeVisible();
+
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  // Focus lands on the row of the district last shown, ready to carry on down the table.
+  await expect(page.getByRole("table").getByRole("button", { name: "Gasabo" })).toBeFocused();
+});
+
+test("the first district has no previous one to step to", async ({ page }) => {
+  await page.goto("/en");
+  await page.getByRole("table").getByRole("button", { name: "Nyamagabe" }).click();
+  const sheet = page.getByRole("dialog", { name: "Nyamagabe" });
+  await expect(sheet.getByRole("button", { name: "Previous" })).toBeDisabled();
+  await sheet.getByRole("button", { name: "Next" }).click();
+  await expect(page.getByRole("dialog", { name: "Nyaruguru" })).toBeVisible();
 });
 
 test("an empty hectare field explains itself and sends nothing", async ({ page }) => {

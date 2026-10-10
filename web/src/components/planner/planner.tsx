@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { BudgetControls, type Budget, type BudgetErrors } from "@/components/planner/budget-controls";
 import { DistrictDetail } from "@/components/planner/district-detail";
 import { DistrictMap } from "@/components/planner/district-map";
+import { DistrictSheet } from "@/components/planner/district-sheet";
 import { PlanTotals } from "@/components/planner/plan-totals";
 import { RankingTable } from "@/components/planner/ranking-table";
 import { WeightControls } from "@/components/planner/weight-controls";
@@ -47,6 +48,7 @@ export function Planner({ lang, defaults, crops, districts, shapes, initialPlan 
   const [result, setResult] = useState({ key: initialKey, plan: initialPlan });
   const [failed, setFailed] = useState(false);
   const [selected, setSelected] = useState(initialPlan.ranking[0].district);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   const { hectares, cost, errors } = validate(budget);
   const valid = Object.keys(errors).length === 0;
@@ -123,9 +125,30 @@ export function Planner({ lang, defaults, crops, districts, shapes, initialPlan 
             <h2 className="text-xl font-semibold">{t.rankingTitle}</h2>
             <p className="text-sm text-muted-foreground">{t.rankingBody}</p>
           </header>
-          <RankingTable lang={lang} rows={plan.allocation.districts} selected={selected} onSelect={setSelected} />
+          <RankingTable
+            lang={lang}
+            rows={plan.allocation.districts}
+            selected={selected}
+            onSelect={(d) => {
+              setSelected(d);
+              setSheetOpen(true);
+            }}
+          />
         </CardContent>
       </Card>
+
+      <DistrictSheet
+        lang={lang}
+        open={sheetOpen}
+        onOpenChange={setSheetOpen}
+        selected={selected}
+        onSelect={setSelected}
+        order={plan.allocation.districts}
+        ranking={ranking}
+        districts={districtMap}
+        crops={cropMap}
+        shapes={shapes}
+      />
     </section>
   );
 }

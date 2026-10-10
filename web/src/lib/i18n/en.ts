@@ -67,6 +67,7 @@ export const en = {
       farmers: ["Farmers' share", "What farmers pay themselves."],
       harvest: ["Extra harvest a year", "Yield gain only, Seasons A and B. A floor."],
     },
+    sheet: { previous: "Previous", next: "Next", close: "Close", position: (rank: number, n: number) => `${rank} of ${n}` },
     rankingTitle: "Ranking and hectares",
     rankingBody: "Hectares follow score × small-farm cropland, so equal scores get equal shares of their farmland.",
     columns: { district: "District", score: "Score", hectares: "Hectares", publicCost: "Public cost", harvest: "Extra harvest / yr" },

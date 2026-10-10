@@ -90,6 +90,7 @@ export const rw: Messages = {
       farmers: ["Uruhare rw'abahinzi", "Ibyo abahinzi bishyura ubwabo."],
       harvest: ["Umusaruro wiyongera ku mwaka", "Inyongera y'umusaruro gusa, ibihembwe A na B. Ni ibya make."],
     },
+    sheet: { previous: "Ibanziriza", next: "Ikurikira", close: "Funga", position: (rank: number, n: number) => `${rank} muri ${n}` },
     rankingTitle: "Urutonde na hegitari",
     rankingBody: "Hegitari zikurikiza amanota × ubuso bw'imirima mito, bityo amanota angana ahabwa igice kingana cy'ubutaka bwabo.",
     columns: { district: "Akarere", score: "Amanota", hectares: "Hegitari", publicCost: "Amafaranga ya Leta", harvest: "Umusaruro wiyongera / umwaka" },

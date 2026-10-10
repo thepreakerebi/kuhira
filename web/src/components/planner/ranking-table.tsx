@@ -42,6 +42,7 @@ export function RankingTable({ lang, rows, selected, onSelect }: Props) {
             <TableCell>
               <button
                 type="button"
+                data-district-row={r.district}
                 className="font-medium underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
                 onClick={(e) => {
                   e.stopPropagation();

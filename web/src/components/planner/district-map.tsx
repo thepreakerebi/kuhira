@@ -7,13 +7,14 @@ import type { DistrictShape, RankedDistrict } from "@/lib/types";
 
 type Props = {
   lang: Lang;
+  compact?: boolean;
   shapes: DistrictShape[];
   ranking: Map<string, RankedDistrict>;
   selected: string;
   onSelect: (district: string) => void;
 };
 
-export function DistrictMap({ lang, shapes, ranking, selected, onSelect }: Props) {
+export function DistrictMap({ lang, compact = false, shapes, ranking, selected, onSelect }: Props) {
   const t = messages[lang].planner;
   const chosen = shapes.find((s) => s.district === selected);
   return (
@@ -52,17 +53,19 @@ export function DistrictMap({ lang, shapes, ranking, selected, onSelect }: Props
         })}
         {chosen ? <path d={chosen.d} fill="none" stroke="#1c2b1e" strokeWidth={2.5} pointerEvents="none" /> : null}
       </svg>
-      <figcaption className="grid gap-1.5 text-xs text-muted-foreground">
-        <svg viewBox="0 0 100 4" preserveAspectRatio="none" aria-hidden className="h-2.5 w-full max-w-xs rounded-full">
-          {Array.from({ length: 20 }, (_, i) => (
-            <rect key={i} x={i * 5} width={5.2} height={4} fill={scoreColor(i * 5 + 2.5)} />
-          ))}
-        </svg>
-        <p className="flex max-w-xs justify-between">
-          <small>{t.lower}</small>
-          <small>{t.higher}</small>
-        </p>
-      </figcaption>
+      {compact ? null : (
+        <figcaption className="grid gap-1.5 text-xs text-muted-foreground">
+          <svg viewBox="0 0 100 4" preserveAspectRatio="none" aria-hidden className="h-2.5 w-full max-w-xs rounded-full">
+            {Array.from({ length: 20 }, (_, i) => (
+              <rect key={i} x={i * 5} width={5.2} height={4} fill={scoreColor(i * 5 + 2.5)} />
+            ))}
+          </svg>
+          <p className="flex max-w-xs justify-between">
+            <small>{t.lower}</small>
+            <small>{t.higher}</small>
+          </p>
+        </figcaption>
+      )}
     </figure>
   );
 }

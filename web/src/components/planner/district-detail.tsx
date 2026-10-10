@@ -7,7 +7,7 @@ import { formatNumber, formatPct, formatRwf, formatSignedPct } from "@/lib/forma
 import { cropName, type Lang, messages } from "@/lib/i18n";
 import type { Crop, District, RankedDistrict } from "@/lib/types";
 
-type Props = { lang: Lang; district: District; ranked: RankedDistrict; crops: Map<string, Crop> };
+type Props = { lang: Lang; showHeader?: boolean; district: District; ranked: RankedDistrict; crops: Map<string, Crop> };
 
 function counted(crop?: Crop): number {
   return crop?.bonus_pct != null && crop.p_value != null && crop.p_value < 0.05 ? crop.bonus_pct : 0;
@@ -24,7 +24,7 @@ function BonusBadge({ lang, crop }: { lang: Lang; crop?: Crop }) {
   );
 }
 
-export function DistrictDetail({ lang, district, ranked, crops }: Props) {
+export function DistrictDetail({ lang, showHeader = true, district, ranked, crops }: Props) {
   const reduce = useReducedMotion();
   const t = messages[lang].planner;
   const stats = [
@@ -44,13 +44,15 @@ export function DistrictDetail({ lang, district, ranked, crops }: Props) {
         className="grid gap-5"
         aria-live="polite"
       >
-        <header className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h3 className="text-2xl font-semibold">{district.district}</h3>
-          <p className="text-sm text-muted-foreground">
-            {district.province} · {t.rank} <strong className="text-foreground">#{ranked.rank}</strong> · {t.score}{" "}
-            <strong className="text-foreground">{ranked.score}</strong>
-          </p>
-        </header>
+        {showHeader ? (
+          <header className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 className="text-2xl font-semibold">{district.district}</h3>
+            <p className="text-sm text-muted-foreground">
+              {district.province} · {t.rank} <strong className="text-foreground">#{ranked.rank}</strong> · {t.score}{" "}
+              <strong className="text-foreground">{ranked.score}</strong>
+            </p>
+          </header>
+        ) : null}
 
         <dl className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-x-4 gap-y-3 text-sm">
           {stats.map(([k, v]) => (
