@@ -67,6 +67,21 @@ function Estimate({ lang, e }: { lang: Lang; e: FarmerEstimate }) {
           {loses ? t.lossNote : t.zeroNote}
         </p>
       ) : null}
+      {e.season_c_rwf > 0 ? (
+        <section className="grid gap-3 border-t pt-4">
+          <h3 className="text-base font-semibold">{t.dryTitle}</h3>
+          <p className="text-sm text-muted-foreground">
+            {t.dryBody} <strong className="text-foreground">{formatRwf(e.season_c_rwf)}</strong>.
+          </p>
+          <dl className="grid gap-1">
+            <dt className="text-sm text-muted-foreground">{t.repay}</dt>
+            <dd className="font-heading text-[clamp(1.35rem,1.1rem+0.9vw,1.8rem)] font-semibold tabular-nums">
+              {e.seasons_to_repay_with_c === null ? t.never : `${e.seasons_to_repay_with_c} ${t.seasons}`}
+            </dd>
+          </dl>
+          <small className="text-xs text-muted-foreground">{t.dryNote}</small>
+        </section>
+      ) : null}
       <small className="text-xs text-muted-foreground">{t.basis}</small>
     </section>
   );

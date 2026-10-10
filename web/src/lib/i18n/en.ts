@@ -66,12 +66,18 @@ export const en = {
       hectares: ["Hectares placed", "Across all 30 districts."],
       public: ["Public cost", "Subsidy share of the kits."],
       farmers: ["Farmers' share", "What farmers pay themselves."],
-      harvest: ["Extra harvest a year", "Yield gain only, Seasons A and B. A floor."],
+      harvest: ["Yield gain a year", "Seasons A and B, on today's crops."],
+      dry: ["Dry-season harvest a year", "Season C, before seed, fertilizer and labour."],
     },
+    dry: "Kit land farmed in the dry season (%)",
+    dryHelp: (median: number, lo: number, hi: number) => `Survey median ${median}% (2020–2025 ranged ${lo}–${hi}%).`,
+    dryError: "Enter 0 to 100",
+    certainty: (lo: number, hi: number, share: number) =>
+      `Ranks ${lo}–${hi} in 90% of 300 simulations; in the top 10 in ${share}% of them.`,
     sheet: { previous: "Previous", next: "Next", close: "Close", position: (rank: number, n: number) => `${rank} of ${n}` },
     rankingTitle: "Ranking and hectares",
     rankingBody: "Hectares follow score × small-farm cropland, so equal scores get equal shares of their farmland.",
-    columns: { district: "District", score: "Score", hectares: "Hectares", publicCost: "Public cost", harvest: "Extra harvest / yr" },
+    columns: { district: "District", score: "Score", hectares: "Hectares", publicCost: "Public cost", harvest: "Extra harvest / yr", range: "Likely rank" },
   },
 
   farmer: {
@@ -112,6 +118,10 @@ export const en = {
     lossNote:
       "In the survey, irrigated bean plots harvest less than rain-fed ones. Use the water for maize, vegetables or sweet potato instead.",
     zeroNote: "The survey shows no clear gain from irrigating this crop.",
+    dryTitle: "With a dry-season crop",
+    dryBody: "Water also lets you farm from June to August. A typical watered dry-season plot of this size harvests about",
+    dryNote:
+      "Harvest value before seed, fertilizer and labour, from watered Season C plots in the survey (mostly vegetables and Irish potato). Payback counts Seasons A, B and C in order.",
     basis: "Based on NISR Seasonal Agricultural Survey 2020–2025 and median farm-gate prices. Seasons A and B only.",
     error: "Couldn't calculate. Check your connection.",
   },
@@ -122,7 +132,18 @@ export const en = {
     title: "How Kuhira decides",
     intro:
       "One question drives everything: on the crops small farmers already grow, how much more does a plot yield when it gets water?",
-    s1: "1 · The water bonus, measured",
+    why: "1 · Why this matters",
+    whyBody:
+      "NST2 tracks \"area under irrigation\" under its Economic Transformation pillar (outcome: modernized crop production and productivity). In FY2024/25 it reached 74,375 ha against a target of 76,686 ha. Small-scale irrigation, the part Kuhira plans, stands at 27,663 of PSTA5's 41,031 ha, and last year added only 1,462 ha. Bean yields also missed their NST2 target (0.7 against 0.8 t/ha), and the survey shows water does not help beans, so where kits go matters as much as how many.",
+    whySource: "Source: MINAGRI Annual Report FY2024/25, p. 11 and Annex 8 (p. 107).",
+    dry: "3 · The dry season",
+    dryBody: (value: string, uptake: number, lo: number, hi: number) =>
+      `From June to August most land lies idle, and a kit lets a farmer grow a whole extra crop. In the survey's Season C data, a watered hectare harvests a median ${value}, mostly vegetables and Irish potato: far more than the yield bonus in Seasons A and B. Watered Season C land equals about ${uptake}% of watered A/B land (median of 2020–2025; it ranged ${lo}–${hi}%), so the planner counts that share of new kit hectares as farmed in the dry season, and lets you change it. This is harvest value before seed, fertilizer and labour. It is one national figure, so it raises every district equally and does not change the ranking.`,
+    sure: "5 · How sure is the ranking?",
+    sureBody:
+      "The water bonuses are estimates with error bars. Kuhira re-ranks the districts 300 times, each time drawing every counted bonus from its uncertainty, and reports the range of ranks each district takes in 90% of runs. Read narrow ranges as firm and wide ones as a band. Counting the crops the survey cannot separate from zero (Irish potato, rice) as well moves some mid-table districts; notebook 06 shows which.",
+    sureHead: ["Rank", "District", "Range in 90% of runs", "In the top 10"],
+    s1: "2 · The water bonus, measured",
     s1Body:
       "For each crop we compare irrigated and rain-fed plots of the same crop, in the same district and the same season, so local rain, prices and pests cancel out. The model also holds fertilizer, improved seed, plot size and the number of crops on the plot fixed. Small farmers only; errors clustered by survey segment.",
     chartCaption: (irrigated: string, all: string) =>
@@ -131,7 +152,7 @@ export const en = {
     beansTitle: (pct: string) => `Beans lose ${pct}% with water`,
     beansBody: (lo: number, hi: number) =>
       `Irrigated bean plots harvest less than rain-fed ones (95% interval ${lo}% to ${hi}%). A likely reason: irrigated plots sit in valley bottoms, where beans suffer from waterlogging and disease. Counting this halves the water gain of bean-heavy Ngoma, so Kuhira does not reward districts just for having farmland.`,
-    s2: "2 · From crops to a district score",
+    s2: "4 · From crops to a district score",
     tableHead: ["Factor", "Measure", "Default weight"],
     measures: {
       gain: "Σ crop share × rain-fed yield × water bonus × farm-gate price, per irrigated ha",
@@ -141,15 +162,16 @@ export const en = {
     },
     s2Body: (ha: string, cost: string, subsidy: number, publicCost: string) =>
       `Each factor is rescaled 0–1 across the 30 districts and weighted into a 0–100 score. Only bonuses that are clearly different from zero (p < 0.05) count; the rest count as zero. Hectares are then split in proportion to score × small-farm cropland. With the default ${ha} ha at ${cost} per hectare and a ${subsidy}% subsidy, the public share is about ${publicCost}.`,
-    s3: "3 · What this cannot tell you",
+    s3: "6 · What this cannot tell you",
     limits: [
       "The water bonus compares farmers who irrigate with those who do not. Fixed effects and input controls remove the obvious differences, but irrigating farmers may still differ in skill, soil or water access. Read it as the gain an irrigating smallholder typically sees, not a controlled experiment.",
       "The survey's finest geography is the district, so the bonus is estimated per crop and carried to districts through what they grow. Districts do not get their own bonus: some have only about ten irrigated plots.",
       "The bean penalty is negative on average but flat in 2022–23, so treat its size with care.",
-      "Gains count Seasons A and B on today's crops only. Season C harvests that irrigation makes possible, and switching to vegetables, are left out, so money gains are a floor.",
+      "The dry-season harvest is gross value, before seed, fertilizer and labour, and the share of kit land farmed then swung from 5% to 101% between survey years; the planner lets you change it. Switching main-season crops to vegetables is not counted.",
       "Kit cost per hectare is a 2019 figure until the district officers' current quote replaces it. Prices are national medians from the survey.",
+      "The ranking ranges reflect only the uncertainty in the water bonuses, not in rainfall, poverty or prices.",
     ],
-    s4: "4 · Data",
+    s4: "7 · Data",
     sources: [
       "Plot-level crops, harvest, area, irrigation, fertilizer, seed, prices. Seasons A and B, 12 seasons, ~450,000 crop-plot records.",
       "District poverty rates.",

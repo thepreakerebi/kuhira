@@ -61,3 +61,12 @@ test("the farmer page has no language switch of its own", async ({ page }) => {
   await page.goto("/en/farmer");
   await expect(page.getByRole("navigation", { name: "Language" })).toHaveCount(1);
 });
+
+test("the method page explains the national target, the dry season and rank certainty", async ({ page }) => {
+  await page.goto("/en/method");
+  await expect(page.getByRole("heading", { name: "1 · Why this matters" })).toBeVisible();
+  await expect(page.getByText(/74,375 ha against a target of 76,686 ha/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "3 · The dry season" })).toBeVisible();
+  const sure = page.getByRole("table").filter({ hasText: "Range in 90% of runs" });
+  await expect(sure.getByRole("row")).toHaveCount(6);
+});

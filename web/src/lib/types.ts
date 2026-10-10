@@ -34,6 +34,15 @@ export type Defaults = {
   subsidy_solar: number;
   weights: Weights;
   kits: Record<string, Kit>;
+  season_c: SeasonC;
+};
+
+export type SeasonC = {
+  value_rwf_per_ha: number;
+  uptake: number;
+  uptake_by_year: Record<string, number>;
+  crop_mix: Record<string, number>;
+  plots: number;
 };
 
 export type RankedDistrict = {
@@ -47,6 +56,9 @@ export type RankedDistrict = {
   poverty_rate_pct: number;
   cropland_ha: number;
   factors: Weights;
+  rank_low: number;
+  rank_high: number;
+  top_share: number;
 };
 
 export type Allocation = {
@@ -57,6 +69,7 @@ export type Allocation = {
   public_cost_rwf: number;
   farmer_cost_rwf: number;
   extra_value_rwf_per_year: number;
+  season_c_value_rwf_per_year: number;
 };
 
 export type PlanRequest = {
@@ -64,6 +77,7 @@ export type PlanRequest = {
   hectares: number;
   cost_per_ha_rwf: number;
   subsidy_rate: number;
+  season_c_uptake: number;
 };
 
 export type Plan = {
@@ -90,7 +104,9 @@ export type FarmerEstimate = {
   extra_kg_per_season: number;
   extra_rwf_per_season: number;
   farmer_pays_rwf: number;
+  season_c_rwf: number;
   seasons_to_repay: number | null;
+  seasons_to_repay_with_c: number | null;
 };
 
 export type DistrictShape = { district: string; d: string };

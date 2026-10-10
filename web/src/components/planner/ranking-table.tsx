@@ -6,22 +6,29 @@ import { flushTable } from "@/components/site/page-shell";
 import { scoreColor } from "@/lib/color";
 import { formatNumber, formatRwf } from "@/lib/format";
 import { type Lang, messages } from "@/lib/i18n";
-import type { Allocation } from "@/lib/types";
+import type { Allocation, RankedDistrict } from "@/lib/types";
 
-type Props = { lang: Lang; rows: Allocation[]; selected: string; onSelect: (d: string) => void };
+type Props = {
+  lang: Lang;
+  rows: Allocation[];
+  ranking: Map<string, RankedDistrict>;
+  selected: string;
+  onSelect: (d: string) => void;
+};
 
 // Rows glide to their new rank when the weights change.
 const MotionRow = motion.create(TableRow);
 
-export function RankingTable({ lang, rows, selected, onSelect }: Props) {
+export function RankingTable({ lang, rows, ranking, selected, onSelect }: Props) {
   const reduce = useReducedMotion();
   const t = messages[lang].planner;
   return (
-    <Table className={`min-w-[40rem] ${flushTable}`}>
+    <Table className={`min-w-[46rem] ${flushTable}`}>
       <TableHeader>
         <TableRow>
           <TableHead className="w-12">#</TableHead>
           <TableHead>{t.columns.district}</TableHead>
+          <TableHead className="whitespace-nowrap">{t.columns.range}</TableHead>
           <TableHead className="w-[28%]">{t.columns.score}</TableHead>
           <TableHead className="text-right">{t.columns.hectares}</TableHead>
           <TableHead className="text-right">{t.columns.publicCost}</TableHead>
@@ -51,6 +58,9 @@ export function RankingTable({ lang, rows, selected, onSelect }: Props) {
               >
                 {r.district}
               </button>
+            </TableCell>
+            <TableCell className="font-mono text-muted-foreground tabular-nums">
+              {ranking.get(r.district)?.rank_low}–{ranking.get(r.district)?.rank_high}
             </TableCell>
             <TableCell>
               <svg viewBox="0 0 100 8" preserveAspectRatio="none" className="h-2 w-full" aria-label={`${t.score} ${r.score}`}>

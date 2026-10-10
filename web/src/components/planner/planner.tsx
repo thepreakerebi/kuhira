@@ -13,6 +13,7 @@ import { RankingTable } from "@/components/planner/ranking-table";
 import { WeightControls } from "@/components/planner/weight-controls";
 import { stagger } from "@/components/motion/stagger";
 import { postJson } from "@/lib/api-url";
+import { defaultPlanRequest } from "@/lib/plan-request";
 import { type Lang, messages } from "@/lib/i18n";
 import type { Crop, Defaults, District, DistrictShape, Plan, PlanRequest, WeightKey, Weights } from "@/lib/types";
 
@@ -21,10 +22,12 @@ type Props = { lang: Lang; defaults: Defaults; crops: Crop[]; districts: Distric
 function validate(b: Budget) {
   const hectares = Number(b.hectares);
   const cost = Number(b.cost);
+  const dry = Number(b.dry);
   const errors: BudgetErrors = {};
   if (!b.hectares || hectares <= 0 || hectares > 200_000) errors.hectares = true;
   if (!b.cost || cost <= 0 || cost > 50_000_000) errors.cost = true;
-  return { hectares, cost, errors };
+  if (b.dry === "" || dry > 100) errors.dry = true;
+  return { hectares, cost, dry: dry / 100, errors };
 }
 
 function requestKey(r: PlanRequest) {
@@ -38,22 +41,30 @@ export function Planner({ lang, defaults, crops, districts, shapes, initialPlan 
     hectares: String(defaults.remaining_ha),
     cost: String(defaults.cost_per_ha_rwf),
     subsidy: "regular",
+    dry: String(Math.round(defaults.season_c.uptake * 100)),
   });
-  const initialKey = requestKey({
-    weights: defaults.weights,
-    hectares: defaults.remaining_ha,
-    cost_per_ha_rwf: defaults.cost_per_ha_rwf,
-    subsidy_rate: defaults.subsidy_regular,
-  });
+  const initialKey = requestKey(defaultPlanRequest(defaults));
+  const dryYears = Object.values(defaults.season_c.uptake_by_year).map((v) => Math.round(v * 100));
+  const dryRange = {
+    median: Math.round(defaults.season_c.uptake * 100),
+    low: Math.min(...dryYears),
+    high: Math.max(...dryYears),
+  };
   const [result, setResult] = useState({ key: initialKey, plan: initialPlan });
   const [failed, setFailed] = useState(false);
   const [selected, setSelected] = useState(initialPlan.ranking[0].district);
   const [sheetOpen, setSheetOpen] = useState(false);
 
-  const { hectares, cost, errors } = validate(budget);
+  const { hectares, cost, dry, errors } = validate(budget);
   const valid = Object.keys(errors).length === 0;
   const subsidyRate = budget.subsidy === "solar" ? defaults.subsidy_solar : defaults.subsidy_regular;
-  const request: PlanRequest = { weights, hectares, cost_per_ha_rwf: cost, subsidy_rate: subsidyRate };
+  const request: PlanRequest = {
+    weights,
+    hectares,
+    cost_per_ha_rwf: cost,
+    subsidy_rate: subsidyRate,
+    season_c_uptake: dry,
+  };
   const key = requestKey(request);
 
   useEffect(() => {
@@ -98,7 +109,7 @@ export function Planner({ lang, defaults, crops, districts, shapes, initialPlan 
         <Card style={stagger(1)} className="kuhira-rise @min-[58rem]:sticky @min-[58rem]:top-4">
           <CardContent className="grid gap-8">
             <WeightControls lang={lang} weights={weights} onChange={setWeight} />
-            <BudgetControls lang={lang} budget={budget} errors={errors} onChange={setBudget} />
+            <BudgetControls lang={lang} budget={budget} errors={errors} dryRange={dryRange} onChange={setBudget} />
           </CardContent>
         </Card>
 
@@ -128,6 +139,7 @@ export function Planner({ lang, defaults, crops, districts, shapes, initialPlan 
           <RankingTable
             lang={lang}
             rows={plan.allocation.districts}
+            ranking={ranking}
             selected={selected}
             onSelect={(d) => {
               setSelected(d);

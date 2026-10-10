@@ -65,3 +65,12 @@ test("the district field searches by name and by province", async ({ page }) => 
   await page.keyboard.press("Enter");
   await expect(page.getByLabel("District", { exact: true })).toHaveText("Nyanza");
 });
+
+test("the estimate counts a dry-season crop and its faster payback", async ({ page }) => {
+  await page.goto("/en/farmer");
+  await page.getByLabel("Plot size (m²)").fill("1000");
+  await page.getByRole("button", { name: "Calculate" }).click();
+  const dry = page.getByRole("heading", { name: "With a dry-season crop" });
+  await expect(dry).toBeVisible();
+  await expect(page.getByText(/A typical watered dry-season plot of this size harvests about RWF [\d,.]+/)).toBeVisible();
+});

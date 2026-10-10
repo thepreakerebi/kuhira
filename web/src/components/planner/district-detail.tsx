@@ -63,6 +63,10 @@ export function DistrictDetail({ lang, showHeader = true, district, ranked, crop
           ))}
         </dl>
 
+        <p className="text-xs text-muted-foreground">
+          {t.certainty(ranked.rank_low, ranked.rank_high, Math.round(ranked.top_share * 100))}
+        </p>
+
         <section className="grid gap-2">
           <h4 className="text-sm font-semibold">{t.buildUp}</h4>
           <ul className="grid gap-1.5">

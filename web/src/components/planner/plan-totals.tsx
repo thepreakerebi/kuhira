@@ -15,9 +15,10 @@ export function PlanTotals({ lang, totals }: { lang: Lang; totals: Plan["allocat
     [t.public, totals.public_cost_rwf, formatRwf],
     [t.farmers, totals.farmer_cost_rwf, formatRwf],
     [t.harvest, totals.extra_value_rwf_per_year, formatRwf],
+    [t.dry, totals.season_c_value_rwf_per_year, formatRwf],
   ] as const;
   return (
-    <dl className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-3">
+    <dl className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,11.5rem),1fr))] gap-3">
       {items.map(([[label, note], value, format], i) => (
         <section key={label} style={stagger(i)} className="kuhira-rise grid gap-1 rounded-xl bg-card p-4 ring-1 ring-foreground/10">
           <dt className="text-sm text-muted-foreground">{label}</dt>

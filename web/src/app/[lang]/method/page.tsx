@@ -5,7 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { BonusChart } from "@/components/method/bonus-chart";
 import { stagger } from "@/components/motion/stagger";
 import { flushTable, shell } from "@/components/site/page-shell";
-import { getStaticData } from "@/lib/api";
+import { getDefaultPlan, getStaticData } from "@/lib/api";
 import { formatNumber, formatRwf } from "@/lib/format";
 import { isLang, langOrNotFound, messages } from "@/lib/i18n";
 import type { WeightKey } from "@/lib/types";
@@ -37,6 +37,8 @@ async function MethodContent({ params }: { params: Props["params"] }) {
   const m = messages[lang];
   const t = m.method;
   const { crops, defaults } = await getStaticData();
+  const plan = await getDefaultPlan(defaults);
+  const dryYears = Object.values(defaults.season_c.uptake_by_year).map((v) => Math.round(v * 100));
   const beans = crops.find((c) => c.crop === "Beans")!;
   return (
     <section lang={lang} className="grid gap-[clamp(2rem,5vw,3.5rem)]">
@@ -46,7 +48,13 @@ async function MethodContent({ params }: { params: Props["params"] }) {
         <p className="text-[clamp(1rem,0.95rem+0.3vw,1.15rem)] text-muted-foreground">{t.intro}</p>
       </header>
 
-      <section style={stagger(1)} className="kuhira-rise grid gap-5">
+      <section style={stagger(1)} className="kuhira-rise grid gap-3">
+        <h2 className={h2}>{t.why}</h2>
+        <p className={prose}>{t.whyBody}</p>
+        <small className="text-sm text-muted-foreground">{t.whySource}</small>
+      </section>
+
+      <section style={stagger(2)} className="kuhira-rise grid gap-5">
         <h2 className={h2}>{t.s1}</h2>
         <p className={prose}>{t.s1Body}</p>
         <BonusChart lang={lang} crops={crops} />
@@ -56,7 +64,19 @@ async function MethodContent({ params }: { params: Props["params"] }) {
         </aside>
       </section>
 
-      <section style={stagger(2)} className="kuhira-rise grid gap-5">
+      <section style={stagger(3)} className="kuhira-rise grid gap-3">
+        <h2 className={h2}>{t.dry}</h2>
+        <p className={prose}>
+          {t.dryBody(
+            formatRwf(defaults.season_c.value_rwf_per_ha),
+            Math.round(defaults.season_c.uptake * 100),
+            Math.min(...dryYears),
+            Math.max(...dryYears),
+          )}
+        </p>
+      </section>
+
+      <section style={stagger(4)} className="kuhira-rise grid gap-5">
         <h2 className={h2}>{t.s2}</h2>
         <Table className={`${flushTable} [&_td]:align-top [&_td]:whitespace-normal [&_th]:whitespace-normal`}>
           <TableHeader>
@@ -86,7 +106,35 @@ async function MethodContent({ params }: { params: Props["params"] }) {
         </p>
       </section>
 
-      <section style={stagger(3)} className="kuhira-rise grid gap-4">
+      <section style={stagger(5)} className="kuhira-rise grid gap-4">
+        <h2 className={h2}>{t.sure}</h2>
+        <p className={prose}>{t.sureBody}</p>
+        <Table className={`${flushTable} max-w-3xl`}>
+          <TableHeader>
+            <TableRow>
+              {t.sureHead.map((h, i) => (
+                <TableHead key={h} className={i > 1 ? "text-right" : undefined}>
+                  {h}
+                </TableHead>
+              ))}
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {plan.ranking.slice(0, 5).map((r) => (
+              <TableRow key={r.district}>
+                <TableCell className="font-mono">{r.rank}</TableCell>
+                <TableCell className="font-medium">{r.district}</TableCell>
+                <TableCell className="text-right font-mono">
+                  {r.rank_low}–{r.rank_high}
+                </TableCell>
+                <TableCell className="text-right font-mono">{Math.round(r.top_share * 100)}%</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </section>
+
+      <section style={stagger(6)} className="kuhira-rise grid gap-4">
         <h2 className={h2}>{t.s3}</h2>
         <ul className={`${prose} list-disc pl-5`}>
           {t.limits.map((l) => (
@@ -95,7 +143,7 @@ async function MethodContent({ params }: { params: Props["params"] }) {
         </ul>
       </section>
 
-      <section style={stagger(4)} className="kuhira-rise grid gap-4">
+      <section style={stagger(7)} className="kuhira-rise grid gap-4">
         <h2 className={h2}>{t.s4}</h2>
         <ul className="grid max-w-3xl gap-3">
           {SOURCES.map(([name, href], i) => (

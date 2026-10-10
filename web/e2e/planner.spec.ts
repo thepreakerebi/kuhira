@@ -133,3 +133,22 @@ test.describe("with reduced motion", () => {
     expect(frames).toEqual(["RWF 9.0 bn", "RWF 13.5 bn"]);
   });
 });
+
+test("the dry-season share drives the dry-season harvest total", async ({ page }) => {
+  await page.goto("/en");
+  const dry = page.locator("dl dd data").nth(4);
+  await expect(dry).not.toHaveText("RWF 0");
+  const field = page.getByLabel("Kit land farmed in the dry season (%)");
+  await expect(field).toHaveValue(/^\d+$/);
+  await field.fill("0");
+  await expect(dry).toHaveText("RWF 0");
+  await field.fill("150");
+  await expect(page.getByText("Enter 0 to 100")).toBeVisible();
+});
+
+test("each district shows how firmly it holds its rank", async ({ page }) => {
+  await page.goto("/en");
+  const top = page.getByRole("table").getByRole("row").nth(1);
+  await expect(top.getByRole("cell").nth(2)).toHaveText(/^1–\d+$/);
+  await expect(page.getByText(/^Ranks \d+–\d+ in 90% of 300 simulations/).first()).toBeVisible();
+});

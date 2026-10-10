@@ -89,12 +89,18 @@ export const rw: Messages = {
       hectares: ["Hegitari zashyizweho", "Mu turere twose 30."],
       public: ["Amafaranga ya Leta", "Nkunganire ku bikoresho."],
       farmers: ["Uruhare rw'abahinzi", "Ibyo abahinzi bishyura ubwabo."],
-      harvest: ["Umusaruro wiyongera ku mwaka", "Inyongera y'umusaruro gusa, ibihembwe A na B. Ni ibya make."],
+      harvest: ["Inyongera y'umusaruro ku mwaka", "Ibihembwe A na B, ku bihingwa by'ubu."],
+      dry: ["Umusaruro w'impeshyi ku mwaka", "Igihembwe C, mbere y'imbuto, ifumbire n'umurimo."],
     },
+    dry: "Ubuso bw'ibikoresho buhingwa mu mpeshyi (%)",
+    dryHelp: (median: number, lo: number, hi: number) => `Impuzandengo y'ibarura ${median}% (2020–2025: ${lo}–${hi}%).`,
+    dryError: "Andika hagati ya 0 na 100",
+    certainty: (lo: number, hi: number, share: number) =>
+      `Umwanya ${lo}–${hi} muri 90% by'igerageza 300; mu icumi ba mbere muri ${share}% byabyo.`,
     sheet: { previous: "Ibanziriza", next: "Ikurikira", close: "Funga", position: (rank: number, n: number) => `${rank} muri ${n}` },
     rankingTitle: "Urutonde na hegitari",
     rankingBody: "Hegitari zikurikiza amanota × ubuso bw'imirima mito, bityo amanota angana ahabwa igice kingana cy'ubutaka bwabo.",
-    columns: { district: "Akarere", score: "Amanota", hectares: "Hegitari", publicCost: "Amafaranga ya Leta", harvest: "Umusaruro wiyongera / umwaka" },
+    columns: { district: "Akarere", score: "Amanota", hectares: "Hegitari", publicCost: "Amafaranga ya Leta", harvest: "Umusaruro wiyongera / umwaka", range: "Umwanya ushoboka" },
   },
 
   farmer: {
@@ -135,6 +141,10 @@ export const rw: Messages = {
     lossNote:
       "Mu ibarura, imirima y'ibishyimbo yuhirwa yeza make kurusha ituhirwa. Ayo mazi yakoreshwa ku bigori, imboga cyangwa ibijumba.",
     zeroNote: "Ibarura ntirigaragaza inyungu igaragara yo kuhira iki gihingwa.",
+    dryTitle: "Uhinze no mu mpeshyi",
+    dryBody: "Amazi agufasha no guhinga kuva muri Kamena kugeza muri Kanama. Umurima wuhirwa ungana utya weza nk'",
+    dryNote:
+      "Agaciro k'umusaruro mbere y'imbuto, ifumbire n'umurimo, gashingiye ku mirima yuhirwa mu gihembwe C mu ibarura (cyane cyane imboga n'ibirayi). Igihe cyo kwishyura kibara ibihembwe A, B na C bikurikirana.",
     basis: "Bishingiye ku ibarura ry'ubuhinzi rya NISR 2020–2025 n'ibiciro byo ku isoko. Ibihembwe A na B gusa.",
     error: "Ntibyakunze. Reba interineti yawe.",
   },
@@ -145,7 +155,18 @@ export const rw: Messages = {
     title: "Uko Kuhira ifata icyemezo",
     intro:
       "Ikibazo kimwe ni cyo kiyobora byose: ku bihingwa abahinzi bato basanzwe bahinga, umurima wuhiwe weza angahe kurusha utuhiwe?",
-    s1: "1 · Inyongera y'amazi, ipimwe",
+    why: "1 · Impamvu bifite akamaro",
+    whyBody:
+      "NST2 ikurikirana \"ubuso bwuhirwa\" mu nkingi y'Iterambere ry'Ubukungu (umusaruro: ubuhinzi bugezweho n'umusaruro mwinshi). Mu mwaka wa 2024/25 bwageze kuri ha 74,375 mu ntego ya ha 76,686. Kuhira imirima mito, igice Kuhira itegura, igeze kuri ha 27,663 muri ha 41,031 za PSTA5, kandi umwaka ushize hiyongereyeho ha 1,462 gusa. Umusaruro w'ibishyimbo nawo ntiwageze ku ntego ya NST2 (0.7 mu ntego ya 0.8 t/ha), kandi ibarura ryerekana ko amazi adafasha ibishyimbo, bityo aho ibikoresho bijya ni ingenzi nk'umubare wabyo.",
+    whySource: "Isoko: Raporo y'umwaka ya MINAGRI 2024/25, p. 11 na Umugereka wa 8 (p. 107).",
+    dry: "3 · Impeshyi",
+    dryBody: (value: string, uptake: number, lo: number, hi: number) =>
+      `Kuva muri Kamena kugeza muri Kanama ubutaka bwinshi ntibuhingwa, kandi ibikoresho byo kuhira bituma umuhinzi abona undi musaruro wose. Mu makuru y'igihembwe C y'ibarura, hegitari yuhirwa yeza agaciro ka ${value} (impuzandengo), cyane cyane imboga n'ibirayi: birenze cyane inyongera y'umusaruro mu bihembwe A na B. Ubuso bwuhirwa mu gihembwe C bungana na ${uptake}% by'ubuso bwuhirwa muri A/B (impuzandengo ya 2020–2025; hagati ya ${lo}–${hi}%), bityo igenamigambi ribara icyo gice cya hegitari nshya nk'izihingwa mu mpeshyi, kandi ushobora kugihindura. Ni agaciro k'umusaruro mbere y'imbuto, ifumbire n'umurimo. Ni umubare umwe w'igihugu, bityo wongera uturere twose kimwe kandi ntuhindura urutonde.`,
+    sure: "5 · Urutonde rwizewe ku ruhe rugero?",
+    sureBody:
+      "Inyongera z'amazi ni ibigereranyo bifite ukwibeshya. Kuhira yongera gutondeka uturere inshuro 300, buri gihe ifata inyongera zibarwa mu rugero rw'ukwibeshya kwazo, ikerekana imyanya buri karere gafata muri 90% by'igerageza. Imyanya ifunganye irizewe, imigari isomwe nk'icyiciro. Kubara n'ibihingwa ibarura ridatandukanya na zeru (ibirayi, umuceri) bihindura imyanya imwe yo hagati; notebook 06 irabigaragaza.",
+    sureHead: ["Umwanya", "Akarere", "Imyanya muri 90%", "Mu icumi ba mbere"],
+    s1: "2 · Inyongera y'amazi, ipimwe",
     s1Body:
       "Kuri buri gihingwa tugereranya imirima yuhirwa n'ituhirwa y'igihingwa kimwe, mu karere kamwe no mu gihembwe kimwe, ku buryo imvura, ibiciro n'ibyonnyi byo muri ako gace bivanwamo. Icyitegererezo kandi kizirikana ifumbire, imbuto z'indobanure, ubuso bw'umurima n'umubare w'ibihingwa biri mu murima. Abahinzi bato gusa.",
     chartCaption: (irrigated: string, all: string) =>
@@ -154,7 +175,7 @@ export const rw: Messages = {
     beansTitle: (pct: string) => `Ibishyimbo bitakaza ${pct}% iyo byuhiwe`,
     beansBody: (lo: number, hi: number) =>
       `Imirima y'ibishyimbo yuhirwa yeza make kurusha ituhirwa (icyizere cya 95%: ${lo}% kugeza ${hi}%). Impamvu ishoboka: imirima yuhirwa iri mu bishanga, aho ibishyimbo byangizwa n'amazi menshi n'indwara. Kubara ibi bigabanya kabiri inyungu y'amazi ya Ngoma ihinga ibishyimbo byinshi, bityo Kuhira ntihemba uturere kubera gusa ko dufite ubutaka.`,
-    s2: "2 · Kuva ku bihingwa kugera ku manota y'akarere",
+    s2: "4 · Kuva ku bihingwa kugera ku manota y'akarere",
     tableHead: ["Igipimo", "Uko gipimwa", "Uburemere busanzwe"],
     measures: {
       gain: "Σ igice cy'igihingwa × umusaruro utuhiye × inyongera y'amazi × igiciro ku murima, kuri ha yuhirwa",
@@ -164,15 +185,16 @@ export const rw: Messages = {
     },
     s2Body: (ha: string, cost: string, subsidy: number, publicCost: string) =>
       `Buri gipimo gishyirwa hagati ya 0 na 1 mu turere 30, hanyuma kigahabwa uburemere bigakora amanota kuva kuri 0 kugeza kuri 100. Inyongera zitandukanye na zeru ku buryo bugaragara (p < 0.05) ni zo zonyine zibarwa. Hegitari zigabanywa hakurikijwe amanota × ubuso bw'imirima mito. Kuri ha ${ha} ku giciro cya ${cost} kuri hegitari na nkunganire ya ${subsidy}%, uruhare rwa Leta ni nka ${publicCost}.`,
-    s3: "3 · Ibyo ibi bidashobora kukubwira",
+    s3: "6 · Ibyo ibi bidashobora kukubwira",
     limits: [
       "Inyongera y'amazi igereranya abahinzi buhira n'abatuhira. Ibipimo bikuraho itandukaniro rigaragara, ariko abuhira bashobora gutandukana mu bumenyi, ubutaka cyangwa uburyo bwo kubona amazi. Yisome nk'inyungu umuhinzi muto wuhira akunze kubona, si igerageza rigenzuwe.",
       "Ibarura rigera ku rwego rw'akarere gusa, bityo inyongera ibarwa kuri buri gihingwa hanyuma ikajyanwa mu turere hakurikijwe ibyo bahinga. Uturere ntitugira inyongera yatwo bwite: tumwe dufite imirima yuhirwa nk'icumi gusa.",
       "Igihombo cy'ibishyimbo ni kibi ku mpuzandengo ariko nta cyo cyari cyo muri 2022–23, bityo ingano yacyo yitonderwe.",
-      "Inyungu zibara ibihembwe A na B ku bihingwa by'ubu gusa. Umusaruro w'igihembwe C kuhira bituma ushoboka, no guhinga imboga, ntibibarwa, bityo inyungu z'amafaranga ni iza make.",
+      "Umusaruro w'impeshyi ni agaciro mbere y'imbuto, ifumbire n'umurimo, kandi igice cy'ubutaka bw'ibikoresho gihingwa icyo gihe cyahindutse kuva kuri 5% kugeza kuri 101% mu myaka y'ibarura; igenamigambi rikwemerera kugihindura. Guhinga imboga mu bihembwe by'ingenzi ntibibarwa.",
       "Igiciro cy'ibikoresho kuri hegitari ni icya 2019 kugeza igihe abakozi b'uturere batanze igiciro cy'ubu. Ibiciro ni impuzandengo z'igihugu zo mu ibarura.",
+      "Imyanya ishoboka igaragaza gusa ukwibeshya ku nyongera z'amazi, si ku mvura, ubukene cyangwa ibiciro.",
     ],
-    s4: "4 · Amakuru",
+    s4: "7 · Amakuru",
     sources: [
       "Ibihingwa, umusaruro, ubuso, kuhira, ifumbire, imbuto, ibiciro ku murima. Ibihembwe A na B, ibihembwe 12, inyandiko ~450,000.",
       "Ibipimo by'ubukene by'uturere.",
