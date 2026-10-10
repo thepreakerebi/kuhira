@@ -11,7 +11,7 @@ export default function PageError({ error, retry }: { error: Error & { digest?: 
   }, [error]);
 
   return (
-    <main className={`${shell} grid justify-items-center py-[clamp(3rem,10vw,7rem)]`}>
+    <article className={`${shell} grid justify-items-center py-[clamp(3rem,10vw,7rem)]`}>
       <EmptyState
         icon="fluent-emoji:droplet"
         iconLabel="Data unavailable"
@@ -19,6 +19,6 @@ export default function PageError({ error, retry }: { error: Error & { digest?: 
         description="Check your connection and try again."
       />
       <Button onClick={retry}>Try again</Button>
-    </main>
+    </article>
   );
 }

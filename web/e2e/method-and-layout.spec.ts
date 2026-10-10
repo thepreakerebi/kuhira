@@ -14,7 +14,10 @@ for (const width of [320, 768, 1920]) {
     for (const path of ["/", "/farmer/rw", "/method"]) {
       await page.goto(path);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      const overflow = await page.evaluate(() => {
+        const content = document.getElementById("content")!;
+        return Math.max(document.documentElement.scrollWidth - window.innerWidth, content.scrollWidth - content.clientWidth);
+      });
       expect(overflow, path).toBeLessThanOrEqual(0);
     }
   });
@@ -26,4 +29,18 @@ test("navigation marks the current page", async ({ page }) => {
     "aria-current",
     "page",
   );
+});
+
+test("the top bar stays in place while the content scrolls", async ({ page }) => {
+  await page.goto("/");
+  const box = page.getByRole("table");
+  await box.scrollIntoViewIfNeeded();
+  const state = await page.evaluate(() => ({
+    window: window.scrollY,
+    content: document.getElementById("content")!.scrollTop,
+    header: document.querySelector("header")!.getBoundingClientRect().top,
+  }));
+  expect(state.content).toBeGreaterThan(0);
+  expect(state.window).toBe(0);
+  expect(state.header).toBe(0);
 });

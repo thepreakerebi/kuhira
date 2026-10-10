@@ -44,10 +44,10 @@ async function FarmerContent({ params }: { params: PageProps<"/farmer/[lang]">["
 
 export default function FarmerPage({ params }: PageProps<"/farmer/[lang]">) {
   return (
-    <main className={`${shell} max-w-5xl py-[clamp(1.5rem,4vw,3.5rem)]`}>
+    <article className={`${shell} max-w-5xl py-[clamp(1.5rem,4vw,3.5rem)]`}>
       <Suspense fallback={<FarmerSkeleton />}>
         <FarmerContent params={params} />
       </Suspense>
-    </main>
+    </article>
   );
 }

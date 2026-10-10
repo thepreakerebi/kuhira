@@ -4,7 +4,7 @@ import { shell } from "@/components/site/page-shell";
 
 export function SiteHeader() {
   return (
-    <header className="border-b bg-card">
+    <header className="z-10 border-b bg-card">
       <nav aria-label="Main" className={`${shell} flex flex-wrap items-center justify-between gap-x-6 gap-y-2 py-3`}>
         <Link href="/" className="flex items-center gap-2 font-heading text-xl font-bold tracking-tight">
           <svg aria-hidden viewBox="0 0 24 24" className="size-6">

@@ -24,11 +24,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-dvh flex-col" suppressHydrationWarning>
+      <body className="grid h-dvh grid-rows-[auto_minmax(0,1fr)] overflow-hidden" suppressHydrationWarning>
         <TooltipProvider>
           <SiteHeader />
-          {children}
-          <SiteFooter />
+          {/* The top bar stays put; only this region scrolls. */}
+          <main id="content" className="flex flex-col overflow-y-auto overscroll-y-contain [scrollbar-gutter:stable]">
+            {children}
+            <SiteFooter />
+          </main>
         </TooltipProvider>
       </body>
     </html>

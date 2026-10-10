@@ -126,7 +126,7 @@ async function MethodData() {
 
 export default function MethodPage() {
   return (
-    <main className={`${shell} grid gap-[clamp(2rem,5vw,3.5rem)] py-[clamp(1.5rem,4vw,3.5rem)]`}>
+    <article className={`${shell} grid gap-[clamp(2rem,5vw,3.5rem)] py-[clamp(1.5rem,4vw,3.5rem)]`}>
       <header className="grid max-w-3xl gap-3">
         <p className="font-mono text-xs font-medium tracking-widest text-primary-strong uppercase">Method</p>
         <h1 className="text-[clamp(1.9rem,1.2rem+3vw,3.2rem)] leading-tight font-bold">How Kuhira decides</h1>
@@ -145,6 +145,6 @@ export default function MethodPage() {
       >
         <MethodData />
       </Suspense>
-    </main>
+    </article>
   );
 }

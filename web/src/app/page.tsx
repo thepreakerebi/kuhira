@@ -18,10 +18,10 @@ async function PlannerData() {
 
 export default function Home() {
   return (
-    <main className={`${shell} grid gap-[clamp(1.5rem,4vw,3rem)] py-[clamp(1.5rem,4vw,3.5rem)]`}>
+    <article className={`${shell} grid gap-[clamp(1.5rem,4vw,3rem)] py-[clamp(1.5rem,4vw,3.5rem)]`}>
       <Suspense fallback={<PlannerSkeleton />}>
         <PlannerData />
       </Suspense>
-    </main>
+    </article>
   );
 }
