@@ -72,3 +72,38 @@ test("a failed update says what to do", async ({ page }) => {
     "Couldn't update the plan. Check your connection.",
   );
 });
+
+/** Every distinct text painted in the public-cost total, sampled each animation frame. */
+async function paintedPublicCost(page: import("@playwright/test").Page, act: () => Promise<void>) {
+  await page.evaluate(() => {
+    const el = document.querySelectorAll("dl dd data")[1];
+    const w = window as unknown as { __frames: string[] };
+    w.__frames = [];
+    const tick = () => {
+      if (w.__frames.at(-1) !== el.textContent) w.__frames.push(el.textContent ?? "");
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+  await act();
+  await expect(page.locator("dl dd data").nth(1)).toHaveText("RWF 13.5 bn");
+  await page.waitForTimeout(700);
+  return page.evaluate(() => (window as unknown as { __frames: string[] }).__frames);
+}
+
+test("totals count up to the new value without flashing it first", async ({ page }) => {
+  await page.goto("/en");
+  const frames = await paintedPublicCost(page, () => page.getByRole("radio", { name: "Solar 75%" }).click());
+  expect(frames.length).toBeGreaterThan(4); // it counted, not jumped
+  expect(frames.indexOf("RWF 13.5 bn")).toBe(frames.length - 1); // the final value appears only at the end
+});
+
+test.describe("with reduced motion", () => {
+  test.use({ reducedMotion: "reduce" });
+
+  test("totals jump straight to the new value", async ({ page }) => {
+    await page.goto("/en");
+    const frames = await paintedPublicCost(page, () => page.getByRole("radio", { name: "Solar 75%" }).click());
+    expect(frames).toEqual(["RWF 9.0 bn", "RWF 13.5 bn"]);
+  });
+});

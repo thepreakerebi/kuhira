@@ -114,3 +114,31 @@
   background: var(--primary-strong);
   border-radius: 999px;
 }
+
+/* Entrances run on CSS keyframes so they finish even in a background tab. --i staggers siblings. */
+@keyframes kuhira-rise {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+}
+.kuhira-rise {
+  animation: kuhira-rise 320ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+@keyframes kuhira-grow {
+  from {
+    scale: 0 1;
+  }
+}
+.kuhira-grow {
+  transform-box: fill-box;
+  transform-origin: left;
+  animation: kuhira-grow 600ms cubic-bezier(0.2, 0.7, 0.2, 1) 150ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kuhira-rise,
+  .kuhira-grow {
+    animation: none;
+  }
+}

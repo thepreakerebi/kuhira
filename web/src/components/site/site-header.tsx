@@ -1,13 +1,27 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { shell } from "@/components/site/page-shell";
 import { langFromPath, LANGS, messages, switchLangPath } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
-const link = "rounded-md px-[clamp(0.5rem,1.2vw,0.75rem)] py-1.5 font-medium transition-colors hover:bg-muted";
-const current = "bg-secondary text-secondary-foreground hover:bg-secondary";
+const link = "relative isolate block rounded-md px-[clamp(0.5rem,1.2vw,0.75rem)] py-1.5 font-medium transition-colors";
+const current = "text-secondary-foreground";
+
+/** The active background, shared between links so it glides to the one just chosen. */
+function Pill({ id }: { id: string }) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.i
+      aria-hidden
+      layoutId={id}
+      transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 34 }}
+      className="absolute inset-0 -z-10 rounded-md bg-secondary"
+    />
+  );
+}
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -32,7 +46,12 @@ export function SiteHeader() {
             <ul className="flex items-center gap-1">
               {pages.map((p) => (
                 <li key={p.href}>
-                  <Link href={p.href} aria-current={p.active ? "page" : undefined} className={cn(link, p.active && current)}>
+                  <Link
+                    href={p.href}
+                    aria-current={p.active ? "page" : undefined}
+                    className={cn(link, p.active ? current : "hover:bg-muted")}
+                  >
+                    {p.active ? <Pill id="nav-pill" /> : null}
                     {p.label}
                   </Link>
                 </li>
@@ -49,8 +68,12 @@ export function SiteHeader() {
                     lang={l}
                     aria-current={l === lang ? "true" : undefined}
                     title={messages[l].langName}
-                    className={cn("block rounded-md px-2.5 py-1 font-mono text-xs font-medium", l === lang ? current : "text-muted-foreground hover:text-foreground")}
+                    className={cn(
+                      "relative isolate block rounded-md px-2.5 py-1 font-mono text-xs font-medium transition-colors",
+                      l === lang ? current : "text-muted-foreground hover:text-foreground",
+                    )}
                   >
+                    {l === lang ? <Pill id="lang-pill" /> : null}
                     {messages[l].short}
                   </Link>
                 </li>

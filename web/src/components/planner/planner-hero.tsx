@@ -9,7 +9,7 @@ export function PlannerHero({ lang, defaults }: { lang: Lang; defaults: Defaults
   const years = Math.ceil(defaults.remaining_ha / PACE_HA_PER_YEAR);
   const built = defaults.actual_ha / defaults.target_ha;
   return (
-    <header className="grid gap-4">
+    <header className="kuhira-rise grid gap-4">
       <p className="font-mono text-xs font-medium tracking-widest text-primary-strong uppercase">{t.eyebrow}</p>
       <h1 className="max-w-4xl text-[clamp(1.9rem,1.2rem+3vw,3.4rem)] leading-[1.05] font-bold">
         {t.title(defaults.remaining_ha)}

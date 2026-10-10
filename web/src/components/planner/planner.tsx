@@ -10,6 +10,7 @@ import { DistrictMap } from "@/components/planner/district-map";
 import { PlanTotals } from "@/components/planner/plan-totals";
 import { RankingTable } from "@/components/planner/ranking-table";
 import { WeightControls } from "@/components/planner/weight-controls";
+import { stagger } from "@/components/motion/stagger";
 import { postJson } from "@/lib/api-url";
 import { type Lang, messages } from "@/lib/i18n";
 import type { Crop, Defaults, District, DistrictShape, Plan, PlanRequest, WeightKey, Weights } from "@/lib/types";
@@ -77,6 +78,8 @@ export function Planner({ lang, defaults, crops, districts, shapes, initialPlan 
   const districtMap = useMemo(() => new Map(districts.map((d) => [d.district, d])), [districts]);
   const cropMap = useMemo(() => new Map(crops.map((c) => [c.crop, c])), [crops]);
   const stale = key !== result.key;
+  // Results dim while a new plan is on its way, so a slow API never shows stale numbers as current.
+  const freshness = `transition-opacity duration-200 ${stale && valid ? "opacity-60" : ""}`;
 
   const setWeight = (k: WeightKey, v: number) => setWeights((w) => ({ ...w, [k]: v }));
 
@@ -90,14 +93,14 @@ export function Planner({ lang, defaults, crops, districts, shapes, initialPlan 
       ) : null}
 
       <section className="grid items-start gap-[clamp(1rem,2.5vw,1.75rem)] @min-[58rem]:grid-cols-[minmax(17rem,21rem)_minmax(0,1fr)]">
-        <Card className="@min-[58rem]:sticky @min-[58rem]:top-4">
+        <Card style={stagger(1)} className="kuhira-rise @min-[58rem]:sticky @min-[58rem]:top-4">
           <CardContent className="grid gap-8">
             <WeightControls lang={lang} weights={weights} onChange={setWeight} />
             <BudgetControls lang={lang} budget={budget} errors={errors} onChange={setBudget} />
           </CardContent>
         </Card>
 
-        <Card>
+        <Card style={stagger(2)} className={`kuhira-rise ${freshness}`}>
           <CardContent className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),1fr))] gap-[clamp(1rem,3vw,2rem)]">
             <DistrictMap lang={lang} shapes={shapes} ranking={ranking} selected={selected} onSelect={setSelected} />
             <DistrictDetail
@@ -110,9 +113,11 @@ export function Planner({ lang, defaults, crops, districts, shapes, initialPlan 
         </Card>
       </section>
 
-      <PlanTotals lang={lang} totals={plan.allocation.totals} />
+      <section className={freshness}>
+        <PlanTotals lang={lang} totals={plan.allocation.totals} />
+      </section>
 
-      <Card>
+      <Card style={stagger(4)} className={`kuhira-rise ${freshness}`}>
         <CardContent className="grid gap-3">
           <header className="grid gap-1">
             <h2 className="text-xl font-semibold">{t.rankingTitle}</h2>

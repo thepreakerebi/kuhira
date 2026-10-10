@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { flushTable } from "@/components/site/page-shell";
 import { scoreColor } from "@/lib/color";
@@ -9,7 +10,11 @@ import type { Allocation } from "@/lib/types";
 
 type Props = { lang: Lang; rows: Allocation[]; selected: string; onSelect: (d: string) => void };
 
+// Rows glide to their new rank when the weights change.
+const MotionRow = motion.create(TableRow);
+
 export function RankingTable({ lang, rows, selected, onSelect }: Props) {
+  const reduce = useReducedMotion();
   const t = messages[lang].planner;
   return (
     <Table className={`min-w-[40rem] ${flushTable}`}>
@@ -25,8 +30,10 @@ export function RankingTable({ lang, rows, selected, onSelect }: Props) {
       </TableHeader>
       <TableBody>
         {rows.map((r) => (
-          <TableRow
+          <MotionRow
             key={r.district}
+            layout={reduce ? false : "position"}
+            transition={{ type: "spring", stiffness: 520, damping: 42 }}
             data-state={r.district === selected ? "selected" : undefined}
             className="cursor-pointer data-[state=selected]:bg-accent"
             onClick={() => onSelect(r.district)}
@@ -47,13 +54,19 @@ export function RankingTable({ lang, rows, selected, onSelect }: Props) {
             <TableCell>
               <svg viewBox="0 0 100 8" preserveAspectRatio="none" className="h-2 w-full" aria-label={`${t.score} ${r.score}`}>
                 <rect width="100" height="8" rx="4" fill="#efeee6" />
-                <rect width={Math.max(r.score, 2)} height="8" rx="4" fill={scoreColor(r.score)} />
+                <motion.rect
+                  initial={false}
+                  animate={{ width: Math.max(r.score, 2), fill: scoreColor(r.score) }}
+                  transition={{ duration: reduce ? 0 : 0.35, ease: "easeOut" }}
+                  height="8"
+                  rx="4"
+                />
               </svg>
             </TableCell>
             <TableCell className="text-right font-mono tabular-nums">{formatNumber(r.hectares)}</TableCell>
             <TableCell className="text-right font-mono tabular-nums">{formatRwf(r.public_cost_rwf)}</TableCell>
             <TableCell className="text-right font-mono tabular-nums">{formatRwf(r.extra_value_rwf_per_year)}</TableCell>
-          </TableRow>
+          </MotionRow>
         ))}
       </TableBody>
     </Table>

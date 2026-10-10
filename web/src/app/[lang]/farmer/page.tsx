@@ -19,7 +19,7 @@ async function FarmerContent({ params }: { params: Props["params"] }) {
   const { defaults, crops, districts } = await getStaticData();
   return (
     <section lang={lang} className="grid gap-[clamp(1.25rem,3vw,2.25rem)]">
-      <header className="grid gap-3">
+      <header className="kuhira-rise grid gap-3">
         <h1 className="text-[clamp(1.8rem,1.2rem+2.6vw,3rem)] leading-tight font-bold">{t.title}</h1>
         <p className="max-w-2xl text-[clamp(1rem,0.95rem+0.3vw,1.15rem)] text-muted-foreground">{t.intro}</p>
       </header>

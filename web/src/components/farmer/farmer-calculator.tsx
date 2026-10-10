@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { FarmerResult } from "@/components/farmer/farmer-result";
 import { ChoiceGroup } from "@/components/site/choice-group";
 import { Field, NumberField } from "@/components/site/field";
+import { stagger } from "@/components/motion/stagger";
 import { postJson } from "@/lib/api-url";
 import { cropName, type Lang, messages } from "@/lib/i18n";
 import type { Crop, Defaults, District, FarmerEstimate, FarmerRequest } from "@/lib/types";
@@ -78,7 +79,7 @@ export function FarmerCalculator({ lang, defaults, crops, districts }: Props) {
   const modelled = crops.filter((c) => c.bonus_pct !== null);
   return (
     <section className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,20rem),1fr))] items-start gap-[clamp(1rem,2.5vw,1.75rem)]">
-      <Card>
+      <Card style={stagger(1)} className="kuhira-rise">
         <CardContent>
           <form onSubmit={submit} noValidate className="grid gap-5">
             <Field id="district" label={t.district} help={t.districtHelp}>
@@ -111,7 +112,7 @@ export function FarmerCalculator({ lang, defaults, crops, districts }: Props) {
         </CardContent>
       </Card>
 
-      <section className="grid gap-4" aria-live="polite">
+      <section style={stagger(2)} className="kuhira-rise grid gap-4" aria-live="polite">
         {failed ? (
           <Alert variant="destructive">
             <AlertCircle />
