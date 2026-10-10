@@ -23,7 +23,7 @@ export function NavLinks() {
               aria-current={active ? "page" : undefined}
               className={cn(
                 "rounded-md px-3 py-1.5 font-medium transition-colors hover:bg-muted",
-                active && "bg-primary text-primary-foreground hover:bg-primary",
+                active && "bg-secondary text-secondary-foreground hover:bg-secondary",
               )}
             >
               {l.label}

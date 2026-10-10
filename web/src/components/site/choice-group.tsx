@@ -22,7 +22,7 @@ export function ChoiceGroup<T extends string>({ id, value, options, onChange }: 
       className="flex w-full flex-wrap"
     >
       {options.map((o) => (
-        <ToggleGroupItem key={o.value} value={o.value} className="h-auto min-h-9 flex-1 py-1.5 whitespace-normal data-[state=on]:bg-primary">
+        <ToggleGroupItem key={o.value} value={o.value} className="h-auto min-h-9 flex-1 py-1.5 whitespace-normal data-[state=on]:border-water/40 data-[state=on]:bg-secondary data-[state=on]:text-secondary-foreground">
           {o.label}
         </ToggleGroupItem>
       ))}
