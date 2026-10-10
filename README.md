@@ -20,7 +20,9 @@ crop. It then ranks the 30 districts and splits the remaining hectares between t
   when the kit pays for itself.
 
 Built for the **NISR Big Data Hackathon 2026, Track 1: Agricultural Productivity**, whose hints list small-scale
-irrigation first. It serves NST2's economic transformation pillar through PSTA5's small-scale irrigation target.
+irrigation first. NST2 tracks "area under irrigation" under its Economic Transformation pillar: in FY2024/25 it
+reached 74,375 ha against a target of 76,686 ha, and bean yields missed their target too (0.7 against 0.8 t/ha)
+(MINAGRI Annual Report FY2024/25, Annex 8).
 
 ## What the data says
 
@@ -40,12 +42,21 @@ same crop are compared within the same district and season:
 Irrigated bean plots harvest *less*. Counting that halves the water gain of bean-heavy Ngoma. A blanket
 "irrigation raises yields" rule would overrate such districts.
 
+**The dry season is where the money is.** In the survey's Season C (June–August) data, a watered hectare harvests a
+median **RWF 1.57 M** (mostly vegetables and Irish potato), against RWF 30–50 thousand per hectare per season from
+the A/B yield bonus. Watered Season C land equals about 43% of watered A/B land, so the default plan's 13,368 ha add
+about **RWF 9 bn a year** of dry-season harvest (before seed, fertilizer and labour) on top of RWF 0.8 bn of yield gain.
+
+**How sure is the ranking?** Re-ranking 300 times with each water bonus drawn from its uncertainty, Nyamagabe ranks
+1–2 and Nyaruguru 2–4 in 90% of runs, and the top five stay in the top ten 99% of the time. The app shows every
+district's range.
+
 The full method, robustness checks and limits are in the notebooks and on the app's **Method** page.
 
 ## How it is built
 
 ```
-notebooks/   01 harmonize SAS · 02 EDA · 03 water bonus model · 04 rainfall & poverty · 05 district scores
+notebooks/   01 harmonize SAS · 02 EDA · 03 water bonus · 04 rainfall & poverty · 05 dry season · 06 district scores
 src/kuhira/  survey harmonizer, model, aggregates, rainfall, scoring/planning, FastAPI app
 data/        external/ (CHIRPS, boundaries, EICV7) and processed/ (aggregates the API serves)
 web/         Next.js 16 + Tailwind CSS 4 + shadcn/ui on Bun
@@ -72,9 +83,9 @@ bun run dev              # starts the API on :8000 and the web app on :3000 toge
 Tests:
 
 ```bash
-uv run pytest                 # 43 Python unit and API tests
+uv run pytest                 # 57 Python unit and API tests
 cd web && bun run test        # 15 web unit tests
-bun run test:e2e              # 48 Playwright tests, desktop + phone; starts the API and a production build itself
+bun run test:e2e              # 56 Playwright tests, desktop + phone; starts the API and a production build itself
 ```
 
 ## Data and licences

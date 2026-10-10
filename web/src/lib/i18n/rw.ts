@@ -145,7 +145,7 @@ export const rw: Messages = {
     dryBody: "Amazi agufasha no guhinga kuva muri Kamena kugeza muri Kanama. Umurima wuhirwa ungana utya weza nk'",
     dryNote:
       "Agaciro k'umusaruro mbere y'imbuto, ifumbire n'umurimo, gashingiye ku mirima yuhirwa mu gihembwe C mu ibarura (cyane cyane imboga n'ibirayi). Igihe cyo kwishyura kibara ibihembwe A, B na C bikurikirana.",
-    basis: "Bishingiye ku ibarura ry'ubuhinzi rya NISR 2020–2025 n'ibiciro byo ku isoko. Ibihembwe A na B gusa.",
+    basis: "Bishingiye ku ibarura ry'ubuhinzi rya NISR 2020–2025 n'ibiciro byo ku isoko. Imibare ine yo hejuru ireba ibihembwe A na B.",
     error: "Ntibyakunze. Reba interineti yawe.",
   },
 
@@ -205,6 +205,6 @@ export const rw: Messages = {
       "Ibiciro by'ibikoresho n'igiciro cya ~$1,500 kuri hegitari.",
     ],
     reproduce:
-      "Amakuru y'ibanze y'ibarura ntashobora gusangizwa abandi, bityo ububiko bufite gusa imibare ihurijwe hamwe porogaramu ikoresha. Buri mubare hano ushobora kongera kubarwa ukoresheje notebooks eshanu ziri mu bubiko, umaze gukura amakuru rusange kuri NISR.",
+      "Amakuru y'ibanze y'ibarura ntashobora gusangizwa abandi, bityo ububiko bufite gusa imibare ihurijwe hamwe porogaramu ikoresha. Buri mubare hano ushobora kongera kubarwa ukoresheje notebooks esheshatu ziri mu bubiko, umaze gukura amakuru rusange kuri NISR.",
   },
 };

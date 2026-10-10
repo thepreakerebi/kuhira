@@ -122,7 +122,7 @@ export const en = {
     dryBody: "Water also lets you farm from June to August. A typical watered dry-season plot of this size harvests about",
     dryNote:
       "Harvest value before seed, fertilizer and labour, from watered Season C plots in the survey (mostly vegetables and Irish potato). Payback counts Seasons A, B and C in order.",
-    basis: "Based on NISR Seasonal Agricultural Survey 2020–2025 and median farm-gate prices. Seasons A and B only.",
+    basis: "Based on NISR Seasonal Agricultural Survey 2020–2025 and median farm-gate prices. The four figures at the top are for Seasons A and B.",
     error: "Couldn't calculate. Check your connection.",
   },
 
@@ -182,7 +182,7 @@ export const en = {
       "Kit prices and the ~$1,500 per hectare cost.",
     ],
     reproduce:
-      "The survey microdata cannot be redistributed, so the repository holds only the aggregates the app serves. Every number here is reproducible from the five notebooks in the repository once the public-use files are downloaded from NISR.",
+      "The survey microdata cannot be redistributed, so the repository holds only the aggregates the app serves. Every number here is reproducible from the six notebooks in the repository once the public-use files are downloaded from NISR.",
   },
 };
 

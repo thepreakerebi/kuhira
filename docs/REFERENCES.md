@@ -21,7 +21,8 @@ Every figure Kuhira uses, and where it comes from. Page numbers are the printed 
 5. **Ministry of Agriculture and Animal Resources (MINAGRI).** *Strategic Plan for Agriculture Transformation 5 (PSTA5),
    2024/25–2028/29.* Small-scale irrigation (SSIT) target of 41,031 ha by 2028/29.
 6. **MINAGRI.** *Annual Report FY 2024/2025.* SSIT area of 27,663 ha (p. 6); 1,462 ha of new irrigation in FY2024/25
-   (p. 19).
+   (p. 19); NST2 and PSTA5 progress (p. 11) and Annex 8, "Progress toward PSTA5 and NST2" (p. 107): area under
+   irrigation 74,375 ha against a 76,686 ha target, bean yield 0.7 against a 0.8 t/ha target.
 7. **World Bank (2023).** *Project Appraisal Document: Second Sustainable Agricultural Intensification and Food Security
    Project (SAIP II, P181077)*, Report No. PAD5488, 3 October 2023, pp. 19–20. SSIT matching grant: 50% of regular
    technology, up to 75% for solar pumps.
