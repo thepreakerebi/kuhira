@@ -1,0 +1,6 @@
+# Never upload these from a local CLI deploy (NISR microdata may not leave this machine).
+data/raw/
+data/interim/
+data/external/docs/
+.venv/
+**/node_modules/
