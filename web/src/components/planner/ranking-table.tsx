@@ -9,7 +9,7 @@ type Props = { rows: Allocation[]; selected: string; onSelect: (d: string) => vo
 
 export function RankingTable({ rows, selected, onSelect }: Props) {
   return (
-    <Table className="min-w-[40rem]">
+    <Table className="min-w-[40rem] [&_td:first-child]:pl-0 [&_th:first-child]:pl-0 [&_td:last-child]:pr-0 [&_th:last-child]:pr-0">
       <TableHeader>
         <TableRow>
           <TableHead className="w-12">#</TableHead>
