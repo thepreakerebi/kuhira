@@ -1,0 +1,102 @@
+[
+ {
+  "bonus_pct": 14.6,
+  "ci_low_pct": 7.9,
+  "ci_high_pct": 21.8,
+  "p_value": 0.0,
+  "crop": "Maize",
+  "plots": 61878,
+  "irrigated_plots": 982,
+  "price_rwf_per_kg": 340.0
+ },
+ {
+  "bonus_pct": -10.3,
+  "ci_low_pct": -15.9,
+  "ci_high_pct": -4.3,
+  "p_value": 0.0009,
+  "crop": "Beans",
+  "plots": 93134,
+  "irrigated_plots": 741,
+  "price_rwf_per_kg": 650.0
+ },
+ {
+  "bonus_pct": 9.7,
+  "ci_low_pct": -1.7,
+  "ci_high_pct": 22.6,
+  "p_value": 0.0994,
+  "crop": "Irish potato",
+  "plots": 17619,
+  "irrigated_plots": 214,
+  "price_rwf_per_kg": 350.0
+ },
+ {
+  "bonus_pct": 15.2,
+  "ci_low_pct": 7.9,
+  "ci_high_pct": 22.8,
+  "p_value": 0.0,
+  "crop": "Sweet potato",
+  "plots": 24233,
+  "irrigated_plots": 387,
+  "price_rwf_per_kg": 200.0
+ },
+ {
+  "bonus_pct": 20.3,
+  "ci_low_pct": 12.9,
+  "ci_high_pct": 28.2,
+  "p_value": 0.0,
+  "crop": "Vegetables",
+  "plots": 6605,
+  "irrigated_plots": 2056,
+  "price_rwf_per_kg": 250.0
+ },
+ {
+  "bonus_pct": -4.0,
+  "ci_low_pct": -17.9,
+  "ci_high_pct": 12.3,
+  "p_value": 0.6112,
+  "crop": "Sorghum",
+  "plots": 18396,
+  "irrigated_plots": 88,
+  "price_rwf_per_kg": 500.0
+ },
+ {
+  "bonus_pct": -3.5,
+  "ci_low_pct": -15.2,
+  "ci_high_pct": 9.7,
+  "p_value": 0.5842,
+  "crop": "Cassava",
+  "plots": 21013,
+  "irrigated_plots": 134,
+  "price_rwf_per_kg": 250.0
+ },
+ {
+  "bonus_pct": 9.0,
+  "ci_low_pct": -0.6,
+  "ci_high_pct": 19.5,
+  "p_value": 0.0655,
+  "crop": "Paddy rice",
+  "plots": 566,
+  "irrigated_plots": 424,
+  "price_rwf_per_kg": 500.0
+ },
+ {
+  "bonus_pct": -1.0,
+  "ci_low_pct": -14.5,
+  "ci_high_pct": 14.7,
+  "p_value": 0.8939,
+  "crop": "Soybean",
+  "plots": 13395,
+  "irrigated_plots": 125,
+  "price_rwf_per_kg": 700.0
+ },
+ {
+  "bonus_pct": null,
+  "ci_low_pct": null,
+  "ci_high_pct": null,
+  "p_value": null,
+  "crop": "Wheat",
+  "plots": 1468,
+  "irrigated_plots": 1,
+  "price_rwf_per_kg": 700.0
+ }
+]

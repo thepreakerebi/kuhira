@@ -1,0 +1,2592 @@
+[
+ {
+  "district": "Bugesera",
+  "province": "East",
+  "cropland_ha": 54659,
+  "irrigated_share": 0.0207,
+  "dry_season_mm": 38.2,
+  "poverty_rate_pct": 23.7,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.234,
+    "yield_kg_per_ha": 409
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1916,
+    "yield_kg_per_ha": 484
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1586,
+    "yield_kg_per_ha": 3071
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0883,
+    "yield_kg_per_ha": 763
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0638,
+    "yield_kg_per_ha": 5017
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0557,
+    "yield_kg_per_ha": 5684
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0514,
+    "yield_kg_per_ha": 319
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.049,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0432,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0188,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0107,
+    "yield_kg_per_ha": 9687
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0107,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0106,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0068,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0068,
+    "yield_kg_per_ha": 1086
+   }
+  ]
+ },
+ {
+  "district": "Burera",
+  "province": "North",
+  "cropland_ha": 32776,
+  "irrigated_share": 0.0037,
+  "dry_season_mm": 94.0,
+  "poverty_rate_pct": 21.79,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2821,
+    "yield_kg_per_ha": 1032
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1821,
+    "yield_kg_per_ha": 1464
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.1407,
+    "yield_kg_per_ha": 9788
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1372,
+    "yield_kg_per_ha": 8463
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0991,
+    "yield_kg_per_ha": 1407
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0542,
+    "yield_kg_per_ha": 405
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0305,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0196,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Wheat",
+    "share": 0.0183,
+    "yield_kg_per_ha": 1373
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0155,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0134,
+    "yield_kg_per_ha": 10980
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0072,
+    "yield_kg_per_ha": 2085
+   }
+  ]
+ },
+ {
+  "district": "Gakenke",
+  "province": "North",
+  "cropland_ha": 38492,
+  "irrigated_share": 0.011,
+  "dry_season_mm": 78.4,
+  "poverty_rate_pct": 24.47,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2222,
+    "yield_kg_per_ha": 832
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1453,
+    "yield_kg_per_ha": 8580
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.1305,
+    "yield_kg_per_ha": 4712
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1278,
+    "yield_kg_per_ha": 1470
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0778,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.06,
+    "yield_kg_per_ha": 8289
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0554,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0448,
+    "yield_kg_per_ha": 4884
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0315,
+    "yield_kg_per_ha": 1520
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0311,
+    "yield_kg_per_ha": 4744
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0177,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0163,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0129,
+    "yield_kg_per_ha": 337
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0094,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Other cereals",
+    "share": 0.0066,
+    "yield_kg_per_ha": 487
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0056,
+    "yield_kg_per_ha": 8061
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0052,
+    "yield_kg_per_ha": 1122
+   }
+  ]
+ },
+ {
+  "district": "Gasabo",
+  "province": "Kigali",
+  "cropland_ha": 16589,
+  "irrigated_share": 0.0455,
+  "dry_season_mm": 53.0,
+  "poverty_rate_pct": 11.06,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2075,
+    "yield_kg_per_ha": 502
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1539,
+    "yield_kg_per_ha": 1313
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0871,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0868,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0811,
+    "yield_kg_per_ha": 3370
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0811,
+    "yield_kg_per_ha": 1077
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0786,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0706,
+    "yield_kg_per_ha": 5424
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0433,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0293,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0264,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0245,
+    "yield_kg_per_ha": 4799
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.011,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0094,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0093,
+    "yield_kg_per_ha": 3969
+   }
+  ]
+ },
+ {
+  "district": "Gatsibo",
+  "province": "East",
+  "cropland_ha": 61113,
+  "irrigated_share": 0.0173,
+  "dry_season_mm": 57.6,
+  "poverty_rate_pct": 18.41,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2338,
+    "yield_kg_per_ha": 542
+   },
+   {
+    "crop": "Maize",
+    "share": 0.218,
+    "yield_kg_per_ha": 1530
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.1115,
+    "yield_kg_per_ha": 5644
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.1011,
+    "yield_kg_per_ha": 1070
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0713,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0615,
+    "yield_kg_per_ha": 4502
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0515,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0392,
+    "yield_kg_per_ha": 8728
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0358,
+    "yield_kg_per_ha": 3583
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0205,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0199,
+    "yield_kg_per_ha": 1287
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0186,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0112,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Other cereals",
+    "share": 0.0061,
+    "yield_kg_per_ha": 487
+   }
+  ]
+ },
+ {
+  "district": "Gicumbi",
+  "province": "North",
+  "cropland_ha": 42596,
+  "irrigated_share": 0.0143,
+  "dry_season_mm": 69.2,
+  "poverty_rate_pct": 13.31,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2818,
+    "yield_kg_per_ha": 803
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1324,
+    "yield_kg_per_ha": 8495
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.1084,
+    "yield_kg_per_ha": 1436
+   },
+   {
+    "crop": "Maize",
+    "share": 0.107,
+    "yield_kg_per_ha": 1181
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0724,
+    "yield_kg_per_ha": 6802
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0557,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0517,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.043,
+    "yield_kg_per_ha": 6368
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0416,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0356,
+    "yield_kg_per_ha": 274
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0211,
+    "yield_kg_per_ha": 9487
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0147,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Wheat",
+    "share": 0.0107,
+    "yield_kg_per_ha": 1228
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0097,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0075,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0066,
+    "yield_kg_per_ha": 332
+   }
+  ]
+ },
+ {
+  "district": "Gisagara",
+  "province": "South",
+  "cropland_ha": 32994,
+  "irrigated_share": 0.0185,
+  "dry_season_mm": 45.8,
+  "poverty_rate_pct": 45.59,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2652,
+    "yield_kg_per_ha": 452
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1859,
+    "yield_kg_per_ha": 10432
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1296,
+    "yield_kg_per_ha": 1424
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0786,
+    "yield_kg_per_ha": 4959
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0734,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0542,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0521,
+    "yield_kg_per_ha": 921
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0444,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0348,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0273,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Other cereals",
+    "share": 0.0171,
+    "yield_kg_per_ha": 487
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0134,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0119,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0065,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0055,
+    "yield_kg_per_ha": 7754
+   }
+  ]
+ },
+ {
+  "district": "Huye",
+  "province": "South",
+  "cropland_ha": 27578,
+  "irrigated_share": 0.0333,
+  "dry_season_mm": 55.0,
+  "poverty_rate_pct": 24.19,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2704,
+    "yield_kg_per_ha": 408
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1384,
+    "yield_kg_per_ha": 8920
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1066,
+    "yield_kg_per_ha": 1155
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0872,
+    "yield_kg_per_ha": 7100
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0703,
+    "yield_kg_per_ha": 978
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0622,
+    "yield_kg_per_ha": 311
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0585,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0505,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0384,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0213,
+    "yield_kg_per_ha": 871
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0204,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0203,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0188,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0154,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0116,
+    "yield_kg_per_ha": 337
+   },
+   {
+    "crop": "Other cereals",
+    "share": 0.0099,
+    "yield_kg_per_ha": 487
+   }
+  ]
+ },
+ {
+  "district": "Kamonyi",
+  "province": "South",
+  "cropland_ha": 37926,
+  "irrigated_share": 0.0268,
+  "dry_season_mm": 51.9,
+  "poverty_rate_pct": 39.65,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2019,
+    "yield_kg_per_ha": 368
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1902,
+    "yield_kg_per_ha": 6299
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.1283,
+    "yield_kg_per_ha": 4817
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1121,
+    "yield_kg_per_ha": 1324
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.074,
+    "yield_kg_per_ha": 5172
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0617,
+    "yield_kg_per_ha": 302
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0538,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0381,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0322,
+    "yield_kg_per_ha": 961
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0233,
+    "yield_kg_per_ha": 969
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0222,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0212,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.016,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0104,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0094,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0052,
+    "yield_kg_per_ha": 8061
+   }
+  ]
+ },
+ {
+  "district": "Karongi",
+  "province": "West",
+  "cropland_ha": 32757,
+  "irrigated_share": 0.0149,
+  "dry_season_mm": 91.8,
+  "poverty_rate_pct": 38.19,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.1975,
+    "yield_kg_per_ha": 747
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.1762,
+    "yield_kg_per_ha": 4644
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1315,
+    "yield_kg_per_ha": 8477
+   },
+   {
+    "crop": "Maize",
+    "share": 0.101,
+    "yield_kg_per_ha": 1077
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.095,
+    "yield_kg_per_ha": 7524
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0555,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0487,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0423,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0408,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0246,
+    "yield_kg_per_ha": 1082
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0223,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.021,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0173,
+    "yield_kg_per_ha": 1216
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0165,
+    "yield_kg_per_ha": 8356
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0097,
+    "yield_kg_per_ha": 337
+   }
+  ]
+ },
+ {
+  "district": "Kayonza",
+  "province": "East",
+  "cropland_ha": 55339,
+  "irrigated_share": 0.0222,
+  "dry_season_mm": 39.4,
+  "poverty_rate_pct": 36.55,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2049,
+    "yield_kg_per_ha": 561
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1981,
+    "yield_kg_per_ha": 1858
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1414,
+    "yield_kg_per_ha": 10439
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.1409,
+    "yield_kg_per_ha": 1153
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0785,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0461,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0447,
+    "yield_kg_per_ha": 2087
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0323,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0317,
+    "yield_kg_per_ha": 7260
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0143,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0143,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Other cereals",
+    "share": 0.0115,
+    "yield_kg_per_ha": 487
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0115,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0106,
+    "yield_kg_per_ha": 8061
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0073,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0069,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0054,
+    "yield_kg_per_ha": 3683
+   }
+  ]
+ },
+ {
+  "district": "Kicukiro",
+  "province": "Kigali",
+  "cropland_ha": 4361,
+  "irrigated_share": 0.0292,
+  "dry_season_mm": 51.0,
+  "poverty_rate_pct": 6.93,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2077,
+    "yield_kg_per_ha": 645
+   },
+   {
+    "crop": "Maize",
+    "share": 0.2026,
+    "yield_kg_per_ha": 1036
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1081,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0794,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0717,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0656,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0644,
+    "yield_kg_per_ha": 5981
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0588,
+    "yield_kg_per_ha": 1105
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0519,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0298,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0252,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0114,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0101,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0072,
+    "yield_kg_per_ha": 8061
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.006,
+    "yield_kg_per_ha": 332
+   }
+  ]
+ },
+ {
+  "district": "Kirehe",
+  "province": "East",
+  "cropland_ha": 61412,
+  "irrigated_share": 0.009,
+  "dry_season_mm": 27.9,
+  "poverty_rate_pct": 14.24,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2749,
+    "yield_kg_per_ha": 510
+   },
+   {
+    "crop": "Maize",
+    "share": 0.196,
+    "yield_kg_per_ha": 2269
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.1033,
+    "yield_kg_per_ha": 6193
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0973,
+    "yield_kg_per_ha": 1053
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0773,
+    "yield_kg_per_ha": 4017
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0737,
+    "yield_kg_per_ha": 6832
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0463,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0386,
+    "yield_kg_per_ha": 2629
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0246,
+    "yield_kg_per_ha": 5037
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0227,
+    "yield_kg_per_ha": 1100
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0135,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.012,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0089,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0056,
+    "yield_kg_per_ha": 337
+   },
+   {
+    "crop": "Other cereals",
+    "share": 0.0054,
+    "yield_kg_per_ha": 487
+   }
+  ]
+ },
+ {
+  "district": "Muhanga",
+  "province": "South",
+  "cropland_ha": 30053,
+  "irrigated_share": 0.0144,
+  "dry_season_mm": 64.1,
+  "poverty_rate_pct": 14.95,
+  "crops": [
+   {
+    "crop": "Banana for beer",
+    "share": 0.1788,
+    "yield_kg_per_ha": 5055
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.15,
+    "yield_kg_per_ha": 9583
+   },
+   {
+    "crop": "Beans",
+    "share": 0.1492,
+    "yield_kg_per_ha": 618
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1199,
+    "yield_kg_per_ha": 7401
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0835,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0774,
+    "yield_kg_per_ha": 5166
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0603,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0512,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Maize",
+    "share": 0.0504,
+    "yield_kg_per_ha": 1424
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0219,
+    "yield_kg_per_ha": 11095
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0164,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0161,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0116,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0078,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0055,
+    "yield_kg_per_ha": 337
+   }
+  ]
+ },
+ {
+  "district": "Musanze",
+  "province": "North",
+  "cropland_ha": 25949,
+  "irrigated_share": 0.0052,
+  "dry_season_mm": 125.5,
+  "poverty_rate_pct": 20.98,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.3021,
+    "yield_kg_per_ha": 1008
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1748,
+    "yield_kg_per_ha": 1504
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.1367,
+    "yield_kg_per_ha": 9102
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0828,
+    "yield_kg_per_ha": 8435
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0702,
+    "yield_kg_per_ha": 1033
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0572,
+    "yield_kg_per_ha": 489
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0344,
+    "yield_kg_per_ha": 8544
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0305,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Wheat",
+    "share": 0.0235,
+    "yield_kg_per_ha": 1511
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0224,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0223,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0161,
+    "yield_kg_per_ha": 337
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0096,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0062,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.006,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0055,
+    "yield_kg_per_ha": 8061
+   }
+  ]
+ },
+ {
+  "district": "Ngoma",
+  "province": "East",
+  "cropland_ha": 46972,
+  "irrigated_share": 0.0062,
+  "dry_season_mm": 37.6,
+  "poverty_rate_pct": 30.94,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2333,
+    "yield_kg_per_ha": 658
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1499,
+    "yield_kg_per_ha": 1672
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.1114,
+    "yield_kg_per_ha": 7997
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1102,
+    "yield_kg_per_ha": 8301
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0829,
+    "yield_kg_per_ha": 4979
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.078,
+    "yield_kg_per_ha": 1020
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0539,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0323,
+    "yield_kg_per_ha": 5515
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0304,
+    "yield_kg_per_ha": 2998
+   },
+   {
+    "crop": "Other cereals",
+    "share": 0.0232,
+    "yield_kg_per_ha": 487
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0219,
+    "yield_kg_per_ha": 2409
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0204,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0197,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.013,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0082,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.006,
+    "yield_kg_per_ha": 8061
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0055,
+    "yield_kg_per_ha": 3969
+   }
+  ]
+ },
+ {
+  "district": "Ngororero",
+  "province": "West",
+  "cropland_ha": 34180,
+  "irrigated_share": 0.0096,
+  "dry_season_mm": 85.9,
+  "poverty_rate_pct": 30.24,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2145,
+    "yield_kg_per_ha": 689
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.166,
+    "yield_kg_per_ha": 6701
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.1511,
+    "yield_kg_per_ha": 3990
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1049,
+    "yield_kg_per_ha": 971
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0627,
+    "yield_kg_per_ha": 6824
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0569,
+    "yield_kg_per_ha": 3434
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0562,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0458,
+    "yield_kg_per_ha": 4440
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.036,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0277,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Wheat",
+    "share": 0.0187,
+    "yield_kg_per_ha": 713
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0158,
+    "yield_kg_per_ha": 337
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0148,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.014,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.008,
+    "yield_kg_per_ha": 8061
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0066,
+    "yield_kg_per_ha": 1122
+   }
+  ]
+ },
+ {
+  "district": "Nyabihu",
+  "province": "West",
+  "cropland_ha": 26363,
+  "irrigated_share": 0.0016,
+  "dry_season_mm": 111.1,
+  "poverty_rate_pct": 20.41,
+  "crops": [
+   {
+    "crop": "Irish potato",
+    "share": 0.283,
+    "yield_kg_per_ha": 11661
+   },
+   {
+    "crop": "Beans",
+    "share": 0.214,
+    "yield_kg_per_ha": 892
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1265,
+    "yield_kg_per_ha": 1021
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1175,
+    "yield_kg_per_ha": 6683
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0726,
+    "yield_kg_per_ha": 354
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0482,
+    "yield_kg_per_ha": 276
+   },
+   {
+    "crop": "Wheat",
+    "share": 0.0359,
+    "yield_kg_per_ha": 1370
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0297,
+    "yield_kg_per_ha": 12193
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0202,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0117,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0093,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0087,
+    "yield_kg_per_ha": 1122
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0083,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0081,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0063,
+    "yield_kg_per_ha": 8061
+   }
+  ]
+ },
+ {
+  "district": "Nyagatare",
+  "province": "East",
+  "cropland_ha": 74579,
+  "irrigated_share": 0.0183,
+  "dry_season_mm": 60.8,
+  "poverty_rate_pct": 36.37,
+  "crops": [
+   {
+    "crop": "Maize",
+    "share": 0.3581,
+    "yield_kg_per_ha": 2023
+   },
+   {
+    "crop": "Beans",
+    "share": 0.2638,
+    "yield_kg_per_ha": 615
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.1093,
+    "yield_kg_per_ha": 1521
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0634,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0446,
+    "yield_kg_per_ha": 5109
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0426,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0231,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0225,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0219,
+    "yield_kg_per_ha": 5190
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0171,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0106,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0096,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Other cereals",
+    "share": 0.0072,
+    "yield_kg_per_ha": 487
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0061,
+    "yield_kg_per_ha": 8061
+   }
+  ]
+ },
+ {
+  "district": "Nyamagabe",
+  "province": "South",
+  "cropland_ha": 33129,
+  "irrigated_share": 0.0121,
+  "dry_season_mm": 75.7,
+  "poverty_rate_pct": 51.39,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2128,
+    "yield_kg_per_ha": 490
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1848,
+    "yield_kg_per_ha": 8328
+   },
+   {
+    "crop": "Maize",
+    "share": 0.0917,
+    "yield_kg_per_ha": 1044
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0858,
+    "yield_kg_per_ha": 3927
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.072,
+    "yield_kg_per_ha": 9315
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.069,
+    "yield_kg_per_ha": 8127
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0593,
+    "yield_kg_per_ha": 826
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0368,
+    "yield_kg_per_ha": 337
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0326,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0312,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0286,
+    "yield_kg_per_ha": 977
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0278,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Wheat",
+    "share": 0.0273,
+    "yield_kg_per_ha": 1305
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0202,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0131,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0071,
+    "yield_kg_per_ha": 8061
+   }
+  ]
+ },
+ {
+  "district": "Nyamasheke",
+  "province": "West",
+  "cropland_ha": 30059,
+  "irrigated_share": 0.0149,
+  "dry_season_mm": 96.9,
+  "poverty_rate_pct": 42.67,
+  "crops": [
+   {
+    "crop": "Cassava",
+    "share": 0.2119,
+    "yield_kg_per_ha": 8652
+   },
+   {
+    "crop": "Beans",
+    "share": 0.1956,
+    "yield_kg_per_ha": 617
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1277,
+    "yield_kg_per_ha": 6098
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0991,
+    "yield_kg_per_ha": 3347
+   },
+   {
+    "crop": "Maize",
+    "share": 0.0838,
+    "yield_kg_per_ha": 1610
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0593,
+    "yield_kg_per_ha": 1439
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0518,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0515,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0437,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0328,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.021,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0149,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0069,
+    "yield_kg_per_ha": 3683
+   }
+  ]
+ },
+ {
+  "district": "Nyanza",
+  "province": "South",
+  "cropland_ha": 36835,
+  "irrigated_share": 0.018,
+  "dry_season_mm": 48.5,
+  "poverty_rate_pct": 43.27,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2547,
+    "yield_kg_per_ha": 403
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.184,
+    "yield_kg_per_ha": 10139
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1347,
+    "yield_kg_per_ha": 1183
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0762,
+    "yield_kg_per_ha": 2373
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0679,
+    "yield_kg_per_ha": 883
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0588,
+    "yield_kg_per_ha": 6997
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0463,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0432,
+    "yield_kg_per_ha": 333
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0361,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.028,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.016,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0144,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0139,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0091,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0088,
+    "yield_kg_per_ha": 8061
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0079,
+    "yield_kg_per_ha": 337
+   }
+  ]
+ },
+ {
+  "district": "Nyarugenge",
+  "province": "Kigali",
+  "cropland_ha": 4062,
+  "irrigated_share": 0.0141,
+  "dry_season_mm": 55.3,
+  "poverty_rate_pct": 6.8,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2116,
+    "yield_kg_per_ha": 595
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.1475,
+    "yield_kg_per_ha": 5100
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1237,
+    "yield_kg_per_ha": 1424
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1149,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0872,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0833,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0635,
+    "yield_kg_per_ha": 7353
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0337,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0329,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0329,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0299,
+    "yield_kg_per_ha": 1122
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0166,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.015,
+    "yield_kg_per_ha": 8061
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0073,
+    "yield_kg_per_ha": 7754
+   }
+  ]
+ },
+ {
+  "district": "Nyaruguru",
+  "province": "South",
+  "cropland_ha": 25003,
+  "irrigated_share": 0.0216,
+  "dry_season_mm": 66.1,
+  "poverty_rate_pct": 39.7,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2393,
+    "yield_kg_per_ha": 629
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1807,
+    "yield_kg_per_ha": 8659
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1239,
+    "yield_kg_per_ha": 5998
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.095,
+    "yield_kg_per_ha": 5190
+   },
+   {
+    "crop": "Maize",
+    "share": 0.0791,
+    "yield_kg_per_ha": 1830
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0416,
+    "yield_kg_per_ha": 648
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0362,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0333,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0301,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0289,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0287,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0248,
+    "yield_kg_per_ha": 7146
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0188,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0162,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0161,
+    "yield_kg_per_ha": 337
+   },
+   {
+    "crop": "Wheat",
+    "share": 0.0074,
+    "yield_kg_per_ha": 1228
+   }
+  ]
+ },
+ {
+  "district": "Rubavu",
+  "province": "West",
+  "cropland_ha": 20722,
+  "irrigated_share": 0.0019,
+  "dry_season_mm": 119.0,
+  "poverty_rate_pct": 38.81,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.295,
+    "yield_kg_per_ha": 670
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.2411,
+    "yield_kg_per_ha": 11218
+   },
+   {
+    "crop": "Maize",
+    "share": 0.0933,
+    "yield_kg_per_ha": 1317
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0879,
+    "yield_kg_per_ha": 9808
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0565,
+    "yield_kg_per_ha": 1441
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0486,
+    "yield_kg_per_ha": 7685
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0361,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0328,
+    "yield_kg_per_ha": 333
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0254,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0206,
+    "yield_kg_per_ha": 8278
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0175,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0167,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0151,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0075,
+    "yield_kg_per_ha": 1122
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0061,
+    "yield_kg_per_ha": 3969
+   }
+  ]
+ },
+ {
+  "district": "Ruhango",
+  "province": "South",
+  "cropland_ha": 34174,
+  "irrigated_share": 0.015,
+  "dry_season_mm": 53.3,
+  "poverty_rate_pct": 14.99,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2166,
+    "yield_kg_per_ha": 439
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.1935,
+    "yield_kg_per_ha": 15261
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.1386,
+    "yield_kg_per_ha": 2982
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0835,
+    "yield_kg_per_ha": 312
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0765,
+    "yield_kg_per_ha": 5447
+   },
+   {
+    "crop": "Maize",
+    "share": 0.0765,
+    "yield_kg_per_ha": 1323
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0513,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0358,
+    "yield_kg_per_ha": 773
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0275,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0274,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0226,
+    "yield_kg_per_ha": 1213
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0211,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0153,
+    "yield_kg_per_ha": 8636
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0137,
+    "yield_kg_per_ha": 6703
+   }
+  ]
+ },
+ {
+  "district": "Rulindo",
+  "province": "North",
+  "cropland_ha": 26391,
+  "irrigated_share": 0.0512,
+  "dry_season_mm": 67.7,
+  "poverty_rate_pct": 21.64,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.2537,
+    "yield_kg_per_ha": 710
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1355,
+    "yield_kg_per_ha": 7772
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1017,
+    "yield_kg_per_ha": 971
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0883,
+    "yield_kg_per_ha": 3653
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0693,
+    "yield_kg_per_ha": 2607
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0682,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0675,
+    "yield_kg_per_ha": 1059
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0656,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0506,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0418,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0165,
+    "yield_kg_per_ha": 337
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0147,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0146,
+    "yield_kg_per_ha": 1086
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0064,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0057,
+    "yield_kg_per_ha": 8061
+   }
+  ]
+ },
+ {
+  "district": "Rusizi",
+  "province": "West",
+  "cropland_ha": 30641,
+  "irrigated_share": 0.0136,
+  "dry_season_mm": 83.9,
+  "poverty_rate_pct": 44.16,
+  "crops": [
+   {
+    "crop": "Cassava",
+    "share": 0.2861,
+    "yield_kg_per_ha": 8831
+   },
+   {
+    "crop": "Beans",
+    "share": 0.2492,
+    "yield_kg_per_ha": 610
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1256,
+    "yield_kg_per_ha": 1424
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0607,
+    "yield_kg_per_ha": 4248
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0572,
+    "yield_kg_per_ha": 7647
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.044,
+    "yield_kg_per_ha": 968
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.036,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0331,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0253,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0242,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0237,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0143,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0084,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0069,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0051,
+    "yield_kg_per_ha": 8061
+   }
+  ]
+ },
+ {
+  "district": "Rutsiro",
+  "province": "West",
+  "cropland_ha": 24878,
+  "irrigated_share": 0.0034,
+  "dry_season_mm": 109.5,
+  "poverty_rate_pct": 40.78,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.1451,
+    "yield_kg_per_ha": 638
+   },
+   {
+    "crop": "Maize",
+    "share": 0.142,
+    "yield_kg_per_ha": 813
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.1413,
+    "yield_kg_per_ha": 4920
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.1394,
+    "yield_kg_per_ha": 3470
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.1102,
+    "yield_kg_per_ha": 7668
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0577,
+    "yield_kg_per_ha": 7146
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0573,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.0449,
+    "yield_kg_per_ha": 3269
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.0328,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.0306,
+    "yield_kg_per_ha": 6315
+   },
+   {
+    "crop": "Pea",
+    "share": 0.0305,
+    "yield_kg_per_ha": 337
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0292,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0137,
+    "yield_kg_per_ha": 8061
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0098,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0081,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Wheat",
+    "share": 0.0073,
+    "yield_kg_per_ha": 1228
+   }
+  ]
+ },
+ {
+  "district": "Rwamagana",
+  "province": "East",
+  "cropland_ha": 38169,
+  "irrigated_share": 0.0451,
+  "dry_season_mm": 40.1,
+  "poverty_rate_pct": 23.86,
+  "crops": [
+   {
+    "crop": "Beans",
+    "share": 0.211,
+    "yield_kg_per_ha": 462
+   },
+   {
+    "crop": "Maize",
+    "share": 0.1892,
+    "yield_kg_per_ha": 1026
+   },
+   {
+    "crop": "Cooking banana",
+    "share": 0.108,
+    "yield_kg_per_ha": 7610
+   },
+   {
+    "crop": "Sorghum",
+    "share": 0.0921,
+    "yield_kg_per_ha": 1135
+   },
+   {
+    "crop": "Dessert banana",
+    "share": 0.0753,
+    "yield_kg_per_ha": 2085
+   },
+   {
+    "crop": "Cassava",
+    "share": 0.0675,
+    "yield_kg_per_ha": 8411
+   },
+   {
+    "crop": "Banana for beer",
+    "share": 0.0514,
+    "yield_kg_per_ha": 4264
+   },
+   {
+    "crop": "Sweet potato",
+    "share": 0.0498,
+    "yield_kg_per_ha": 6481
+   },
+   {
+    "crop": "Groundnut",
+    "share": 0.0296,
+    "yield_kg_per_ha": 332
+   },
+   {
+    "crop": "Vegetables",
+    "share": 0.0254,
+    "yield_kg_per_ha": 6703
+   },
+   {
+    "crop": "Irish potato",
+    "share": 0.0227,
+    "yield_kg_per_ha": 7754
+   },
+   {
+    "crop": "Fodder crops",
+    "share": 0.0202,
+    "yield_kg_per_ha": 8197
+   },
+   {
+    "crop": "Soybean",
+    "share": 0.0178,
+    "yield_kg_per_ha": 304
+   },
+   {
+    "crop": "Other crops",
+    "share": 0.017,
+    "yield_kg_per_ha": 861
+   },
+   {
+    "crop": "Fruits",
+    "share": 0.0112,
+    "yield_kg_per_ha": 3683
+   },
+   {
+    "crop": "Taro & Yams",
+    "share": 0.006,
+    "yield_kg_per_ha": 3969
+   },
+   {
+    "crop": "Other cereals",
+    "share": 0.0057,
+    "yield_kg_per_ha": 487
+   }
+  ]
+ }
+]

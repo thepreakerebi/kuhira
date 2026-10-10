@@ -1,0 +1,53 @@
+"""Write the aggregate files the API serves: data/processed/crops.json and districts.json."""
+
+import json
+
+import pandas as pd
+
+from kuhira import district_stats as ds
+from kuhira.paths import EXTERNAL, PROCESSED
+
+MIN_SHARE = 0.005  # crops under 0.5% of a district's area are dropped from its mix
+
+
+def nullable(v):
+    return None if pd.isna(v) else float(v)
+
+
+def crops_table(bonus: pd.DataFrame, prices: pd.Series) -> list[dict]:
+    out = []
+    for r in bonus.to_dict("records"):
+        out.append({k: nullable(r[k]) for k in ["bonus_pct", "ci_low_pct", "ci_high_pct", "p_value"]}
+                   | {"crop": r["crop"], "plots": int(r["plots"]), "irrigated_plots": int(r["irrigated_plots"]),
+                      "price_rwf_per_kg": nullable(prices.get(r["crop"]))})
+    return out
+
+
+def districts_table(recent: pd.DataFrame, dry_mm: pd.Series, poverty: pd.Series) -> list[dict]:
+    shares, yields = ds.crop_shares(recent), ds.rainfed_yields(recent)
+    cropland, irrigated, province = ds.cropland_ha(recent), ds.irrigated_share(recent), ds.provinces(recent)
+    out = []
+    for d in sorted(shares.index):
+        mix = shares.loc[d][shares.loc[d] >= MIN_SHARE]
+        out.append({
+            "district": d,
+            "province": province[d],
+            "cropland_ha": round(float(cropland[d])),
+            "irrigated_share": round(float(irrigated[d]), 4),
+            "dry_season_mm": round(float(dry_mm[d]), 1),
+            "poverty_rate_pct": float(poverty[d]),
+            "crops": [{"crop": c, "share": round(float(s / mix.sum()), 4),
+                       "yield_kg_per_ha": round(float(yields.loc[d].get(c, 0)))}
+                      for c, s in mix.sort_values(ascending=False).items()],
+        })
+    return out
+
+
+def load_poverty() -> pd.Series:
+    return pd.read_csv(EXTERNAL / "eicv7_district_poverty.csv").set_index("district").poverty_rate_pct
+
+
+def write(crops: list[dict], districts: list[dict]) -> None:
+    PROCESSED.mkdir(parents=True, exist_ok=True)
+    (PROCESSED / "crops.json").write_text(json.dumps(crops, indent=1))
+    (PROCESSED / "districts.json").write_text(json.dumps(districts, indent=1))

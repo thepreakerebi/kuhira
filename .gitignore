@@ -1,0 +1,13 @@
+# NISR microdata: licence forbids redistribution
+data/raw/
+data/interim/
+# Third-party reports kept for reference only
+data/external/docs/
+
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+.env*
