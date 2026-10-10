@@ -1,0 +1,22 @@
+{
+ "value_rwf_per_ha": 1567388,
+ "uptake": 0.43,
+ "uptake_by_year": {
+  "2020": 0.05,
+  "2021": 0.34,
+  "2022": 0.42,
+  "2023": 1.01,
+  "2024": 0.83,
+  "2025": 0.44
+ },
+ "crop_mix": {
+  "Vegetables": 0.521,
+  "Irish potato": 0.232,
+  "Sweet potato": 0.079,
+  "Beans": 0.075,
+  "Pea": 0.045,
+  "Soybean": 0.034,
+  "Fruits": 0.013
+ },
+ "plots": 9648
+}

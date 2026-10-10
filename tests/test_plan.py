@@ -31,6 +31,9 @@ def district(name, crops, irrigated=0.01, dry=50.0, poverty=30.0, cropland=1000.
 
 
 CROPS = {"Maize": crop("Maize", 20), "Beans": crop("Beans", -10), "Cassava": crop("Cassava", 30, p=0.4)}
+CROPS = {
+    k: c.model_copy(update={"ci_low_pct": c.bonus_pct - 8, "ci_high_pct": c.bonus_pct + 8}) for k, c in CROPS.items()
+}
 
 
 def test_only_significant_bonus_counts():
@@ -114,3 +117,47 @@ def test_live_data_gives_every_estimated_crop_a_national_yield():
     for c in plan.load_crops().values():
         if c.bonus_pct is not None:
             assert c.yield_kg_per_ha and c.yield_kg_per_ha > 0, c.crop
+
+
+def test_allocate_adds_the_dry_season_harvest_by_uptake():
+    scored = [{"district": "A", "rank": 1, "score": 50, "cropland_ha": 100, "gain_rwf_per_ha": 1_000}]
+    out = plan.allocate(scored, 200, 1_000_000, 0.5, season_c_rwf_per_ha=1_500_000, season_c_uptake=0.4)
+    assert out["districts"][0]["season_c_value_rwf_per_year"] == 200 * 0.4 * 1_500_000
+    assert out["totals"]["season_c_value_rwf_per_year"] == 120_000_000
+    assert out["totals"]["extra_value_rwf_per_year"] == 200 * 1_000 * plan.SEASONS_PER_YEAR
+
+
+def test_seasons_until_paid_walks_the_seasons_in_order():
+    assert plan.seasons_until_paid(45_000, [10_000, 10_000, 100_000]) == 3  # paid off in the first dry season
+    assert plan.seasons_until_paid(45_000, [10_000, 10_000, 0]) == 7  # A, B, C, A, B, C, A
+    assert plan.seasons_until_paid(45_000, [-1, -1, 0]) is None
+    assert plan.seasons_until_paid(0, [1, 1, 1]) == 0
+
+
+def test_farmer_estimate_counts_a_dry_season_crop_separately():
+    d = district("A", [("Maize", 1, 2000)])
+    out = plan.farmer_estimate(d, CROPS["Maize"], 2500, 90_000, 0.5, season_c_rwf_per_ha=1_000_000)
+    assert out["season_c_rwf"] == 250_000
+    assert out["seasons_to_repay"] == 4.5  # Seasons A and B alone, unchanged
+    assert out["seasons_to_repay_with_c"] == 3
+
+
+def _spread(n=6):
+    return {f"D{i}": district(f"D{i}", [("Maize", 1, 1000 + 400 * i)], poverty=10 * i) for i in range(n)}
+
+
+def test_rank_uncertainty_is_repeatable_and_contains_each_rank():
+    ds = _spread()
+    a = plan.rank_uncertainty(ds, CROPS, Weights())
+    assert a == plan.rank_uncertainty(ds, CROPS, Weights())
+    for r in plan.score(ds, CROPS, Weights()):
+        assert a[r["district"]]["rank_low"] <= r["rank"] <= a[r["district"]]["rank_high"]
+
+
+def test_rank_uncertainty_is_exact_when_nothing_is_uncertain():
+    sure = {k: c.model_copy(update={"ci_low_pct": c.bonus_pct, "ci_high_pct": c.bonus_pct}) for k, c in CROPS.items()}
+    sure = {k: v for k, v in sure.items() if v.bonus_pct is not None}
+    ds = _spread()
+    u = plan.rank_uncertainty(ds, sure, Weights())
+    for r in plan.score(ds, sure, Weights()):
+        assert u[r["district"]]["rank_low"] == u[r["district"]]["rank_high"] == r["rank"]

@@ -38,3 +38,13 @@ def test_irrigated_flag_uses_farmer_answer_when_plot_answer_missing():
     out = irrigated_flag(irr, irr_any)
     assert out.iloc[:3].tolist() == [1, 0, 0]
     assert np.isnan(out.iloc[3])
+
+
+def test_segment_id_found_by_its_idquest_label_when_renamed():
+    assert find_var(["s1q0", "s2q1"], ["IDQUEST", "2.1 Plot No"], KEY_PATTERNS["seg"]) == "s1q0"
+    assert find_var(["Segment_ID", "s1q1"], ["IDQUEST", "1.1 Province"], KEY_PATTERNS["seg"]) == "Segment_ID"
+
+
+def test_plot_number_found_under_either_label():
+    assert find_var(["s2q1"], ["2.1 Plot No"], KEY_PATTERNS["plot"]) == "s2q1"
+    assert find_var(["s2q1"], ["Plot ID"], KEY_PATTERNS["plot"]) == "s2q1"

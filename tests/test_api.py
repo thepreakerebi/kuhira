@@ -67,3 +67,32 @@ def test_farmer_vegetables_in_a_district_that_grows_few_still_gain():
         "/farmer", json={"district": "Kirehe", "crop": "Vegetables", "area_m2": 1000, "kit_cost_rwf": 90_000}
     )
     assert r.json()["extra_kg_per_season"] > 0
+
+
+def test_plan_reports_rank_certainty_that_contains_each_rank():
+    for r in client.post("/plan", json={}).json()["ranking"]:
+        assert r["rank_low"] <= r["rank"] <= r["rank_high"]
+        assert 0 <= r["top_share"] <= 1
+
+
+def test_plan_counts_the_dry_season_by_uptake():
+    none = client.post("/plan", json={"season_c_uptake": 0}).json()["allocation"]["totals"]
+    half = client.post("/plan", json={"season_c_uptake": 0.5}).json()["allocation"]["totals"]
+    assert none["season_c_value_rwf_per_year"] == 0
+    assert half["season_c_value_rwf_per_year"] == pytest.approx(
+        half["hectares"] * 0.5 * plan.load_season_c().value_rwf_per_ha, rel=0.01
+    )
+    assert client.post("/plan", json={"season_c_uptake": 1.5}).status_code == 422
+
+
+def test_defaults_expose_the_dry_season_figures():
+    s = client.get("/defaults").json()["season_c"]
+    assert s["value_rwf_per_ha"] > 0 and 0 < s["uptake"] <= 1
+
+
+def test_farmer_estimate_includes_the_dry_season():
+    body = client.post(
+        "/farmer", json={"district": "Kirehe", "crop": "Maize", "area_m2": 1000, "kit_cost_rwf": 90_000}
+    ).json()
+    assert body["season_c_rwf"] > 0
+    assert body["seasons_to_repay_with_c"] <= body["seasons_to_repay"]

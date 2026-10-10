@@ -25,6 +25,7 @@ class PlanRequest(BaseModel):
     hectares: float = Field(plan.REMAINING_HA, gt=0, le=200_000)
     cost_per_ha_rwf: float = Field(plan.COST_PER_HA_RWF, gt=0, le=50_000_000)
     subsidy_rate: float = Field(plan.SUBSIDY_REGULAR, ge=0, le=1)
+    season_c_uptake: float = Field(default_factory=lambda: plan.load_season_c().uptake, ge=0, le=1)
 
 
 class FarmerRequest(BaseModel):
@@ -51,6 +52,7 @@ def defaults() -> dict:
         "subsidy_solar": plan.SUBSIDY_SOLAR,
         "weights": plan.Weights().model_dump(),
         "kits": plan.KITS,
+        "season_c": plan.load_season_c().model_dump(),
     }
 
 
@@ -80,10 +82,19 @@ def boundaries() -> dict:
 
 @app.post("/plan")
 def make_plan(req: PlanRequest) -> dict:
-    ranking = plan.score(plan.load_districts(), plan.load_crops(), req.weights)
+    districts, crops = plan.load_districts(), plan.load_crops()
+    ranking = plan.score(districts, crops, req.weights)
+    certainty = plan.rank_uncertainty(districts, crops, req.weights)
     return {
-        "ranking": ranking,
-        "allocation": plan.allocate(ranking, req.hectares, req.cost_per_ha_rwf, req.subsidy_rate),
+        "ranking": [r | certainty[r["district"]] for r in ranking],
+        "allocation": plan.allocate(
+            ranking,
+            req.hectares,
+            req.cost_per_ha_rwf,
+            req.subsidy_rate,
+            plan.load_season_c().value_rwf_per_ha,
+            req.season_c_uptake,
+        ),
     }
 
 
@@ -93,4 +104,6 @@ def farmer(req: FarmerRequest) -> dict:
     crop = plan.load_crops().get(req.crop)
     if district is None or crop is None:
         raise HTTPException(404, "Unknown district or crop")
-    return plan.farmer_estimate(district, crop, req.area_m2, req.kit_cost_rwf, req.subsidy_rate)
+    return plan.farmer_estimate(
+        district, crop, req.area_m2, req.kit_cost_rwf, req.subsidy_rate, plan.load_season_c().value_rwf_per_ha
+    )

@@ -61,7 +61,9 @@ COLUMNS = [
 ]
 
 # \b matters: 2023's segment label "Segment/Large scale farmer Identification" also contains "farmer ID"
-KEY_PATTERNS = {"seg": r"^Segment_ID", "farmer": r"Farmer ID\b", "plot": r"Plot N(o|umber)"}
+# 2022 Season C names the segment ID s1q0 in some files; only its label, IDQUEST, gives it away.
+# 2024 Season C labels the plot number "Plot ID".
+KEY_PATTERNS = {"seg": r"^Segment_ID|^\S+ IDQUEST$", "farmer": r"Farmer ID\b", "plot": r"Plot (N(o|umber)|ID\b)"}
 
 DISTRICT_FIXES = {"Nyarugenege": "Nyarugenge"}
 
@@ -178,5 +180,5 @@ def harmonize_season(year: int, season: str, raw: Path = RAW) -> pd.DataFrame:
     )[COLUMNS]
 
 
-def harmonize_all(raw: Path = RAW) -> pd.DataFrame:
-    return pd.concat([harmonize_season(y, s, raw) for y in YEARS for s in SEASONS], ignore_index=True)
+def harmonize_all(raw: Path = RAW, seasons: str = SEASONS) -> pd.DataFrame:
+    return pd.concat([harmonize_season(y, s, raw) for y in YEARS for s in seasons], ignore_index=True)

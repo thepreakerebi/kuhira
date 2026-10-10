@@ -61,7 +61,20 @@ def load_poverty() -> pd.Series:
     return pd.read_csv(EXTERNAL / "eicv7_district_poverty.csv").set_index("district").poverty_rate_pct
 
 
-def write(crops: list[dict], districts: list[dict]) -> None:
+def season_c_summary(values: pd.DataFrame, uptake: pd.Series, mix: pd.Series) -> dict:
+    from kuhira.season_c import irrigated_value_per_ha
+
+    return {
+        "value_rwf_per_ha": round(irrigated_value_per_ha(values)),
+        "uptake": round(float(uptake.median()), 2),
+        "uptake_by_year": {str(int(y)): round(float(v), 2) for y, v in uptake.items()},
+        "crop_mix": {k: round(float(v), 3) for k, v in mix.items() if v >= 0.005},
+        "plots": int((values.irrigated == 1).sum()),
+    }
+
+
+def write(crops: list[dict], districts: list[dict], season_c: dict) -> None:
     PROCESSED.mkdir(parents=True, exist_ok=True)
+    (PROCESSED / "season_c.json").write_text(json.dumps(season_c, indent=1))
     (PROCESSED / "crops.json").write_text(json.dumps(crops, indent=1))
     (PROCESSED / "districts.json").write_text(json.dumps(districts, indent=1))
