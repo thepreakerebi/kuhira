@@ -10,7 +10,7 @@ import { FarmerResult } from "@/components/farmer/farmer-result";
 import { ChoiceGroup } from "@/components/site/choice-group";
 import { Field, NumberField } from "@/components/site/field";
 import { postJson } from "@/lib/api-url";
-import { copy, cropName, type Lang } from "@/lib/i18n";
+import { cropName, type Lang, messages } from "@/lib/i18n";
 import type { Crop, Defaults, District, FarmerEstimate, FarmerRequest } from "@/lib/types";
 
 type KitChoice = "treadle" | "petrol" | "own";
@@ -34,7 +34,7 @@ function PickOne(props: { id: string; value: string; options: { value: string; l
 }
 
 export function FarmerCalculator({ lang, defaults, crops, districts }: Props) {
-  const t = copy[lang];
+  const t = messages[lang].farmer;
   const [district, setDistrict] = useState(districts[0].district);
   const [crop, setCrop] = useState("Maize");
   const [area, setArea] = useState("500");

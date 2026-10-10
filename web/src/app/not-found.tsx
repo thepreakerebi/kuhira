@@ -1,20 +1,5 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { EmptyState } from "@/components/site/empty-state";
-import { shell } from "@/components/site/page-shell";
+import { NotFoundView } from "@/components/site/not-found-view";
 
 export default function NotFound() {
-  return (
-    <article className={`${shell} grid justify-items-center py-[clamp(3rem,10vw,7rem)]`}>
-      <EmptyState
-        icon="fluent-emoji:compass"
-        iconLabel="Page not found"
-        title="Page not found"
-        description="This link doesn't lead anywhere. Go back to the planner."
-      />
-      <Button asChild>
-        <Link href="/">Open the planner</Link>
-      </Button>
-    </article>
-  );
+  return <NotFoundView />;
 }

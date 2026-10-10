@@ -1,4 +1,5 @@
 import { formatNumber, formatSignedPct } from "@/lib/format";
+import { cropName, type Lang, messages } from "@/lib/i18n";
 import type { Crop } from "@/lib/types";
 
 const LO = -25;
@@ -13,16 +14,17 @@ function tone(c: Crop) {
 }
 
 /** Forest plot as list rows, so labels stay readable at any width. */
-export function BonusChart({ crops }: { crops: Crop[] }) {
+export function BonusChart({ lang, crops }: { lang: Lang; crops: Crop[] }) {
+  const t = messages[lang].method;
   const rows = crops.filter((c) => c.bonus_pct !== null).toSorted((a, b) => b.bonus_pct! - a.bonus_pct!);
   return (
     <figure className="grid gap-3">
       <ul className="grid gap-2.5">
         {rows.map((c) => (
           <li key={c.crop} className="grid grid-cols-[minmax(5.5rem,8rem)_minmax(0,1fr)_3.5rem] items-center gap-3 text-sm">
-            <strong className="font-medium">{c.crop}</strong>
+            <strong className="font-medium">{cropName(lang, c.crop)}</strong>
             <svg viewBox="0 0 100 12" preserveAspectRatio="none" className="h-4 w-full" role="img"
-              aria-label={`${c.crop}: ${formatSignedPct(c.bonus_pct!)}, 95% interval ${c.ci_low_pct}% to ${c.ci_high_pct}%`}>
+              aria-label={t.chartAria(cropName(lang, c.crop), formatSignedPct(c.bonus_pct!), c.ci_low_pct!, c.ci_high_pct!)}>
               <line x1={x(0)} x2={x(0)} y1={0} y2={12} stroke="#1c2b1e" strokeWidth={0.4} />
               <rect x={x(c.ci_low_pct!)} width={x(c.ci_high_pct!) - x(c.ci_low_pct!)} y={4.5} height={3} rx={1.5}
                 fill={tone(c)} opacity={0.45} />
@@ -45,10 +47,10 @@ export function BonusChart({ crops }: { crops: Crop[] }) {
         </small>
         <small />
         <small className="col-span-3">
-          Yield change on irrigated vs rain-fed small-farm plots of the same crop, same district and season
-          (bars: 95% interval). Blue: clear gain. Clay: clear loss. Grey: cannot tell from zero.{" "}
-          {formatNumber(rows.reduce((a, c) => a + c.irrigated_plots, 0))} irrigated plots,{" "}
-          {formatNumber(rows.reduce((a, c) => a + c.plots, 0))} in all.
+          {t.chartCaption(
+            formatNumber(rows.reduce((a, c) => a + c.irrigated_plots, 0)),
+            formatNumber(rows.reduce((a, c) => a + c.plots, 0)),
+          )}
         </small>
       </figcaption>
     </figure>

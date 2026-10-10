@@ -1,24 +1,27 @@
 "use client";
 
 import { scoreColor } from "@/lib/color";
+import { type Lang, messages } from "@/lib/i18n";
 import { MAP_HEIGHT, MAP_WIDTH } from "@/lib/map";
 import type { DistrictShape, RankedDistrict } from "@/lib/types";
 
 type Props = {
+  lang: Lang;
   shapes: DistrictShape[];
   ranking: Map<string, RankedDistrict>;
   selected: string;
   onSelect: (district: string) => void;
 };
 
-export function DistrictMap({ shapes, ranking, selected, onSelect }: Props) {
+export function DistrictMap({ lang, shapes, ranking, selected, onSelect }: Props) {
+  const t = messages[lang].planner;
   const chosen = shapes.find((s) => s.district === selected);
   return (
     <figure className="grid content-start gap-3">
       <svg
         viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
         role="group"
-        aria-label="Map of Rwanda's 30 districts shaded by score"
+        aria-label={t.mapAria}
         className="h-auto w-full"
       >
         {shapes.map((s) => {
@@ -29,7 +32,7 @@ export function DistrictMap({ shapes, ranking, selected, onSelect }: Props) {
               d={s.d}
               role="button"
               tabIndex={0}
-              aria-label={`${s.district}: rank ${r?.rank}, score ${r?.score}`}
+              aria-label={t.districtAria(s.district, r?.rank ?? 0, r?.score ?? 0)}
               aria-pressed={s.district === selected}
               fill={scoreColor(r?.score ?? 0)}
               stroke="#ffffff"
@@ -56,8 +59,8 @@ export function DistrictMap({ shapes, ranking, selected, onSelect }: Props) {
           ))}
         </svg>
         <p className="flex max-w-xs justify-between">
-          <small>Lower priority</small>
-          <small>Higher priority</small>
+          <small>{t.lower}</small>
+          <small>{t.higher}</small>
         </p>
       </figcaption>
     </figure>

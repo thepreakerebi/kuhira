@@ -4,21 +4,23 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { flushTable } from "@/components/site/page-shell";
 import { scoreColor } from "@/lib/color";
 import { formatNumber, formatRwf } from "@/lib/format";
+import { type Lang, messages } from "@/lib/i18n";
 import type { Allocation } from "@/lib/types";
 
-type Props = { rows: Allocation[]; selected: string; onSelect: (d: string) => void };
+type Props = { lang: Lang; rows: Allocation[]; selected: string; onSelect: (d: string) => void };
 
-export function RankingTable({ rows, selected, onSelect }: Props) {
+export function RankingTable({ lang, rows, selected, onSelect }: Props) {
+  const t = messages[lang].planner;
   return (
     <Table className={`min-w-[40rem] ${flushTable}`}>
       <TableHeader>
         <TableRow>
           <TableHead className="w-12">#</TableHead>
-          <TableHead>District</TableHead>
-          <TableHead className="w-[28%]">Score</TableHead>
-          <TableHead className="text-right">Hectares</TableHead>
-          <TableHead className="text-right">Public cost</TableHead>
-          <TableHead className="text-right">Extra harvest / yr</TableHead>
+          <TableHead>{t.columns.district}</TableHead>
+          <TableHead className="w-[28%]">{t.columns.score}</TableHead>
+          <TableHead className="text-right">{t.columns.hectares}</TableHead>
+          <TableHead className="text-right">{t.columns.publicCost}</TableHead>
+          <TableHead className="text-right">{t.columns.harvest}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -43,7 +45,7 @@ export function RankingTable({ rows, selected, onSelect }: Props) {
               </button>
             </TableCell>
             <TableCell>
-              <svg viewBox="0 0 100 8" preserveAspectRatio="none" className="h-2 w-full" aria-label={`score ${r.score}`}>
+              <svg viewBox="0 0 100 8" preserveAspectRatio="none" className="h-2 w-full" aria-label={`${t.score} ${r.score}`}>
                 <rect width="100" height="8" rx="4" fill="#efeee6" />
                 <rect width={Math.max(r.score, 2)} height="8" rx="4" fill={scoreColor(r.score)} />
               </svg>

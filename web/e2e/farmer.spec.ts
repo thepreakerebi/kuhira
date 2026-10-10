@@ -5,16 +5,14 @@ async function pick(page: import("@playwright/test").Page, label: string, option
   await page.getByRole("option", { name: option, exact: true }).click();
 }
 
-test("opens in Kinyarwanda and switches to English", async ({ page }) => {
+test("old farmer links open the Kinyarwanda calculator", async ({ page }) => {
   await page.goto("/farmer");
-  await expect(page).toHaveURL(/\/farmer\/rw$/);
+  await expect(page).toHaveURL(/\/rw\/farmer$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Kuhira bizanyungura iki?");
-  await page.getByRole("link", { name: "English" }).click();
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("What will irrigation earn me?");
 });
 
 test("estimates a maize plot and the payback", async ({ page }) => {
-  await page.goto("/farmer/en");
+  await page.goto("/en/farmer");
   await expect(page.getByText("Your estimate appears here")).toBeVisible();
   await pick(page, "District", "Kirehe");
   await page.getByLabel("Plot size (m²)").fill("1000");
@@ -26,7 +24,7 @@ test("estimates a maize plot and the payback", async ({ page }) => {
 });
 
 test("warns that irrigated beans lose yield", async ({ page }) => {
-  await page.goto("/farmer/en");
+  await page.goto("/en/farmer");
   await pick(page, "Crop", "Beans");
   await page.getByRole("button", { name: "Calculate" }).click();
   await expect(page.getByText(/irrigated bean plots harvest less/)).toBeVisible();
@@ -34,7 +32,7 @@ test("warns that irrigated beans lose yield", async ({ page }) => {
 });
 
 test("asks for a price when the farmer has their own quote", async ({ page }) => {
-  await page.goto("/farmer/en");
+  await page.goto("/en/farmer");
   await page.getByRole("radio", { name: "My own quote" }).click();
   await page.getByRole("button", { name: "Calculate" }).click();
   await expect(page.getByText("Enter the kit price in RWF")).toBeVisible();
@@ -42,7 +40,7 @@ test("asks for a price when the farmer has their own quote", async ({ page }) =>
 });
 
 test("an unknown language shows the not-found page", async ({ page }) => {
-  await page.goto("/farmer/fr");
+  await page.goto("/fr/farmer");
   await expect(page.getByRole("heading", { name: "Page not found" })).toBeVisible();
   // Streaming means a 200 status, so search engines are kept off with noindex instead.
   expect(await page.locator('meta[name="robots"][content*="noindex"]').count()).toBeGreaterThan(0);

@@ -4,11 +4,11 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { EmptyState } from "@/components/site/empty-state";
 import { formatNumber, formatRwf, formatSignedPct } from "@/lib/format";
-import { copy, cropName, type Lang } from "@/lib/i18n";
+import { cropName, type Lang, messages } from "@/lib/i18n";
 import type { FarmerEstimate } from "@/lib/types";
 
 export function FarmerResult({ lang, estimate }: { lang: Lang; estimate: FarmerEstimate | null }) {
-  const t = copy[lang];
+  const t = messages[lang].farmer;
   const reduce = useReducedMotion();
   const key = estimate ? JSON.stringify(estimate) : "empty";
   return (
@@ -33,7 +33,7 @@ export function FarmerResult({ lang, estimate }: { lang: Lang; estimate: FarmerE
 }
 
 function Estimate({ lang, e }: { lang: Lang; e: FarmerEstimate }) {
-  const t = copy[lang];
+  const t = messages[lang].farmer;
   const loses = e.extra_kg_per_season < 0;
   const flat = e.bonus_pct === 0;
   const stats: [string, string, string?][] = [

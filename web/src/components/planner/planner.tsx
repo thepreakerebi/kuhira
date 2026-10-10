@@ -4,23 +4,24 @@ import { AlertCircle } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent } from "@/components/ui/card";
-import { BudgetControls, type Budget } from "@/components/planner/budget-controls";
+import { BudgetControls, type Budget, type BudgetErrors } from "@/components/planner/budget-controls";
 import { DistrictDetail } from "@/components/planner/district-detail";
 import { DistrictMap } from "@/components/planner/district-map";
 import { PlanTotals } from "@/components/planner/plan-totals";
 import { RankingTable } from "@/components/planner/ranking-table";
 import { WeightControls } from "@/components/planner/weight-controls";
 import { postJson } from "@/lib/api-url";
+import { type Lang, messages } from "@/lib/i18n";
 import type { Crop, Defaults, District, DistrictShape, Plan, PlanRequest, WeightKey, Weights } from "@/lib/types";
 
-type Props = { defaults: Defaults; crops: Crop[]; districts: District[]; shapes: DistrictShape[]; initialPlan: Plan };
+type Props = { lang: Lang; defaults: Defaults; crops: Crop[]; districts: District[]; shapes: DistrictShape[]; initialPlan: Plan };
 
 function validate(b: Budget) {
   const hectares = Number(b.hectares);
   const cost = Number(b.cost);
-  const errors: Partial<Record<"hectares" | "cost", string>> = {};
-  if (!b.hectares || hectares <= 0 || hectares > 200_000) errors.hectares = "Enter 1 to 200,000 ha";
-  if (!b.cost || cost <= 0 || cost > 50_000_000) errors.cost = "Enter a cost above zero";
+  const errors: BudgetErrors = {};
+  if (!b.hectares || hectares <= 0 || hectares > 200_000) errors.hectares = true;
+  if (!b.cost || cost <= 0 || cost > 50_000_000) errors.cost = true;
   return { hectares, cost, errors };
 }
 
@@ -28,7 +29,8 @@ function requestKey(r: PlanRequest) {
   return JSON.stringify(r);
 }
 
-export function Planner({ defaults, crops, districts, shapes, initialPlan }: Props) {
+export function Planner({ lang, defaults, crops, districts, shapes, initialPlan }: Props) {
+  const t = messages[lang].planner;
   const [weights, setWeights] = useState<Weights>(defaults.weights);
   const [budget, setBudget] = useState<Budget>({
     hectares: String(defaults.remaining_ha),
@@ -83,22 +85,23 @@ export function Planner({ defaults, crops, districts, shapes, initialPlan }: Pro
       {failed ? (
         <Alert variant="destructive">
           <AlertCircle />
-          <AlertDescription>Couldn&apos;t update the plan. Check your connection.</AlertDescription>
+          <AlertDescription>{t.updateError}</AlertDescription>
         </Alert>
       ) : null}
 
       <section className="grid items-start gap-[clamp(1rem,2.5vw,1.75rem)] @min-[58rem]:grid-cols-[minmax(17rem,21rem)_minmax(0,1fr)]">
         <Card className="@min-[58rem]:sticky @min-[58rem]:top-4">
           <CardContent className="grid gap-8">
-            <WeightControls weights={weights} onChange={setWeight} />
-            <BudgetControls budget={budget} errors={errors} onChange={setBudget} />
+            <WeightControls lang={lang} weights={weights} onChange={setWeight} />
+            <BudgetControls lang={lang} budget={budget} errors={errors} onChange={setBudget} />
           </CardContent>
         </Card>
 
         <Card>
           <CardContent className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),1fr))] gap-[clamp(1rem,3vw,2rem)]">
-            <DistrictMap shapes={shapes} ranking={ranking} selected={selected} onSelect={setSelected} />
+            <DistrictMap lang={lang} shapes={shapes} ranking={ranking} selected={selected} onSelect={setSelected} />
             <DistrictDetail
+              lang={lang}
               district={districtMap.get(selected)!}
               ranked={ranking.get(selected)!}
               crops={cropMap}
@@ -107,17 +110,15 @@ export function Planner({ defaults, crops, districts, shapes, initialPlan }: Pro
         </Card>
       </section>
 
-      <PlanTotals totals={plan.allocation.totals} />
+      <PlanTotals lang={lang} totals={plan.allocation.totals} />
 
       <Card>
         <CardContent className="grid gap-3">
           <header className="grid gap-1">
-            <h2 className="text-xl font-semibold">Ranking and hectares</h2>
-            <p className="text-sm text-muted-foreground">
-              Hectares follow score × small-farm cropland, so equal scores get equal shares of their farmland.
-            </p>
+            <h2 className="text-xl font-semibold">{t.rankingTitle}</h2>
+            <p className="text-sm text-muted-foreground">{t.rankingBody}</p>
           </header>
-          <RankingTable rows={plan.allocation.districts} selected={selected} onSelect={setSelected} />
+          <RankingTable lang={lang} rows={plan.allocation.districts} selected={selected} onSelect={setSelected} />
         </CardContent>
       </Card>
     </section>
