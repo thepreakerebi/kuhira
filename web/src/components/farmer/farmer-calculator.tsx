@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FarmerResult } from "@/components/farmer/farmer-result";
 import { ChoiceGroup } from "@/components/site/choice-group";
+import { Combobox, type ComboboxGroup } from "@/components/site/combobox";
 import { Field, NumberField } from "@/components/site/field";
 import { stagger } from "@/components/motion/stagger";
 import { postJson } from "@/lib/api-url";
@@ -15,6 +16,17 @@ import { cropName, type Lang, messages } from "@/lib/i18n";
 import type { Crop, Defaults, District, FarmerEstimate, FarmerRequest } from "@/lib/types";
 
 type KitChoice = "treadle" | "petrol" | "own";
+const PROVINCE_ORDER = ["Kigali", "North", "South", "East", "West"];
+
+function districtGroups(lang: Lang, districts: District[]): ComboboxGroup[] {
+  const provinces = messages[lang].provinces;
+  return PROVINCE_ORDER.map((p) => ({
+    label: provinces[p] ?? p,
+    options: districts
+      .filter((d) => d.province === p)
+      .map((d) => ({ value: d.district, label: d.district, keywords: [provinces[p] ?? p] })),
+  })).filter((g) => g.options.length > 0);
+}
 type Props = { lang: Lang; defaults: Defaults; crops: Crop[]; districts: District[] };
 
 function PickOne(props: { id: string; value: string; options: { value: string; label: string }[]; onChange: (v: string) => void }) {
@@ -83,8 +95,14 @@ export function FarmerCalculator({ lang, defaults, crops, districts }: Props) {
         <CardContent>
           <form onSubmit={submit} noValidate className="grid gap-5">
             <Field id="district" label={t.district} help={t.districtHelp}>
-              <PickOne id="district" value={district} onChange={setDistrict}
-                options={districts.map((d) => ({ value: d.district, label: d.district }))} />
+              <Combobox
+                id="district"
+                value={district}
+                onChange={setDistrict}
+                groups={districtGroups(lang, districts)}
+                searchLabel={t.districtSearch}
+                emptyLabel={t.districtEmpty}
+              />
             </Field>
             <Field id="crop" label={t.crop} help={t.cropHelp}>
               <PickOne id="crop" value={crop} onChange={setCrop}

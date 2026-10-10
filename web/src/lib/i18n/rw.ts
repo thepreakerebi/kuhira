@@ -10,6 +10,7 @@ export const rw: Messages = {
     data: "Amakuru: Ibarura ry'ubuhinzi ry'ibihembwe rya NISR 2020–2025 na EICV7; imvura ya CHIRPS v2.0 (UCSB Climate Hazards Center); imbibi z'uturere za geoBoundaries (CC BY 4.0).",
     built: "Byakorewe Irushanwa rya NISR ku makuru manini 2026 · Icyiciro cya 1, Umusaruro w'ubuhinzi.",
   },
+  provinces: { Kigali: "Umujyi wa Kigali", North: "Intara y'Amajyaruguru", South: "Intara y'Amajyepfo", East: "Intara y'Iburasirazuba", West: "Intara y'Iburengerazuba" },
   crops: {
     Maize: "Ibigori",
     Beans: "Ibishyimbo",
@@ -102,6 +103,8 @@ export const rw: Messages = {
     intro:
       "Hitamo akarere, igihingwa n'ubuso bw'umurima wawe. Tugereranya imirima yuhirwa n'ituhirwa y'igihingwa kimwe mu ibarura ry'ubuhinzi.",
     district: "Akarere",
+    districtSearch: "Shakisha akarere",
+    districtEmpty: "Nta karere kabonetse. Reba uko wanditse.",
     districtHelp: "Aho umurima wawe uri.",
     crop: "Igihingwa",
     cropHelp: "Icyo uzahinga mu murima wuhirwa.",

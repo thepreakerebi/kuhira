@@ -8,6 +8,7 @@ export const en = {
     data: "Data: NISR Seasonal Agricultural Survey 2020–2025 and EICV7; CHIRPS v2.0 rainfall (UCSB Climate Hazards Center); district boundaries from geoBoundaries (CC BY 4.0).",
     built: "Built for the NISR Big Data Hackathon 2026 · Track 1, Agricultural Productivity.",
   },
+  provinces: { Kigali: "Kigali City", North: "Northern Province", South: "Southern Province", East: "Eastern Province", West: "Western Province" } as Record<string, string>,
   crops: {} as Record<string, string>,
   errors: {
     title: "Couldn't load the data",
@@ -79,6 +80,8 @@ export const en = {
     intro:
       "Pick your district, your crop and your plot size. We compare irrigated and rain-fed plots of the same crop in the national farm survey.",
     district: "District",
+    districtSearch: "Search districts",
+    districtEmpty: "No district found. Check the spelling.",
     districtHelp: "Where your plot is.",
     crop: "Crop",
     cropHelp: "What you will grow on the irrigated plot.",

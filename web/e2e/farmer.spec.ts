@@ -46,3 +46,22 @@ test("an unknown language shows the not-found page", async ({ page }) => {
   expect(await page.locator('meta[name="robots"][content*="noindex"]').count()).toBeGreaterThan(0);
   await expect(page.locator('meta[name="robots"]:not([content*="noindex"])')).toHaveCount(0);
 });
+
+test("the district field searches by name and by province", async ({ page }) => {
+  await page.goto("/en/farmer");
+  await page.getByLabel("District", { exact: true }).click();
+  const search = page.getByRole("combobox", { name: "Search districts" });
+
+  await search.fill("rwam");
+  await expect(page.getByRole("option")).toHaveText(["Rwamagana"]);
+
+  await search.fill("eastern");
+  await expect(page.getByRole("option")).toHaveCount(7);
+
+  await search.fill("zz");
+  await expect(page.getByText("No district found. Check the spelling.")).toBeVisible();
+
+  await search.fill("nyanza");
+  await page.keyboard.press("Enter");
+  await expect(page.getByLabel("District", { exact: true })).toHaveText("Nyanza");
+});
