@@ -17,8 +17,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}>
-      <body className="flex min-h-dvh flex-col">
+    // Browser extensions (Scribe, Grammarly) add attributes to <html> and <body> before hydration.
+    // suppressHydrationWarning ignores attribute differences on these two elements only, not their children.
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}
+      suppressHydrationWarning
+    >
+      <body className="flex min-h-dvh flex-col" suppressHydrationWarning>
         <TooltipProvider>
           <SiteHeader />
           {children}
