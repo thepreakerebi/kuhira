@@ -2,6 +2,8 @@
 
 **Where should Rwanda's next small-scale irrigation hectares go?**
 
+**Live app:** [kuhira.vercel.app](https://kuhira.vercel.app) · **API:** [kuhira-api.onrender.com](https://kuhira-api.onrender.com/docs)
+
 *Kuhira* is Kinyarwanda for "to irrigate". Rwanda's PSTA5 plan targets 41,031 ha of small-scale irrigation
 technology (SSIT) by 2028/29. By FY2024/25, 27,663 ha were in place. Last year added 1,462 ha, so at that pace the
 remaining 13,368 ha take about nine years. The subsidy covers 50% of a kit (75% for solar), and nothing tells a
@@ -90,6 +92,9 @@ committed. To rebuild from scratch, download each year's SAS public-use files in
 the notebooks in order (`uv run jupyter lab`). `scripts/fetch_chirps.py` refreshes the rainfall.
 
 ## Deployment
+
+Live: web on Vercel (root `web/`), API on Render free tier (`render.yaml`, Frankfurt). Both redeploy on push to
+`main`. The free API sleeps after 15 idle minutes, so the first change after a pause takes up to a minute.
 
 - API: any Python host. `uvicorn kuhira.api:app --host 0.0.0.0 --port $PORT`, with `KUHIRA_WEB_ORIGINS` set
   to the web URL.
