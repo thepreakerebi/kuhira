@@ -20,9 +20,17 @@ test("rewind leaves correctly wound features alone", () => {
   expect(rewind(fixed)).toBe(fixed);
 });
 
-test("districtShapes fills the map box instead of the whole globe", () => {
-  const [shape] = districtShapes({ type: "FeatureCollection", features: [ccw] });
-  expect(shape.district).toBe("Test");
-  const xs = [...shape.d.matchAll(/[ML]([\d.]+),([\d.]+)/g)].map((m) => Number(m[1]));
-  expect(Math.max(...xs) - Math.min(...xs)).toBeGreaterThan(400);
+test("districtShapes gives each district its own share of the map", () => {
+  const east: Feature<Polygon, { district: string }> = {
+    ...ccw,
+    properties: { district: "East" },
+    geometry: { type: "Polygon", coordinates: [[[30.1, -2], [30.2, -2], [30.2, -1.9], [30.1, -1.9], [30.1, -2]]] },
+  };
+  const shapes = districtShapes({ type: "FeatureCollection", features: [ccw, east] });
+  for (const shape of shapes) {
+    const xs = [...shape.d.matchAll(/[ML]([\d.]+),([\d.]+)/g)].map((m) => Number(m[1]));
+    const width = Math.max(...xs) - Math.min(...xs);
+    expect(width).toBeGreaterThan(250); // two side-by-side squares share the 600px box
+    expect(width).toBeLessThan(350);
+  }
 });
