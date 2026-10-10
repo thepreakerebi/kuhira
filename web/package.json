@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "bun run dev:api & next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "bun test src",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "dev:api": "cd .. && uv run uvicorn kuhira.api:app --reload --port 8000"
   },
   "dependencies": {
     "@iconify/react": "^6.0.2",

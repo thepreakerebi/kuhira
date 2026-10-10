@@ -62,11 +62,9 @@ tests/       pytest: unit + API      web/src/**/*.test.ts: bun unit      web/e2e
 Requires [uv](https://docs.astral.sh/uv/) and [Bun](https://bun.sh).
 
 ```bash
-uv sync                                          # Python 3.12 env
-uv run uvicorn kuhira.api:app --port 8000        # API on :8000
-
+uv sync                  # Python 3.12 env
 cd web && bun install
-NEXT_PUBLIC_KUHIRA_API_URL=http://localhost:8000 bun run dev   # web on :3000
+bun run dev              # starts the API on :8000 and the web app on :3000 together
 ```
 
 Tests:
