@@ -16,5 +16,5 @@ We, the undersigned team members, declare that:
 
 | Name | Signature | Date |
 |---|---|---|
-| Elvis Preye Kerebi | | |
-| Paulette Dushime | | |
+| Elvis Preye Kerebi |  E.P.K | Oct 10, 2026 |
+| Paulette Dushime | P.D | Oct 10, 2026 |
