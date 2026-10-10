@@ -147,10 +147,16 @@ def farmer_estimate(district: District, crop: Crop, area_m2: float, kit_cost_rwf
     return {
         "district": district.district,
         "crop": crop.crop,
-        "bonus_pct": crop.counted_bonus * 100,
+        "bonus_pct": round(crop.counted_bonus * 100, 1),
         "rainfed_kg": round(yield_kg_per_ha * ha),
         "extra_kg_per_season": round(kg_per_ha * ha),
         "extra_rwf_per_season": round(extra_rwf),
         "farmer_pays_rwf": round(farmer_pays),
         "seasons_to_repay": round(farmer_pays / extra_rwf, 1) if extra_rwf > 0 else None,
     }
+
+# DWFI (2022) p.16, citing the SSIT programme's price list. Petrol = mid-range pump plus mid-range pipes.
+KITS = {
+    "treadle": {"cost_rwf": 90_000, "subsidy_rate": SUBSIDY_REGULAR},
+    "petrol": {"cost_rwf": 193_750 + 116_750, "subsidy_rate": SUBSIDY_REGULAR},
+}
