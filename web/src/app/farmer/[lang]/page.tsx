@@ -20,7 +20,7 @@ async function FarmerContent({ params }: { params: PageProps<"/farmer/[lang]">["
   const t = copy[lang];
   const { defaults, crops, districts } = await getStaticData();
   return (
-    <article lang={lang} className="grid gap-[clamp(1.25rem,3vw,2.25rem)]">
+    <section lang={lang} className="grid gap-[clamp(1.25rem,3vw,2.25rem)]">
       <header className="grid gap-3">
         <nav aria-label="Language" className="flex gap-1 text-sm">
           {LANGS.map((l) => (
@@ -38,7 +38,7 @@ async function FarmerContent({ params }: { params: PageProps<"/farmer/[lang]">["
         <p className="max-w-2xl text-[clamp(1rem,0.95rem+0.3vw,1.15rem)] text-muted-foreground">{t.intro}</p>
       </header>
       <FarmerCalculator lang={lang} defaults={defaults} crops={crops} districts={districts} />
-    </article>
+    </section>
   );
 }
 

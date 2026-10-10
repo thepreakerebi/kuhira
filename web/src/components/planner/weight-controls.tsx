@@ -30,7 +30,7 @@ export function WeightControls({ weights, onChange }: Props) {
           <small className="text-xs text-muted-foreground">{f.help}</small>
           <Slider
             id={`w-${f.key}`}
-            aria-label={f.label}
+            thumbLabel={f.label}
             min={0}
             max={1}
             step={0.05}

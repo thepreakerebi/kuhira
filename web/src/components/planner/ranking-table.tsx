@@ -1,6 +1,7 @@
 "use client";
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { flushTable } from "@/components/site/page-shell";
 import { scoreColor } from "@/lib/color";
 import { formatNumber, formatRwf } from "@/lib/format";
 import type { Allocation } from "@/lib/types";
@@ -9,7 +10,7 @@ type Props = { rows: Allocation[]; selected: string; onSelect: (d: string) => vo
 
 export function RankingTable({ rows, selected, onSelect }: Props) {
   return (
-    <Table className="min-w-[40rem] [&_td:first-child]:pl-0 [&_th:first-child]:pl-0 [&_td:last-child]:pr-0 [&_th:last-child]:pr-0">
+    <Table className={`min-w-[40rem] ${flushTable}`}>
       <TableHeader>
         <TableRow>
           <TableHead className="w-12">#</TableHead>

@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { BonusChart } from "@/components/method/bonus-chart";
-import { shell } from "@/components/site/page-shell";
+import { flushTable, shell } from "@/components/site/page-shell";
 import { getStaticData } from "@/lib/api";
 import { formatNumber, formatRwf } from "@/lib/format";
 
@@ -59,7 +59,7 @@ async function MethodData() {
 
       <section className="grid gap-5">
         <h2 className={h2}>2 · From crops to a district score</h2>
-        <Table className="[&_td:first-child]:pl-0 [&_th:first-child]:pl-0 [&_td:last-child]:pr-0 [&_th:last-child]:pr-0 [&_td]:align-top [&_td]:whitespace-normal [&_th]:whitespace-normal">
+        <Table className={`${flushTable} [&_td]:align-top [&_td]:whitespace-normal [&_th]:whitespace-normal`}>
           <TableHeader>
             <TableRow>
               <TableHead>Factor</TableHead>
