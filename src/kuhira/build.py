@@ -74,7 +74,17 @@ def season_c_summary(values: pd.DataFrame, uptake: pd.Series, mix: pd.Series) ->
 
 
 def write(crops: list[dict], districts: list[dict], season_c: dict) -> None:
+    """JSON for the API, and the same aggregates as CSV for anyone opening the data in a spreadsheet."""
     PROCESSED.mkdir(parents=True, exist_ok=True)
     (PROCESSED / "season_c.json").write_text(json.dumps(season_c, indent=1))
     (PROCESSED / "crops.json").write_text(json.dumps(crops, indent=1))
     (PROCESSED / "districts.json").write_text(json.dumps(districts, indent=1))
+    table = pd.DataFrame(crops).round({"yield_kg_per_ha": 0})
+    table.insert(0, "crop", table.pop("crop"))
+    table.to_csv(PROCESSED / "crops.csv", index=False)
+    pd.DataFrame([{k: v for k, v in d.items() if k != "crops"} for d in districts]).to_csv(
+        PROCESSED / "districts.csv", index=False
+    )
+    pd.DataFrame([{"district": d["district"], **c} for d in districts for c in d["crops"]]).to_csv(
+        PROCESSED / "district_crops.csv", index=False
+    )

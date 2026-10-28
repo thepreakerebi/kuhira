@@ -1,0 +1,459 @@
+district,crop,share,yield_kg_per_ha
+Bugesera,Beans,0.234,409
+Bugesera,Maize,0.1916,484
+Bugesera,Cassava,0.1586,3071
+Bugesera,Sorghum,0.0883,763
+Bugesera,Banana for beer,0.0638,5017
+Bugesera,Sweet potato,0.0557,5684
+Bugesera,Groundnut,0.0514,319
+Bugesera,Cooking banana,0.049,6315
+Bugesera,Dessert banana,0.0432,2085
+Bugesera,Soybean,0.0188,304
+Bugesera,Fodder crops,0.0107,9687
+Bugesera,Irish potato,0.0107,7754
+Bugesera,Vegetables,0.0106,6703
+Bugesera,Taro & Yams,0.0068,3969
+Bugesera,Other crops,0.0068,1086
+Burera,Beans,0.2821,1032
+Burera,Maize,0.1821,1464
+Burera,Irish potato,0.1407,9788
+Burera,Sweet potato,0.1372,8463
+Burera,Sorghum,0.0991,1407
+Burera,Pea,0.0542,405
+Burera,Cooking banana,0.0305,6315
+Burera,Vegetables,0.0196,6703
+Burera,Wheat,0.0183,1373
+Burera,Banana for beer,0.0155,4264
+Burera,Fodder crops,0.0134,10980
+Burera,Dessert banana,0.0072,2085
+Gakenke,Beans,0.2222,832
+Gakenke,Sweet potato,0.1453,8580
+Gakenke,Banana for beer,0.1305,4712
+Gakenke,Maize,0.1278,1470
+Gakenke,Dessert banana,0.0778,2085
+Gakenke,Cassava,0.06,8289
+Gakenke,Cooking banana,0.0554,6315
+Gakenke,Taro & Yams,0.0448,4884
+Gakenke,Other crops,0.0315,1520
+Gakenke,Irish potato,0.0311,4744
+Gakenke,Soybean,0.0177,304
+Gakenke,Vegetables,0.0163,6703
+Gakenke,Pea,0.0129,337
+Gakenke,Fruits,0.0094,3683
+Gakenke,Other cereals,0.0066,487
+Gakenke,Fodder crops,0.0056,8061
+Gakenke,Sorghum,0.0052,1122
+Gasabo,Beans,0.2075,502
+Gasabo,Maize,0.1539,1313
+Gasabo,Cassava,0.0871,8411
+Gasabo,Dessert banana,0.0868,2085
+Gasabo,Banana for beer,0.0811,3370
+Gasabo,Sorghum,0.0811,1077
+Gasabo,Cooking banana,0.0786,6315
+Gasabo,Sweet potato,0.0706,5424
+Gasabo,Vegetables,0.0433,6703
+Gasabo,Irish potato,0.0293,7754
+Gasabo,Soybean,0.0264,304
+Gasabo,Fodder crops,0.0245,4799
+Gasabo,Groundnut,0.011,332
+Gasabo,Other crops,0.0094,1086
+Gasabo,Taro & Yams,0.0093,3969
+Gatsibo,Beans,0.2338,542
+Gatsibo,Maize,0.218,1530
+Gatsibo,Cooking banana,0.1115,5644
+Gatsibo,Sorghum,0.1011,1070
+Gatsibo,Dessert banana,0.0713,2085
+Gatsibo,Banana for beer,0.0615,4502
+Gatsibo,Cassava,0.0515,8411
+Gatsibo,Sweet potato,0.0392,8728
+Gatsibo,Irish potato,0.0358,3583
+Gatsibo,Groundnut,0.0205,332
+Gatsibo,Other crops,0.0199,1287
+Gatsibo,Soybean,0.0186,304
+Gatsibo,Vegetables,0.0112,6703
+Gatsibo,Other cereals,0.0061,487
+Gicumbi,Beans,0.2818,803
+Gicumbi,Sweet potato,0.1324,8495
+Gicumbi,Sorghum,0.1084,1436
+Gicumbi,Maize,0.107,1181
+Gicumbi,Irish potato,0.0724,6802
+Gicumbi,Cooking banana,0.0557,6315
+Gicumbi,Dessert banana,0.0517,2085
+Gicumbi,Cassava,0.043,6368
+Gicumbi,Banana for beer,0.0416,4264
+Gicumbi,Pea,0.0356,274
+Gicumbi,Fodder crops,0.0211,9487
+Gicumbi,Vegetables,0.0147,6703
+Gicumbi,Wheat,0.0107,1228
+Gicumbi,Other crops,0.0097,1086
+Gicumbi,Soybean,0.0075,304
+Gicumbi,Groundnut,0.0066,332
+Gisagara,Beans,0.2652,452
+Gisagara,Cassava,0.1859,10432
+Gisagara,Maize,0.1296,1424
+Gisagara,Sweet potato,0.0786,4959
+Gisagara,Banana for beer,0.0734,4264
+Gisagara,Soybean,0.0542,304
+Gisagara,Sorghum,0.0521,921
+Gisagara,Dessert banana,0.0444,2085
+Gisagara,Cooking banana,0.0348,6315
+Gisagara,Taro & Yams,0.0273,3969
+Gisagara,Other cereals,0.0171,487
+Gisagara,Vegetables,0.0134,6703
+Gisagara,Groundnut,0.0119,332
+Gisagara,Other crops,0.0065,1086
+Gisagara,Irish potato,0.0055,7754
+Huye,Beans,0.2704,408
+Huye,Cassava,0.1384,8920
+Huye,Maize,0.1066,1155
+Huye,Sweet potato,0.0872,7100
+Huye,Sorghum,0.0703,978
+Huye,Soybean,0.0622,311
+Huye,Dessert banana,0.0585,2085
+Huye,Banana for beer,0.0505,4264
+Huye,Cooking banana,0.0384,6315
+Huye,Other crops,0.0213,871
+Huye,Vegetables,0.0204,6703
+Huye,Taro & Yams,0.0203,3969
+Huye,Fruits,0.0188,3683
+Huye,Irish potato,0.0154,7754
+Huye,Pea,0.0116,337
+Huye,Other cereals,0.0099,487
+Kamonyi,Beans,0.2019,368
+Kamonyi,Cassava,0.1902,6299
+Kamonyi,Banana for beer,0.1283,4817
+Kamonyi,Maize,0.1121,1324
+Kamonyi,Sweet potato,0.074,5172
+Kamonyi,Soybean,0.0617,302
+Kamonyi,Dessert banana,0.0538,2085
+Kamonyi,Cooking banana,0.0381,6315
+Kamonyi,Sorghum,0.0322,961
+Kamonyi,Other crops,0.0233,969
+Kamonyi,Vegetables,0.0222,6703
+Kamonyi,Taro & Yams,0.0212,3969
+Kamonyi,Groundnut,0.016,332
+Kamonyi,Irish potato,0.0104,7754
+Kamonyi,Fruits,0.0094,3683
+Kamonyi,Fodder crops,0.0052,8061
+Karongi,Beans,0.1975,747
+Karongi,Banana for beer,0.1762,4644
+Karongi,Sweet potato,0.1315,8477
+Karongi,Maize,0.101,1077
+Karongi,Cassava,0.095,7524
+Karongi,Dessert banana,0.0555,2085
+Karongi,Taro & Yams,0.0487,3969
+Karongi,Soybean,0.0423,304
+Karongi,Cooking banana,0.0408,6315
+Karongi,Sorghum,0.0246,1082
+Karongi,Vegetables,0.0223,6703
+Karongi,Irish potato,0.021,7754
+Karongi,Other crops,0.0173,1216
+Karongi,Fodder crops,0.0165,8356
+Karongi,Pea,0.0097,337
+Kayonza,Beans,0.2049,561
+Kayonza,Maize,0.1981,1858
+Kayonza,Cassava,0.1414,10439
+Kayonza,Sorghum,0.1409,1153
+Kayonza,Cooking banana,0.0785,6315
+Kayonza,Dessert banana,0.0461,2085
+Kayonza,Irish potato,0.0447,2087
+Kayonza,Banana for beer,0.0323,4264
+Kayonza,Sweet potato,0.0317,7260
+Kayonza,Soybean,0.0143,304
+Kayonza,Vegetables,0.0143,6703
+Kayonza,Other cereals,0.0115,487
+Kayonza,Groundnut,0.0115,332
+Kayonza,Fodder crops,0.0106,8061
+Kayonza,Taro & Yams,0.0073,3969
+Kayonza,Other crops,0.0069,1086
+Kayonza,Fruits,0.0054,3683
+Kicukiro,Beans,0.2077,645
+Kicukiro,Maize,0.2026,1036
+Kicukiro,Cassava,0.1081,8411
+Kicukiro,Cooking banana,0.0794,6315
+Kicukiro,Dessert banana,0.0717,2085
+Kicukiro,Banana for beer,0.0656,4264
+Kicukiro,Sweet potato,0.0644,5981
+Kicukiro,Sorghum,0.0588,1105
+Kicukiro,Taro & Yams,0.0519,3969
+Kicukiro,Soybean,0.0298,304
+Kicukiro,Vegetables,0.0252,6703
+Kicukiro,Other crops,0.0114,1086
+Kicukiro,Fruits,0.0101,3683
+Kicukiro,Fodder crops,0.0072,8061
+Kicukiro,Groundnut,0.006,332
+Kirehe,Beans,0.2749,510
+Kirehe,Maize,0.196,2269
+Kirehe,Cooking banana,0.1033,6193
+Kirehe,Sorghum,0.0973,1053
+Kirehe,Banana for beer,0.0773,4017
+Kirehe,Cassava,0.0737,6832
+Kirehe,Dessert banana,0.0463,2085
+Kirehe,Irish potato,0.0386,2629
+Kirehe,Sweet potato,0.0246,5037
+Kirehe,Other crops,0.0227,1100
+Kirehe,Groundnut,0.0135,332
+Kirehe,Taro & Yams,0.012,3969
+Kirehe,Soybean,0.0089,304
+Kirehe,Pea,0.0056,337
+Kirehe,Other cereals,0.0054,487
+Muhanga,Banana for beer,0.1788,5055
+Muhanga,Cassava,0.15,9583
+Muhanga,Beans,0.1492,618
+Muhanga,Sweet potato,0.1199,7401
+Muhanga,Dessert banana,0.0835,2085
+Muhanga,Taro & Yams,0.0774,5166
+Muhanga,Cooking banana,0.0603,6315
+Muhanga,Soybean,0.0512,304
+Muhanga,Maize,0.0504,1424
+Muhanga,Fodder crops,0.0219,11095
+Muhanga,Vegetables,0.0164,6703
+Muhanga,Other crops,0.0161,1086
+Muhanga,Irish potato,0.0116,7754
+Muhanga,Fruits,0.0078,3683
+Muhanga,Pea,0.0055,337
+Musanze,Beans,0.3021,1008
+Musanze,Maize,0.1748,1504
+Musanze,Irish potato,0.1367,9102
+Musanze,Sweet potato,0.0828,8435
+Musanze,Sorghum,0.0702,1033
+Musanze,Other crops,0.0572,489
+Musanze,Vegetables,0.0344,8544
+Musanze,Dessert banana,0.0305,2085
+Musanze,Wheat,0.0235,1511
+Musanze,Cooking banana,0.0224,6315
+Musanze,Banana for beer,0.0223,4264
+Musanze,Pea,0.0161,337
+Musanze,Fruits,0.0096,3683
+Musanze,Taro & Yams,0.0062,3969
+Musanze,Cassava,0.006,8411
+Musanze,Fodder crops,0.0055,8061
+Ngoma,Beans,0.2333,658
+Ngoma,Maize,0.1499,1672
+Ngoma,Cooking banana,0.1114,7997
+Ngoma,Cassava,0.1102,8301
+Ngoma,Banana for beer,0.0829,4979
+Ngoma,Sorghum,0.078,1020
+Ngoma,Dessert banana,0.0539,2085
+Ngoma,Sweet potato,0.0323,5515
+Ngoma,Irish potato,0.0304,2998
+Ngoma,Other cereals,0.0232,487
+Ngoma,Fruits,0.0219,2409
+Ngoma,Soybean,0.0204,304
+Ngoma,Groundnut,0.0197,332
+Ngoma,Other crops,0.013,1086
+Ngoma,Vegetables,0.0082,6703
+Ngoma,Fodder crops,0.006,8061
+Ngoma,Taro & Yams,0.0055,3969
+Ngororero,Beans,0.2145,689
+Ngororero,Sweet potato,0.166,6701
+Ngororero,Banana for beer,0.1511,3990
+Ngororero,Maize,0.1049,971
+Ngororero,Cassava,0.0627,6824
+Ngororero,Irish potato,0.0569,3434
+Ngororero,Dessert banana,0.0562,2085
+Ngororero,Taro & Yams,0.0458,4440
+Ngororero,Soybean,0.036,304
+Ngororero,Cooking banana,0.0277,6315
+Ngororero,Wheat,0.0187,713
+Ngororero,Pea,0.0158,337
+Ngororero,Vegetables,0.0148,6703
+Ngororero,Other crops,0.014,1086
+Ngororero,Fodder crops,0.008,8061
+Ngororero,Sorghum,0.0066,1122
+Nyabihu,Irish potato,0.283,11661
+Nyabihu,Beans,0.214,892
+Nyabihu,Maize,0.1265,1021
+Nyabihu,Sweet potato,0.1175,6683
+Nyabihu,Other crops,0.0726,354
+Nyabihu,Pea,0.0482,276
+Nyabihu,Wheat,0.0359,1370
+Nyabihu,Vegetables,0.0297,12193
+Nyabihu,Banana for beer,0.0202,4264
+Nyabihu,Dessert banana,0.0117,2085
+Nyabihu,Cassava,0.0093,8411
+Nyabihu,Sorghum,0.0087,1122
+Nyabihu,Fruits,0.0083,3683
+Nyabihu,Cooking banana,0.0081,6315
+Nyabihu,Fodder crops,0.0063,8061
+Nyagatare,Maize,0.3581,2023
+Nyagatare,Beans,0.2638,615
+Nyagatare,Sorghum,0.1093,1521
+Nyagatare,Cooking banana,0.0634,6315
+Nyagatare,Banana for beer,0.0446,5109
+Nyagatare,Dessert banana,0.0426,2085
+Nyagatare,Cassava,0.0231,8411
+Nyagatare,Soybean,0.0225,304
+Nyagatare,Sweet potato,0.0219,5190
+Nyagatare,Groundnut,0.0171,332
+Nyagatare,Irish potato,0.0106,7754
+Nyagatare,Vegetables,0.0096,6703
+Nyagatare,Other cereals,0.0072,487
+Nyagatare,Fodder crops,0.0061,8061
+Nyamagabe,Beans,0.2128,490
+Nyamagabe,Sweet potato,0.1848,8328
+Nyamagabe,Maize,0.0917,1044
+Nyamagabe,Banana for beer,0.0858,3927
+Nyamagabe,Cassava,0.072,9315
+Nyamagabe,Irish potato,0.069,8127
+Nyamagabe,Sorghum,0.0593,826
+Nyamagabe,Pea,0.0368,337
+Nyamagabe,Taro & Yams,0.0326,3969
+Nyamagabe,Dessert banana,0.0312,2085
+Nyamagabe,Other crops,0.0286,977
+Nyamagabe,Soybean,0.0278,304
+Nyamagabe,Wheat,0.0273,1305
+Nyamagabe,Cooking banana,0.0202,6315
+Nyamagabe,Vegetables,0.0131,6703
+Nyamagabe,Fodder crops,0.0071,8061
+Nyamasheke,Cassava,0.2119,8652
+Nyamasheke,Beans,0.1956,617
+Nyamasheke,Sweet potato,0.1277,6098
+Nyamasheke,Banana for beer,0.0991,3347
+Nyamasheke,Maize,0.0838,1610
+Nyamasheke,Other crops,0.0593,1439
+Nyamasheke,Cooking banana,0.0518,6315
+Nyamasheke,Dessert banana,0.0515,2085
+Nyamasheke,Taro & Yams,0.0437,3969
+Nyamasheke,Soybean,0.0328,304
+Nyamasheke,Vegetables,0.021,6703
+Nyamasheke,Groundnut,0.0149,332
+Nyamasheke,Fruits,0.0069,3683
+Nyanza,Beans,0.2547,403
+Nyanza,Cassava,0.184,10139
+Nyanza,Maize,0.1347,1183
+Nyanza,Banana for beer,0.0762,2373
+Nyanza,Sorghum,0.0679,883
+Nyanza,Sweet potato,0.0588,6997
+Nyanza,Dessert banana,0.0463,2085
+Nyanza,Soybean,0.0432,333
+Nyanza,Cooking banana,0.0361,6315
+Nyanza,Taro & Yams,0.028,3969
+Nyanza,Other crops,0.016,1086
+Nyanza,Vegetables,0.0144,6703
+Nyanza,Groundnut,0.0139,332
+Nyanza,Irish potato,0.0091,7754
+Nyanza,Fodder crops,0.0088,8061
+Nyanza,Pea,0.0079,337
+Nyarugenge,Beans,0.2116,595
+Nyarugenge,Banana for beer,0.1475,5100
+Nyarugenge,Maize,0.1237,1424
+Nyarugenge,Cassava,0.1149,8411
+Nyarugenge,Cooking banana,0.0872,6315
+Nyarugenge,Dessert banana,0.0833,2085
+Nyarugenge,Sweet potato,0.0635,7353
+Nyarugenge,Vegetables,0.0337,6703
+Nyarugenge,Other crops,0.0329,1086
+Nyarugenge,Soybean,0.0329,304
+Nyarugenge,Sorghum,0.0299,1122
+Nyarugenge,Taro & Yams,0.0166,3969
+Nyarugenge,Fodder crops,0.015,8061
+Nyarugenge,Irish potato,0.0073,7754
+Nyaruguru,Beans,0.2393,629
+Nyaruguru,Sweet potato,0.1807,8659
+Nyaruguru,Cassava,0.1239,5998
+Nyaruguru,Irish potato,0.095,5190
+Nyaruguru,Maize,0.0791,1830
+Nyaruguru,Sorghum,0.0416,648
+Nyaruguru,Banana for beer,0.0362,4264
+Nyaruguru,Dessert banana,0.0333,2085
+Nyaruguru,Soybean,0.0301,304
+Nyaruguru,Cooking banana,0.0289,6315
+Nyaruguru,Taro & Yams,0.0287,3969
+Nyaruguru,Fodder crops,0.0248,7146
+Nyaruguru,Other crops,0.0188,1086
+Nyaruguru,Vegetables,0.0162,6703
+Nyaruguru,Pea,0.0161,337
+Nyaruguru,Wheat,0.0074,1228
+Rubavu,Beans,0.295,670
+Rubavu,Irish potato,0.2411,11218
+Rubavu,Maize,0.0933,1317
+Rubavu,Vegetables,0.0879,9808
+Rubavu,Other crops,0.0565,1441
+Rubavu,Sweet potato,0.0486,7685
+Rubavu,Banana for beer,0.0361,4264
+Rubavu,Pea,0.0328,333
+Rubavu,Cooking banana,0.0254,6315
+Rubavu,Fodder crops,0.0206,8278
+Rubavu,Dessert banana,0.0175,2085
+Rubavu,Soybean,0.0167,304
+Rubavu,Cassava,0.0151,8411
+Rubavu,Sorghum,0.0075,1122
+Rubavu,Taro & Yams,0.0061,3969
+Ruhango,Beans,0.2166,439
+Ruhango,Cassava,0.1935,15261
+Ruhango,Banana for beer,0.1386,2982
+Ruhango,Soybean,0.0835,312
+Ruhango,Sweet potato,0.0765,5447
+Ruhango,Maize,0.0765,1323
+Ruhango,Dessert banana,0.0513,2085
+Ruhango,Sorghum,0.0358,773
+Ruhango,Taro & Yams,0.0275,3969
+Ruhango,Groundnut,0.0274,332
+Ruhango,Other crops,0.0226,1213
+Ruhango,Cooking banana,0.0211,6315
+Ruhango,Fodder crops,0.0153,8636
+Ruhango,Vegetables,0.0137,6703
+Rulindo,Beans,0.2537,710
+Rulindo,Sweet potato,0.1355,7772
+Rulindo,Maize,0.1017,971
+Rulindo,Banana for beer,0.0883,3653
+Rulindo,Irish potato,0.0693,2607
+Rulindo,Cassava,0.0682,8411
+Rulindo,Sorghum,0.0675,1059
+Rulindo,Dessert banana,0.0656,2085
+Rulindo,Cooking banana,0.0506,6315
+Rulindo,Vegetables,0.0418,6703
+Rulindo,Pea,0.0165,337
+Rulindo,Soybean,0.0147,304
+Rulindo,Other crops,0.0146,1086
+Rulindo,Taro & Yams,0.0064,3969
+Rulindo,Fodder crops,0.0057,8061
+Rusizi,Cassava,0.2861,8831
+Rusizi,Beans,0.2492,610
+Rusizi,Maize,0.1256,1424
+Rusizi,Banana for beer,0.0607,4248
+Rusizi,Sweet potato,0.0572,7647
+Rusizi,Other crops,0.044,968
+Rusizi,Taro & Yams,0.036,3969
+Rusizi,Cooking banana,0.0331,6315
+Rusizi,Dessert banana,0.0253,2085
+Rusizi,Soybean,0.0242,304
+Rusizi,Vegetables,0.0237,6703
+Rusizi,Fruits,0.0143,3683
+Rusizi,Groundnut,0.0084,332
+Rusizi,Irish potato,0.0069,7754
+Rusizi,Fodder crops,0.0051,8061
+Rutsiro,Beans,0.1451,638
+Rutsiro,Maize,0.142,813
+Rutsiro,Irish potato,0.1413,4920
+Rutsiro,Banana for beer,0.1394,3470
+Rutsiro,Sweet potato,0.1102,7668
+Rutsiro,Cassava,0.0577,7146
+Rutsiro,Dessert banana,0.0573,2085
+Rutsiro,Other crops,0.0449,3269
+Rutsiro,Taro & Yams,0.0328,3969
+Rutsiro,Cooking banana,0.0306,6315
+Rutsiro,Pea,0.0305,337
+Rutsiro,Soybean,0.0292,304
+Rutsiro,Fodder crops,0.0137,8061
+Rutsiro,Vegetables,0.0098,6703
+Rutsiro,Fruits,0.0081,3683
+Rutsiro,Wheat,0.0073,1228
+Rwamagana,Beans,0.211,462
+Rwamagana,Maize,0.1892,1026
+Rwamagana,Cooking banana,0.108,7610
+Rwamagana,Sorghum,0.0921,1135
+Rwamagana,Dessert banana,0.0753,2085
+Rwamagana,Cassava,0.0675,8411
+Rwamagana,Banana for beer,0.0514,4264
+Rwamagana,Sweet potato,0.0498,6481
+Rwamagana,Groundnut,0.0296,332
+Rwamagana,Vegetables,0.0254,6703
+Rwamagana,Irish potato,0.0227,7754
+Rwamagana,Fodder crops,0.0202,8197
+Rwamagana,Soybean,0.0178,304
+Rwamagana,Other crops,0.017,861
+Rwamagana,Fruits,0.0112,3683
+Rwamagana,Taro & Yams,0.006,3969
+Rwamagana,Other cereals,0.0057,487

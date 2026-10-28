@@ -2,9 +2,16 @@
 
 **Where should Rwanda's next small-scale irrigation hectares go?**
 
-**Live app:** [kuhira.vercel.app](https://kuhira.vercel.app) (planner) · [farmer calculator, in Kinyarwanda](https://kuhira.vercel.app/rw/farmer) · [method](https://kuhira.vercel.app/en/method) · **API:** [kuhira-api.onrender.com/docs](https://kuhira-api.onrender.com/docs)
+NISR Big Data Hackathon 2026 · Track 1: Agricultural Productivity · Team: Elvis Preye Kerebi and Paulette Dushime
 
-**Team:** Elvis Preye Kerebi and Paulette Dushime.
+| Submission | Link |
+|---|---|
+| Deployed app (public, no login) | <https://kuhira.vercel.app> · farmer calculator in Kinyarwanda: <https://kuhira.vercel.app/rw/farmer> |
+| Demo video (2 min 4 s) | [`demo/Dataduo-video-demo.webm`](demo/Dataduo-video-demo.webm) |
+| Data used, and links to it | [`data/README.md`](data/README.md) · CSVs in [`data/processed/`](data/processed/) |
+| Code | [`notebooks/`](notebooks/) (analysis) · [`src/kuhira/`](src/kuhira/) (pipeline and API) · [`web/`](web/) (app) |
+| Documentation | this README · the app's [Method page](https://kuhira.vercel.app/en/method) · [declaration](docs/DECLARATION.md) · [references](docs/REFERENCES.md) · [AI use](docs/AI_USE.md) |
+| API | <https://kuhira-api.onrender.com/docs> |
 
 *Kuhira* is Kinyarwanda for "to irrigate". Rwanda's PSTA5 plan targets 41,031 ha of small-scale irrigation
 technology (SSIT) by 2028/29. By FY2024/25, 27,663 ha were in place. Last year added 1,462 ha, so at that pace the
@@ -23,6 +30,52 @@ Built for the **NISR Big Data Hackathon 2026, Track 1: Agricultural Productivity
 irrigation first. NST2 tracks "area under irrigation" under its Economic Transformation pillar: in FY2024/25 it
 reached 74,375 ha against a target of 76,686 ha, and bean yields missed their target too (0.7 against 0.8 t/ha)
 (MINAGRI Annual Report FY2024/25, Annex 8).
+
+## What it tells you
+
+One message: **put the next irrigation kits where water adds the most to what small farmers already grow, and
+where people are dry, poor and not yet irrigating.** Not every district gains equally. Water raises vegetable, maize
+and sweet potato harvests, but irrigated beans do worse, so a bean-heavy district gains less from a kit than its
+farmland suggests. And most of irrigation's value comes in the June–August dry season, when only watered land can
+grow anything.
+
+The app turns NISR's survey into three things a person can act on:
+
+- **For planners:** a ranking of the 30 districts, a map, and how the remaining 13,368 ha, the public cost and the
+  extra harvest would split between them, with how firmly each district holds its rank.
+- **For farmers:** what irrigating their own plot is worth, what the kit costs after the subsidy, and how many
+  seasons until it pays for itself.
+- **For anyone checking the work:** the Method page, with every estimate, its error margin and its source.
+
+## How to use it
+
+No account or login is needed. Every page works in English and Kinyarwanda: use the **EN / RW** switch at the top
+right.
+
+**Planner** (<https://kuhira.vercel.app/en>)
+
+1. **"What matters most?"** Four sliders set how much each reason counts: water gain, adoption gap, dryness and
+   poverty. The map, ranking and totals update as you move them. Try dryness only: the dry east (Kirehe) goes to the
+   top.
+2. **The budget.** Change the hectares to place, the kit cost per hectare, the share of kit land farmed in the dry
+   season, and the subsidy (50% regular or 75% solar).
+3. **The map.** Darker green is higher priority. Click a district to see why it scored that way: its gain per
+   hectare, irrigation, rain, poverty, score build-up, crop mix, and how firm its rank is.
+4. **The totals.** Hectares placed, public cost, farmers' share, the yield gain a year and the dry-season harvest a
+   year.
+5. **Ranking and hectares.** All 30 districts with their likely rank range, hectares and costs. Click any row to
+   open the district's details in a side panel; Previous and Next step through the list.
+
+**Farmer calculator** (<https://kuhira.vercel.app/rw/farmer>, opens in Kinyarwanda)
+
+1. Choose your district (type to search), your crop and your plot size in square metres.
+2. Choose your kit (treadle pump, petrol pump, or your own quote) and the subsidy, then press **Calculate**.
+3. Read the extra harvest and money per season, what you pay, and when the kit pays for itself, with and without a
+   dry-season crop. Beans get a warning that water lowers their harvest.
+
+**Method** (<https://kuhira.vercel.app/en/method>): why it matters (the NST2 irrigation target), the water bonus per
+crop with its error bars, the dry season, how the score is built, how sure the ranking is, the limits, and the data
+sources.
 
 ## What the data says
 
@@ -56,11 +109,16 @@ The full method, robustness checks and limits are in the notebooks and on the ap
 ## How it is built
 
 ```
-notebooks/   01 harmonize SAS · 02 EDA · 03 water bonus · 04 rainfall & poverty · 05 dry season · 06 district scores
-src/kuhira/  survey harmonizer, model, aggregates, rainfall, scoring/planning, FastAPI app
-data/        external/ (CHIRPS, boundaries, EICV7) and processed/ (aggregates the API serves)
-web/         Next.js 16 + Tailwind CSS 4 + shadcn/ui on Bun
-tests/       pytest: unit + API      web/src/**/*.test.ts: bun unit      web/e2e: Playwright
+README.md         this file
+requirements.txt  Python packages (pip); pyproject.toml + uv.lock pin the same for uv
+notebooks/        01 harmonize SAS · 02 EDA · 03 water bonus · 04 rainfall & poverty · 05 dry season · 06 district scores
+src/kuhira/       survey harmonizer, model, aggregates, rainfall, dry season, scoring/planning, FastAPI app (api.py)
+data/             README.md (sources and links) · processed/ (CSV + JSON the app uses) · external/ (CHIRPS, boundaries, EICV7)
+demo/             Dataduo-video-demo.webm, the screen-recorded walkthrough
+web/              the app: Next.js 16 + Tailwind CSS 4 + shadcn/ui on Bun
+scripts/          fetch_chirps.py (downloads the rainfall)
+tests/            pytest: unit + API      web/src/**/*.test.ts: bun unit      web/e2e: Playwright
+docs/             declaration, references, AI use
 ```
 
 - **Analysis:** Python, pandas, statsmodels (OLS with district × year × season fixed effects, clustered errors),
@@ -72,13 +130,26 @@ tests/       pytest: unit + API      web/src/**/*.test.ts: bun unit      web/e2e
 
 ## Run it
 
-Requires [uv](https://docs.astral.sh/uv/) and [Bun](https://bun.sh).
+Works on macOS, Linux and Windows. Needs Python 3.12 and [Bun](https://bun.sh); [uv](https://docs.astral.sh/uv/) is
+optional.
 
 ```bash
-uv sync                  # Python 3.12 env
+uv sync                  # Python 3.12 env with every package
 cd web && bun install
 bun run dev              # starts the API on :8000 and the web app on :3000 together
 ```
+
+Without uv, use pip:
+
+```bash
+python -m venv .venv && source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt && pip install -e .
+uvicorn kuhira.api:app --port 8000                       # API on :8000
+cd web && bun install && bun x next dev                  # app on :3000, in a second terminal
+```
+
+The app runs on the committed aggregates in `data/processed/`, so it needs no survey download. Rerunning the
+notebooks needs the survey microdata; see [`data/README.md`](data/README.md).
 
 Tests:
 
@@ -90,6 +161,8 @@ bun run test:e2e              # 56 Playwright tests, desktop + phone; starts the
 
 ## Data and licences
 
+The full list of files, with links to every source, is in [`data/README.md`](data/README.md).
+
 | Source | Use | Licence / access |
 |---|---|---|
 | NISR Seasonal Agricultural Survey 2020–2025 | plots, harvest, irrigation, inputs, prices | Public-use microdata, free registration at [microdata.statistics.gov.rw](https://microdata.statistics.gov.rw/). **Not redistributed here.** |
@@ -98,9 +171,9 @@ bun run test:e2e              # 56 Playwright tests, desktop + phone; starts the
 | geoBoundaries RWA ADM2 | district outlines | CC BY 4.0 |
 | MINAGRI annual report, PSTA5, World Bank SAIP II PAD, DWFI | targets, subsidy rules, kit prices | Published reports |
 
-NISR's terms forbid redistributing the microdata, so `data/raw/` is git-ignored and only aggregates are
-committed. To rebuild from scratch, download each year's SAS public-use files into `data/raw/sas<year>/`. Then run
-the notebooks in order (`uv run jupyter lab`). `scripts/fetch_chirps.py` refreshes the rainfall.
+NISR's terms forbid redistributing the microdata (and it is about 2.9 GB), so `data/raw/` is git-ignored and only
+aggregates are committed. The download page for each survey year, and how to rebuild everything, are in
+[`data/README.md`](data/README.md).
 
 ## Deployment
 
