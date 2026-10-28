@@ -1,4 +1,4 @@
-// First draft. The Rwandan team member reviews every string before submission.
+// Reviewed by Paulette Dushime, the team's Rwandan member.
 import { formatNumber } from "@/lib/format";
 import type { Messages } from "@/lib/i18n/en";
 
@@ -191,7 +191,7 @@ export const rw: Messages = {
       "Ibarura rigera ku rwego rw'akarere gusa, bityo inyongera ibarwa kuri buri gihingwa hanyuma ikajyanwa mu turere hakurikijwe ibyo bahinga. Uturere ntitugira inyongera yatwo bwite: tumwe dufite imirima yuhirwa nk'icumi gusa.",
       "Igihombo cy'ibishyimbo ni kibi ku mpuzandengo ariko nta cyo cyari cyo muri 2022–23, bityo ingano yacyo yitonderwe.",
       "Umusaruro w'impeshyi ni agaciro mbere y'imbuto, ifumbire n'umurimo, kandi igice cy'ubutaka bw'ibikoresho gihingwa icyo gihe cyahindutse kuva kuri 5% kugeza kuri 101% mu myaka y'ibarura; igenamigambi rikwemerera kugihindura. Guhinga imboga mu bihembwe by'ingenzi ntibibarwa.",
-      "Igiciro cy'ibikoresho kuri hegitari ni icya 2019 kugeza igihe abakozi b'uturere batanze igiciro cy'ubu. Ibiciro ni impuzandengo z'igihugu zo mu ibarura.",
+      "Igiciro cy'ibikoresho kuri hegitari ni icya 2019; abategura bashobora kwandika igiciro cy'ubu. Ibiciro ni impuzandengo z'igihugu zo mu ibarura.",
       "Imyanya ishoboka igaragaza gusa ukwibeshya ku nyongera z'amazi, si ku mvura, ubukene cyangwa ibiciro.",
     ],
     s4: "7 · Amakuru",

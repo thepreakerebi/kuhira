@@ -2,7 +2,7 @@
 
 **Where should Rwanda's next small-scale irrigation hectares go?**
 
-NISR Big Data Hackathon 2026 · Track 1: Agricultural Productivity · Team: Elvis Preye Kerebi and Paulette Dushime
+NISR Big Data Hackathon 2026 · Track 1: Agricultural Productivity · Team **Dataduo**: Elvis Preye Kerebi and Paulette Dushime
 
 | Submission | Link |
 |---|---|

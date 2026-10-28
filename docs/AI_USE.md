@@ -17,15 +17,14 @@ pair programmer and research assistant throughout.
 - Chose the problem, the track and the design.
 - Decided the method, including keeping the negative bean result.
 - Reviewed the code and the results.
-- Paulette Dushime, our Rwandan team member, reviews and corrects the Kinyarwanda and checks the tool with a district
-  irrigation officer. *(Pending: update this line once done.)*
+- Paulette Dushime, our Rwandan team member, reviewed and corrected all the Kinyarwanda text in the app.
 
 **Checks on AI output**
 
 - Every model result is reproducible from the notebooks.
 - The model is tested on synthetic data with a known effect: it must recover +20% and −10%.
 - Unit and end-to-end tests were run with the code deliberately broken, to confirm they fail.
-- Two of AI's early mistakes were caught this way and fixed:
+- Three of AI's mistakes were caught this way and fixed:
   - It first read a farmer-total harvest variable as a per-plot harvest.
   - It later stated a correlation that the data did not support.
   - The farmer calculator returned zero for a crop a district barely grows; it now falls back to the national yield.

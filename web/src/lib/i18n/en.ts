@@ -168,7 +168,7 @@ export const en = {
       "The survey's finest geography is the district, so the bonus is estimated per crop and carried to districts through what they grow. Districts do not get their own bonus: some have only about ten irrigated plots.",
       "The bean penalty is negative on average but flat in 2022–23, so treat its size with care.",
       "The dry-season harvest is gross value, before seed, fertilizer and labour, and the share of kit land farmed then swung from 5% to 101% between survey years; the planner lets you change it. Switching main-season crops to vegetables is not counted.",
-      "Kit cost per hectare is a 2019 figure until the district officers' current quote replaces it. Prices are national medians from the survey.",
+      "Kit cost per hectare is a 2019 figure; planners can enter today's price. Prices are national medians from the survey.",
       "The ranking ranges reflect only the uncertainty in the water bonuses, not in rainfall, poverty or prices.",
     ],
     s4: "7 · Data",
